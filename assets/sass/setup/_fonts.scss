@@ -1,0 +1,11 @@
+@font-face {
+    font-weight: 500;
+    font-family: "Roboto";
+    src: url("#{$font-path}Roboto-medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-weight: 700;
+    font-family: "Roboto";
+    src: url("#{$font-path}Roboto-bold.woff2") format("woff2");
+}

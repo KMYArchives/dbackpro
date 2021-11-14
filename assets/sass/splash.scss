@@ -1,0 +1,6 @@
+@import 'autoload';
+
+body{
+	@include body;
+	@import 'splash/footer';
+}

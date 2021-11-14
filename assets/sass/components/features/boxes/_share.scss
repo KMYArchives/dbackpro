@@ -1,0 +1,76 @@
+.share-box{
+	float: left;
+	width: 100%;
+	display: none;
+	height: 24.8em;
+	position: absolute;
+	text-align: center;
+	z-index: 999999999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	padding-top: $border_size;
+	border-top: $border_size solid $borderColor;
+
+	.bar{
+		background: $secondColor;
+		border-bottom: none !important;
+
+		.item{
+			width: 50% !important;
+			box-sizing: border-box;
+			
+			@include hover($firstColor);
+			&:last-child{ border-right: none !important; }
+		}
+	}
+
+	input{
+		width: 85%;
+		outline: none;
+		color: inherit;
+		font-weight: 600;
+		text-align: center;
+		padding: $padding_base;
+		background: $firstColor;
+		font-size: $smallFont - .05;
+		border: $border_size solid $borderColor;
+
+		@include hover;
+		@include placeholder;
+	}
+
+	.label{
+		display: block;
+		text-align: left;
+		height: $menu_size;
+		font-size: $smallFont;
+		line-height: $menu_size;
+		margin-left: $padding_base + $padding4;
+	}
+
+	button{
+		width: 9em;
+		float: right;
+		outline: none;
+		color: inherit;
+		cursor: pointer;
+		margin-right: 6.5%;
+		padding: $padding_base;
+		background: $firstColor;
+		margin-top: $padding_base;
+		font-size: $smallFont - .05;
+		border: $border_size solid $borderColor;
+		@include hover;
+	}
+
+	.fab, .fas, .far{
+		cursor: pointer;
+		padding: $padding_base;
+		font-size: $smallFont + .5;
+		@include hover($secondColor, $fontColor, $secondColor);
+	}
+
+	@include spinner;
+	.spinner{ margin-top: $padding4 + .1; }
+	.section-content{ border-top: $border_size solid $borderColor; }
+}

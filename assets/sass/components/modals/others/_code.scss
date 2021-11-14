@@ -1,0 +1,35 @@
+.code-mdl{
+	top: 50%;
+	left: 50%;
+	width: 42em;
+	height: 26em;
+	display: none;
+	position: fixed;
+	margin-left: -21em;
+	margin-top: -13.5em;
+	z-index: 9999999999999;
+	background: $firstColor;
+
+	.CodeMirror{
+		padding: 0;
+		height: 23em;
+		direction: ltr;
+		overflow: hidden;
+		color: #707070;
+		font-weight: 700;
+		position: relative;
+		background: white;
+		font-family: $codeFont;
+		overflow-x: hidden !important;
+		border-top: $border_size solid $borderColor;
+		border-bottom: $border_size solid $borderColor;
+	}
+
+	.options-mdl{
+		border-right: 0 !important;
+		border-left: $border_size solid $borderColor; 
+	}
+
+	textarea{ opacity: 0; }
+	.menu-box{ border-right: $border_size solid $borderColor; }
+}

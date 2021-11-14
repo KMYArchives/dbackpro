@@ -1,0 +1,27 @@
+.left-bar{
+	top: 0;
+	left: 0;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+	width: $left_bar_size;
+	background: $firstColor;
+	z-index: 999999999999999;
+	border-right: $border_size solid $borderColor;
+
+	.menu{
+		.fab, .far, .fas{
+			width: 100%;
+			cursor: pointer;
+			text-align: center;
+			height: $left_bar_size;
+			line-height: $left_bar_size;
+			border-bottom: $border_size solid $borderColor;
+			@include hover;
+		}
+
+		.actived{ background: $secondColor; }
+	}
+
+	.logo-actived{ @include filter(grayscale, 100%); }
+}

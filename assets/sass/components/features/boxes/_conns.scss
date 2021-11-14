@@ -1,0 +1,105 @@
+.conns-box{
+	top: 0;
+	right: 0;
+	width: 18em;
+	display: none;
+	position: fixed;
+	z-index: 99999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	padding-bottom: $border_size / 2;
+	margin-top: $frame_size + $header_size;
+	border-left: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+
+	input{
+		border: none;
+		width: 20.5em;
+		outline: none;
+		color: inherit;
+		font-size: $smallFont;
+		background: $firstColor;
+		height: $padding_base * 3;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $padding_base * 3;
+		border-top: $border_size solid $borderColor;
+		border-bottom: $border_size solid $borderColor;
+		@include placeholder;
+	}
+
+	.list{
+		overflow: auto;
+		max-height: 16em;
+
+		.conn-item{
+			display: block;
+			cursor: pointer;
+			font-size: $smallFont;
+			box-sizing: border-box;
+			height: $header_size + $padding2;
+			line-height: $header_size + $padding2;
+			border-bottom: $border_size solid $borderColor;
+	
+			.label{
+				float: left;
+				text-decoration: none;
+				padding-left: $padding_base;
+				padding-right: $padding_base;
+				&:hover, &:focus{ text-decoration: underline; }
+			}
+	
+			.icons{
+				float: right;
+	
+				.far, .fas{
+					float: left;
+					cursor: pointer;
+					width: $icon_size;
+					text-align: center;
+					line-height: $header_size + $padding2;
+					@include hover($firstColor);
+				}
+			}
+
+			@include hover;
+			&:last-child{ border-bottom: 0; }
+		}
+
+		@include scrollbar;
+	}
+
+	.header{
+		text-align: center;
+		height: $padding_base * 3;
+		font-size: $smallFont + .05;
+		line-height: $padding_base * 3;
+		border-bottom: $border_size solid $borderColor;
+	}
+
+	.connected{
+		font-size: $smallFont;
+		background: $secondColor;
+		height: $header_size + $padding2;
+		line-height: $header_size + $padding2;
+
+		.label{
+			float: left;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+		}
+
+		.icons{
+			float: right;
+
+			.far, .fas{
+				float: left;
+				cursor: pointer;
+				width: $icon_size;
+				text-align: center;
+				line-height: $header_size + $padding2;
+				@include hover($firstColor);
+			}
+		}
+	}
+}

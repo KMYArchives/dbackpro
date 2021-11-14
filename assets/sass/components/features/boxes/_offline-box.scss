@@ -1,0 +1,33 @@
+.offline-box{
+	top: 0;
+	right: 0;
+	width: 18em;
+	display: none;
+	position: fixed;
+	z-index: 99999999;
+	text-align: center;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $frame_size;
+	margin-right: $padding_base;
+	border: $border_size solid $borderColor;
+
+	.retry{
+		width: 80%;
+		cursor: pointer;
+		margin-left: 10%;
+		font-size: $smallFont;
+		height: $padding_base * 3;
+		margin-bottom: $padding_base;
+		line-height: $padding_base * 3;
+		border: $border_size solid $borderColor;
+		@include hover($blueColor, $fontColor, $blueColor);
+	}
+
+	.content{
+		line-height: 1.8;
+		letter-spacing: .25px;
+		font-size: $smallFont;
+		padding: $padding_base;
+	}
+}

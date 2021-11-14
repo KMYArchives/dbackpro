@@ -1,0 +1,33 @@
+.table-status{
+	right: 0;
+	width: 22em;
+	height: 41em;
+	display: none;
+	overflow: auto;
+	position: fixed;
+	z-index: 9999999;
+	font-size: $smallFont;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $border_size;
+	padding-bottom: $border_size / 2;
+	margin-right: $icon_size + $padding3 + .05;
+	border-left: $border_size solid $borderColor;
+
+	.item{
+		cursor: default;
+		font-size: $smallFont + .1;
+		padding-left: $padding_base;
+		height: $padding_base * 3.5;
+		padding-right: $padding_base;
+		line-height: $padding_base * 3.5;
+		border-bottom: $border_size solid $borderColor;
+
+		.name{ float: left; }
+		.value{ float: right; }
+		&:last-child{ border-bottom: none; }
+		&:nth-child(even) { background: $secondColor; }
+	}
+
+	@include scrollbar;
+}

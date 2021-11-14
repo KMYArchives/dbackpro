@@ -1,0 +1,93 @@
+.vt-mdl{
+	top: 50%;
+	left: 50%;
+	width: 32em;
+	height: 30em;
+	display: none;
+	position: fixed;
+	margin-top: -15em;
+	margin-left: -16em;
+	z-index: 9999999999999;
+	background: $firstColor;
+
+	.bar{
+		select{ width: 10em !important; }
+		input{ width: 9.6em !important; }
+	}
+
+	.info{
+		overflow: auto;
+		height: 20.15em;
+		border-bottom: none !important;
+		border-top: $border_size solid $borderColor;
+
+		.engine{
+			display: block;
+			text-decoration: none;
+			font-size: $smallFont - .05;
+			padding-left: $padding_base;
+			height: $padding_base * 2.8;
+			padding-right: $padding_base;
+			color: $fontColor !important;
+			line-height: $padding_base * 2.8;
+			border-bottom: $border_size solid $borderColor;
+
+			.result{
+				float: right;
+				color: $redColor;
+				margin-right: $padding_base;
+			}
+
+			.left{ float: left; }
+			.right{ float: right; }
+			&:last-child{ border-bottom: 0; }
+
+			.fa-exclamation-triangle{ color: $orangeColor; }
+			.fa-question, .fa-question-circle{ color: $blueColor; }
+			.fa-exclamation, .fa-exclamation-circle{ color: $redColor; }
+			.fa-check, .fa-check-circle, .fa-check-square{ color: $greenColor; }
+		}
+
+		@include scrollbar;
+	}
+
+	.resume{
+		height: 4.4em;
+		line-height: 4.4em;
+		background: $firstColor;
+		border-bottom: $border_size solid $borderColor;
+
+		.boxes{
+			float: right;
+			height: 100%;
+			width: 6.725em;
+			text-align: center;
+			border-left: $border_size solid $borderColor;
+
+			.number{
+				height: 3em;
+				line-height: 3em;
+				font-size: $smallFont + .2;
+			}
+
+			.legend{
+				height: 2em;
+				line-height: 2em;
+				font-size: $smallFont - .1;
+			}
+		}
+
+		.ws-link{
+			float: left;
+			width: auto;
+			outline: none;
+			color: inherit;
+			cursor: pointer;
+			max-width: 12.5em;
+			font-weight: inherit;
+			margin-left: $padding_base;
+			font-size: $smallFont + .05;
+			&:hover, &:focus{ text-decoration: underline; }
+		}
+	}
+}

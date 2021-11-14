@@ -1,0 +1,71 @@
+.login-mdl{
+	top: 50%;
+	left: 50%;
+	width: 22em;
+	height: 22em;
+	display: none;
+	position: fixed;
+	margin-top: -11em;
+	margin-left: -11em;
+	z-index: 9999999999999;
+	background: $firstColor;
+
+	.body{
+		width: 100%;
+		height: 86%;
+		overflow: auto;
+		position: relative;
+		font-size: $smallFont;
+
+		a{
+			float: left;
+			outline: none;
+			cursor: pointer;
+			margin-left: 6%;
+			margin-top: 8.25%;
+			text-decoration: none;
+
+			@include hover(inherit, $blueColor);
+			&:hover, &:focus{ text-decoration: underline; }
+		}
+
+		input{
+			float: left;
+			width: 82.5%;
+			outline: none;
+			color: inherit;
+			margin-left: 5%;
+			font-weight: 600;
+			padding: $padding_base;
+			background: $firstColor;
+			border: $border_size solid $borderColor;
+
+			@include hover;
+			@include placeholder;
+		}
+
+		.label{
+			float: left;
+			color: inherit;
+			margin-left: 5.5%;
+		}
+
+		button{
+			width: 35%;
+			float: right;
+			outline: none;
+			color: inherit;
+			margin-top: 4%;
+			cursor: pointer;
+			font-weight: 600;
+			margin-right: 4.75%;
+			padding: $padding_base;
+			background: $firstColor;
+			border: $border_size solid $borderColor;
+			@include hover;
+		}
+
+		@include scrollbar;
+		@include slide_features;
+	}
+}

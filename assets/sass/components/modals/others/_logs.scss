@@ -1,0 +1,121 @@
+.logs-mdl{
+	top: 50%;
+	left: 50%;
+	width: 26em;
+	height: 28em;
+	display: none;
+	position: fixed;
+	margin-top: -14em;
+	margin-left: -13em;
+	z-index: 9999999999999;
+	background: $firstColor;
+
+	.bar{
+		.total{
+			float: right;
+			cursor: default;
+			width: auto !important;
+			border-right: 0 !important;
+			padding-right: $padding_base;
+			@include hover($secondColor);
+		}
+	}
+
+	.body{
+		width: 100%;
+		overflow: auto;
+		height: 22.6em;
+		text-align: center;
+		border-top: $border_size solid $borderColor;
+
+		.item{
+			display: block;
+			cursor: pointer;
+			text-align: left;
+			height: $menu_size;
+			font-size: $smallFont;
+			line-height: $menu_size;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			border-bottom: $border_size solid $borderColor;
+			
+			.far, .fas{
+				float: right;
+				cursor: pointer;
+				line-height: $menu_size;
+				@include hover(inherit, $blueColor);
+			}
+
+			@include hover;
+			.name{ float: left; }
+			.value{ float: right; }
+			&:last-child{ border-bottom: 0; }
+		}
+
+		.get-item{
+			bottom: 0;
+			width: 100%;
+			display: none;
+			height: 22.6em;
+			position: absolute;
+			background: $secondColor;
+			border-top: $border_size solid $borderColor;
+
+			.header{
+				background: $firstColor;
+				height: $padding_base * 3;
+				font-size: $smallFont + .05;
+				line-height: $padding_base * 3;
+				border-bottom: $border_size solid $borderColor;
+
+				.label{
+					float: left;
+					font-size: $smallFont + .05;
+					padding-left: $padding_base;
+				}
+
+				.far, .fas{
+					float: right;
+					cursor: pointer;
+					width: $icon_size;
+					text-align: center;
+					line-height: $padding_base * 3;
+					@include hover(inherit, $redColor);
+				}
+			}
+
+			.content{
+				height: 20em;
+				overflow: auto;
+
+				.item{
+					cursor: default;
+					font-size: $smallFont;
+					height: $padding_base * 3;
+					line-height: $padding_base * 3;
+				}
+
+				textarea{
+					border: none;
+					resize: none;
+					height: 5.6em;
+					outline: none;
+					width: 23.7em;
+					color: inherit;
+					overflow: auto;
+					text-align: left;
+					padding: $padding_base;
+					background: $firstColor;
+					margin-bottom: -$padding3 / 2;
+
+					@include scrollbar;
+				}
+
+				@include scrollbar;
+			}
+		}
+
+		@include scrollbar;
+		.no-pdd-top{ margin-top: -$padding_base; }
+	}
+}

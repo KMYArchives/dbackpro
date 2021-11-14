@@ -1,0 +1,53 @@
+.menu-actions{
+	top: 0;
+	right: 0;
+	width: 15.7em;
+	display: none;
+	position: fixed;
+	@include box-shadow;
+	z-index: 9999999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $header_size;
+	border-right: 0 !important;
+	border: $border_size solid $borderColor;
+
+	.bar{
+		height: $header_size;
+		background: $secondColor;
+		line-height: $header_size;
+		border-bottom: $border_size solid $borderColor;
+
+		.fab, .far, .fas{
+			width: 25%;
+			float: left;
+			cursor: pointer;
+			text-align: center;
+			box-sizing: border-box;
+			line-height: $header_size;
+			border-right: $border_size solid $borderColor;
+
+			@include hover($firstColor);
+			&:last-child{ border-right: 0 !important; }
+		}
+	}
+
+	.list{
+		overflow: auto;
+		max-height: 22em;
+		font-size: $smallFont;
+
+		.item{
+			cursor: pointer;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			line-height: $header_size + $padding3;
+			border-bottom: $border_size solid $borderColor;
+			
+			@include hover;
+			&:last-child{ border-bottom: none; }
+		}
+	
+		@include scrollbar;
+	}
+}

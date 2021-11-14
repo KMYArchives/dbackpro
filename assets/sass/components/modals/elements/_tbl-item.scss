@@ -1,0 +1,35 @@
+.tbl-item{
+	left: 50%;
+	width: 16em;
+	margin-left: -8em;
+	position: relative;
+	box-sizing: border-box;
+	background: $secondColor;
+	border: $border_size solid $borderColor;
+
+	li{
+		text-align: left;
+		list-style: none;
+		padding: $padding_base;
+		font-size: $smallFont - .1;
+	}
+
+	.tbl-name{
+		text-align: center;
+		font-size: $smallFont;
+		text-transform: lowercase;
+		padding-top: $padding_base;
+		padding-bottom: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+	}
+
+	.far, .fas{
+		float: left;
+		text-align: center;
+		width: $padding_base;
+		margin-right: $padding_base;
+	}
+	
+	.pri, .PRI{ color: gold; }
+	.uni, .UNI{ color: silver; }
+}

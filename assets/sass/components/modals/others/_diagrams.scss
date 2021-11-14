@@ -1,0 +1,31 @@
+.diagram-mdl{
+	top: 50%;
+	left: 50%;
+	width: 25em;
+	height: 30em;
+	display: none;
+	position: fixed;
+	margin-top: -15em;
+	margin-left: -12.5em;
+	z-index: 9999999999999;
+	background: $firstColor;
+
+	.diagram{
+		height: 22.6em;
+		overflow: auto;
+		text-align: center;
+		padding: $padding_base;
+		border-top: $border_size * 1.15 solid $borderColor;
+
+		@include scrollbar;
+		img{ border: none !important; }
+	}
+	
+	.options-mdl{
+		border-right: 0;
+		border-left: $border_size solid $borderColor; 
+	}
+
+	@import '../elements/tbl-item';
+	.bar{ border-bottom: $border_size solid $borderColor; }
+}

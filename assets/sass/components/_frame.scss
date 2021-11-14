@@ -1,0 +1,52 @@
+.frame{
+	top: 0;
+	width: 100%;
+	position: fixed;
+	color: $fontColor;
+	height: $frame_size;
+	z-index: 99999999999;
+	background: $firstColor;
+	-webkit-app-region: drag;
+	z-index: 9999999999999999999999;
+	
+	.label{
+		float: left;
+		font-size: 90%;
+		padding: $padding2;
+	}
+
+	.options{
+		height: 100%;
+		float: right;
+		-webkit-app-region: no-drag;
+
+		.far, .fas{
+			float: left;
+			font-size: 90%;
+			cursor: pointer;
+			text-align: center;
+			width: $frame_size;
+			padding: $padding + .01;
+			margin-left: -$padding3;
+			@include hover($secondColor, $fontColor);
+		}
+
+		.offline-mode{
+			float: left;
+			display: none;
+			font-size: 80%;
+			cursor: pointer;
+			color: $fontColor;
+			background: $redColor;
+			letter-spacing: .015em;
+			padding-left: $padding4;
+			margin-right: $padding2;
+			height: $frame_size + .4;
+			padding-right: $padding4;
+			line-height: $frame_size + .4;
+			@include hover($blueColor);
+		}
+
+		.actived{ background: $blueColor; }
+	}
+}

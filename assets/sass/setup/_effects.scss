@@ -1,0 +1,62 @@
+@mixin box-shadow {
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-ms-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+@mixin transition($transition: false) {
+	@if $transition {
+		transition: $transition;
+		-ms-transition: -ms-#{$transition};
+		-moz-transition: -moz-#{$transition};
+		-webkit-transition: -webkit-#{$transition};
+	} @else {
+		transition: 150ms ease-in;
+		-ms-transition: 150ms ease-in;
+		-moz-transition: 150ms ease-in;
+		-webkit-transition: 150ms ease-in;
+	}
+}
+
+@mixin linear($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$direction: 180deg;
+		$color-stops: $direction, $color-stops;
+	}
+
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(
+		legacy-direction($direction), $color-stops
+	);
+
+	background: linear-gradient($direction, $color-stops);
+}
+
+@mixin radial($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$direction: 180deg;
+		$color-stops: $direction, $color-stops;
+	}
+
+	background: nth(($color-stops, 1), 1);
+	background: -webkit-radial-gradient(
+		legacy-direction($direction), $color-stops
+	);
+
+	background: radial-gradient($direction, $color-stops);
+}
+
+@mixin filter($filter-type, $filter-amount) {
+	filter: $filter-type + unquote('(#{$filter-amount})');
+	-ms-filter: $filter-type + unquote('(#{$filter-amount})');
+	-moz-filter: $filter-type + unquote('(#{$filter-amount})');
+	-webkit-filter: $filter-type + unquote('(#{$filter-amount})');
+}
+
+@mixin text-shadow($tshadow_size, $shadow_color: $shadowColor) {
+	text-shadow: $tshadow_size $shadow_color;
+	-ms-text-shadow: $tshadow_size $shadow_color;
+	-moz-text-shadow: $tshadow_size $shadow_color;
+	-webkit-text-shadow: $tshadow_size $shadow_color;
+}

@@ -1,0 +1,80 @@
+.menu-box{
+	top: 0;
+	float: left;
+	width: 15em;
+	display: none;
+	overflow: auto;
+	max-height: 16em;
+	position: absolute;
+	z-index: 99999999999;
+	background: $secondColor;
+	font-size: $smallFont + .025;
+	border-top: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+	margin-top: $header_size * 2 + $padding3 + $border_size;
+
+	.li{
+		outline: none;
+		display: block;
+		color: inherit;
+		cursor: pointer;
+		text-decoration: none;
+		padding: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+
+		@include hover($firstColor);
+		.fab, .far, .fas{ float: right; }
+		&:last-child{ border-bottom: none; }
+	}
+
+	@include scrollbar;
+	select{ @include hover($firstColor); }
+}
+
+.side-menu{
+	top: 0;
+	float: left;
+	width: 10em;
+	height: 28em;
+	position: absolute;
+	z-index: 999999999;
+	background: $firstColor;
+	margin-top: $frame_size;
+	border-right: $border_size solid $borderColor;
+
+	.item{
+		display: block;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		font-size: $smallFont;
+		height: $header_size + $padding2;
+		line-height: $header_size + $padding2;
+		border-bottom: $border_size solid $borderColor;
+		@include hover($blueColor, $firstColor, $blueColor);
+	}
+
+	.actived{
+		color: $firstColor;
+		background: $blueColor;
+	}
+}
+
+.options-mdl{
+	right: 0;
+	border-top: none;
+	margin-top: $header_size + $padding4 - $border_size;
+
+	select{
+		width: 100%;
+		border: none;
+		color: inherit;
+		cursor: pointer;
+		padding: $padding_base;
+		background: transparent;
+		border-bottom: $border_size solid $borderColor;
+
+		@include select;
+		@include hover($firstColor);
+	}
+}

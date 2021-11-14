@@ -1,0 +1,33 @@
+.comment{
+	right: 0;
+	width: 20em;
+	display: none;
+	position: fixed;
+	z-index: 99999999;
+	font-size: $smallFont;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $border_size;
+    line-height: $padding_base + $padding2;
+	margin-right: $icon_size + $padding3 + .05;
+	border-left: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+
+	.text{
+		overflow: auto;
+		max-height: 15em;
+		padding: $padding_base;
+		cursor: default !important;
+		@include scrollbar;
+	}
+
+	.button{
+		cursor: pointer;
+		text-align: center;
+		background: $secondColor;
+		height: $padding_base * 3;
+		line-height: $padding_base * 3;
+		border-top: $border_size solid $borderColor;
+		@include hover($firstColor);
+	}
+}

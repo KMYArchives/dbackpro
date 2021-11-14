@@ -1,0 +1,148 @@
+@mixin table {
+	table{
+		width: 100%;
+		margin-top: 2%;
+		border-spacing: 0;
+		margin-bottom: 2%;
+		font-size: $smallFont;
+		border-bottom: none !important;
+		border: $border_size * 2 solid $borderColor;
+
+		a{
+			&:link, &:active, &:visited{
+				color: inherit;
+				text-decoration: none;
+				&:hover, &:focus{ text-decoration: underline; }
+			}
+		}
+		
+		th{
+			font-weight: 500;
+			font-size: $fontSize;
+			background: $secondColor;
+			padding: $padding_base + $padding3;
+			border-bottom: $border_size solid $borderColor;
+		}
+
+		td{
+			cursor: pointer;
+			background: $firstColor;
+			padding: $padding_base + $padding3;
+			border-bottom: $border_size solid $borderColor;
+		}
+
+		tr{
+			.hover:hover{ background: $bgColor; }
+			.tr-copy-table{ width: $padding_base * 8; }
+
+			&:hover{
+				td{ background: $secondColor; }
+			}
+
+			td{
+				text-align: center;
+				.open:hover{ color: $blueColor; }
+				.delete:hover{ color: $redColor; }
+				.edit:hover{ color: $greenColor; }
+			}
+		}
+	}
+}
+
+@mixin slide_features {
+	.features{
+		width: 100%;
+		height: auto;
+		max-height: 10em;
+		text-align: center;
+		background: $secondColor;
+		padding-top: $padding_base;
+		margin-left: -$padding_base;
+		padding-bottom: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+
+		.label{
+			font-weight: lighter;
+			margin-left: -$padding4;
+			font-size: $smallFont + .2;
+			margin-bottom: $padding_base;
+		}
+
+		.count-alert{
+			color: $fontColor;
+			text-align: center;
+			background: $redColor;
+			padding: $padding_base;
+			font-size: $smallFont - .05;
+			margin-bottom: -$padding_base - $padding3;
+		}
+
+		@include spinner;
+		.spinner{
+			top: 0;
+			margin-top: 7em;
+			position: absolute;
+			margin-left: 10.5em;
+		}
+
+		.slide-btn{
+			top: 0;
+			width: 100%;
+			position: absolute;
+			text-align: center;
+			margin-top: 12.6em;
+			height: $padding_base * 2.4;
+			margin-bottom: $border_size;
+			line-height: $padding_base * 2.4;
+
+			.btn{
+				cursor: pointer;
+				width: $padding4;
+				height: $padding4;
+				margin-top: $padding3;
+				display: inline-block;
+				box-sizing: border-box;
+				background: $fontColor;
+				line-height: $padding_base * 2.4;
+				@include hover($blueColor);
+			}
+
+			.prev, .forw{
+				cursor: pointer;
+				text-align: center;
+				width: $padding_base * 2.5;
+				line-height: $padding_base * 2.5;
+				@include hover($firstColor, $fontColor);
+			}
+
+			.actived{ background: $blueColor; }
+		}
+	}
+}
+
+@mixin hover($background: $secondColor, $color: inherit, $bdr_color: $borderColor, $time: 1.2s) {
+	&:hover, &:focus{
+		outline: none;
+		color: $color;
+		border-color: $bdr_color;
+		background-color: $background;
+		@include transition(background-color $time);
+	}
+}
+
+@mixin spinner($m: $padding2, $s: $padding3, $c: $fontColor, $w: $padding_base, $h: $padding_base, $t: .8s) {
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
+
+	.spinner {
+		width: $w;
+		height: $h;
+		margin: $m;
+		position: absolute;
+		border-radius: 50%;
+		border: $s solid transparent;
+		border-left-color: $c !important;
+		animation: spin $t linear infinite;
+	}
+}

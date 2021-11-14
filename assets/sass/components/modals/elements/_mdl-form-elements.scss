@@ -1,0 +1,84 @@
+@mixin form-elements{
+	form{
+		padding: $padding3;
+		text-align: center;
+
+		.btn{
+			width: 85.7%;
+			margin-left: 2%;
+		}
+
+		input{
+			outline: none;
+			color: inherit;
+			font-weight: 600;
+			margin-bottom: 1%;
+			background: inherit;
+			padding: $padding_base;
+			width: $form_input_size;
+			font-size: $smallFont + .1;
+			border: $border_size solid $borderColor;
+
+			@include hover;
+			@include placeholder;
+		}
+
+		select{
+			outline: none;
+			color: inherit;
+			overflow: auto;
+			cursor: pointer;
+			font-weight: 600;
+			margin-bottom: 1%;
+			background: inherit;
+			padding: $padding_base;
+			width: $form_input_size;
+			font-size: $smallFont + .1;
+			border: $border_size solid $borderColor;
+
+			@include hover;
+			@include select;
+		}
+		
+		.sub-title{
+			padding: .1em;
+			color: inherit;
+			margin-left: 1%;
+			font-size: .9em;
+			text-align: left;
+			margin-bottom: 1%;
+
+			a{
+				float: right;
+				padding: .1em;
+				color: inherit;
+				cursor: pointer;
+				margin-right: 1%;
+				text-decoration: none;
+				
+				&:hover, &:focus{
+					outline: none;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		button, .submit{
+			outline: none;
+			color: inherit;
+			margin-top: 2%;
+			cursor: pointer;
+			margin-left: 8%;
+			font-weight: 500;
+			margin-bottom: 2%;
+			font-weight: bold;
+			text-align: center;
+			background: inherit;
+			padding: $padding_base;
+			font-size: $smallFont + .1;
+			width: $form_input_size - 2%;
+			border: $border_size solid $borderColor;
+			@include hover;
+		}
+	}
+}

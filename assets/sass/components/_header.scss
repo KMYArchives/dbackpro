@@ -1,0 +1,48 @@
+header{
+	top: 0;
+	width: 94.4%;
+	z-index: 99999999;
+	position: absolute;
+	@include box-shadow;
+	height: $header_size;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-left: $left_bar_size;
+
+	nav{
+		float: right;
+		height: $header_size;
+	}
+
+	.tab{
+		width: 9em;
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		font-size: $smallFont;
+		line-height: $header_size + $padding5;
+		border-left: $border_size solid $borderColor;
+		@include hover;
+	}
+
+	.label{
+		float: left;
+		font-size: $smallFont;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $header_size + $padding5;
+	}
+
+	.fab, .far, .fas{
+		float: left;
+		cursor: pointer;
+		width: $icon_size;
+		text-align: center;
+		font-size: $smallFont;
+		line-height: $header_size + $padding5;
+		border-left: $border_size solid $borderColor;
+		@include hover($secondColor, $fontColor);
+	}
+
+	.actived{ background: $secondColor; }
+}

@@ -1,0 +1,58 @@
+@mixin body {
+	margin: 0;
+	padding: 0;
+	color: $fontColor;
+	font-family: $font;
+	font-size: $fontSize;
+	background: $bgColor;
+	
+	@include scrollbar;
+	@include no-text-select;
+}
+
+@mixin select {
+	appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+@mixin placeholder {
+	@include input-placeholder{
+		opacity: .75;
+		font-weight: 600;
+		color: $fontColor;
+	}
+}
+
+@mixin no-text-select {
+	user-select: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+@mixin input-placeholder {
+	&.placeholder{ @content; }
+	&:-moz-placeholder{ @content; }
+	&::-moz-placeholder{ @content; }
+	&:-ms-input-placeholder{ @content; }
+	&::-webkit-input-placeholder{ @content; }
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-ms-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+
+@mixin scrollbar($scroll_top: true) {
+	&::-webkit-scrollbar{
+		position: fixed;
+		width: $padding5;
+		z-index: 9999999;
+	}
+
+	&::-webkit-scrollbar-thumb{ background: $borderColor; }
+}

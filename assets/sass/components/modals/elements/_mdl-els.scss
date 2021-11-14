@@ -1,0 +1,165 @@
+.bar{
+	width: 100%;
+	z-index: 9999999;
+	position: relative;
+	background: $secondColor;
+	font-size: $smallFont + .05;
+	height: $padding_base * 2.6;
+	line-height: $padding_base * 2.6;
+
+	.icon{
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		width: auto !important;
+		border-right: $border_size solid $borderColor;
+
+		@include hover($firstColor);
+		.fab, .far, .fas{ width: $icon_size; }
+	}
+
+	.item{
+		width: 8em;
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		font-size: $smallFont + .05;
+		border-right: $border_size solid $borderColor;
+		@include hover($firstColor);
+	}
+
+	input{
+		height: 94%;
+		float: right;
+		border: none;
+		width: 10.5em;
+		color: inherit;
+		text-align: left;
+		background: inherit;
+		padding-left: $padding_base;
+		font-size: $smallFont + .05;
+		padding-right: $padding_base;
+		border-left: $border_size solid $borderColor;
+
+		@include placeholder;
+		@include hover($firstColor);
+	}
+
+	select{
+		width: 16em;
+		float: left;
+		border: none;
+		height: 100%;
+		color: inherit;
+		cursor: pointer;
+		text-align: left;
+		background: inherit;
+		padding-left: $padding_base;
+		font-size: $smallFont + .05;
+		padding-right: $padding_base;
+		border-right: $border_size solid $borderColor;
+
+		@include select;
+		@include hover($firstColor);
+	}
+
+	.right{
+		float: right !important;
+		border-right: 0 !important; 
+		border-left: $border_size solid $borderColor;
+	}
+
+	.message{
+		float: right;
+		text-align: center;
+		font-size: $smallFont + .05;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+	}
+
+	.shared-by{
+		float: left;
+		outline: none;
+		text-align: center;
+		text-decoration: none;
+		font-size: $smallFont + .05;
+
+		.name{
+			float: left;
+			outline: none;
+			color: inherit;
+			text-decoration: none;
+			&:hover, &:focus{ text-decoration: underline; }
+		}
+
+		.far, .fas{
+			float: left;
+			text-align: center;
+			margin-right: $padding2;
+			width: $icon_size - $padding2;
+			line-height: $padding_base * 3.05;
+		}
+	}
+}
+
+.mask{
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: fixed;
+	overflow: hidden;
+	@include transition;
+	z-index: 999999999999999;
+	background: rgba(0, 0, 0, .9);
+}
+
+.title{
+	height: $header_size;
+	background: $firstColor;
+	margin-top: $border_size;
+	line-height: $header_size;
+	border-bottom: $border_size solid $borderColor;
+	
+	input{
+		width: 13em;
+		float: right;
+		border: none;
+		outline: none;
+		color: inherit;
+		font-size: $smallFont;
+		padding: $padding_base;
+		padding-top: $padding_base + .35;
+		padding-bottom: $padding_base + .35;
+
+		@include hover;
+		@include placeholder;
+	}
+
+	.label{
+		float: left;
+		font-size: $smallFont + .05;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		padding-top: $border_size / 2;
+		padding-bottom: $border_size / 2;
+	}
+
+	.actived{
+		color: $blueColor !important;
+		background: inherit !important;
+	}
+
+	.fab, .far, .fas{
+		float: right;
+		cursor: pointer;
+		margin-right: $padding_base;
+		line-height: $padding_base * 3;
+		@include hover(transparent, $blueColor);
+	}
+
+	.fa-times{ @include hover(transparent, $redColor); }
+}

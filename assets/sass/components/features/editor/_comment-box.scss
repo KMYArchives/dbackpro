@@ -1,0 +1,40 @@
+.comment-box{
+	right: 0;
+	width: 15em;
+	display: none;
+	position: absolute;
+	z-index: 99999999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	border-right: none !important;
+	border: $border_size solid $borderColor;
+
+	.header{
+		font-size: $smallFont;
+		background: $secondColor;
+		height: $padding_base * 3;
+		padding-left: $padding_base;
+		line-height: $padding_base * 3;
+	}
+
+	.button{
+		cursor: pointer;
+		text-align: center;
+		font-size: $smallFont;
+		background: $secondColor;
+		height: $padding_base * 3;
+		padding-left: $padding_base;
+		line-height: $padding_base * 3;
+		@include hover($firstColor);
+	}
+
+	.content{
+		overflow: auto;
+		max-height: 12em;
+		font-size: $smallFont;
+		padding: $padding_base;
+		line-height: $padding_base + $padding2;
+		border-top: $border_size solid $borderColor;
+		@include scrollbar;
+	}
+}

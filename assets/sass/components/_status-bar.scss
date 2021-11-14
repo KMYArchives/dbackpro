@@ -1,0 +1,27 @@
+.status-bar{
+	bottom: 0;
+	width: 95.05%;
+	position: fixed;
+	z-index: 999999;
+	height: $header_size;
+	background: $secondColor;
+	line-height: $header_size;
+	border-top: $border_size solid $borderColor;
+
+	.icon{
+		float: left;
+		cursor: pointer;
+		width: $icon_size;
+		text-align: center;
+		font-size: $smallFont;
+		border-right: $border_size solid $borderColor;
+		@include hover($firstColor);
+	}
+
+	.right{
+		border-right: 0;
+		border-left: $border_size solid $borderColor;
+	}
+
+	.actived{ background: $firstColor; }
+}

@@ -1,0 +1,112 @@
+.collections{
+	right: 0;
+	width: 20em;
+	display: none;
+	position: fixed;
+	z-index: 9999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-right: $icon_size - $padding2;
+	border: $border_size solid $borderColor;
+
+	.bar{
+		height: $header_size;
+		font-size: $smallFont;
+		background: $firstColor;
+		border-bottom: $border_size solid $borderColor;
+
+		.tab{
+			width: 50%;
+			float: left;
+			cursor: pointer;
+			text-align: center;
+			box-sizing: border-box;
+			line-height: $header_size;
+			border-right: $border_size solid $borderColor;
+
+			@include hover;
+			&:last-child{ border-right: 0; }
+		}
+
+		.actived{ background: $secondColor; }
+	}
+
+	.list{
+		overflow: auto;
+		max-height: 16em;
+
+		.item{
+			display: block;
+			cursor: pointer;
+			font-size: $smallFont;
+			height: $padding_base * 3;
+			padding-left: $padding_base;
+			line-height: $padding_base * 3;
+			border-bottom: $border_size solid $borderColor;
+			
+			.name{
+				float: left;
+				&:hover, &:focus{ text-decoration: underline; }
+			}
+	
+			.far, .fas{
+				float: left;
+				text-align: center;
+				width: $padding_base * 3;
+				line-height: $padding_base * 3;
+				&:hover, &:focus{ opacity: .5; }
+			}
+
+			&:last-child{
+				margin-bottom: 0;
+				border-bottom: 0;
+			}
+
+			@include hover;
+			.right{ float: right; }
+		}
+
+		.none{
+			display: block;
+			text-align: center;
+			font-size: $smallFont;
+			margin: $padding_base;
+			background: $secondColor;
+			height: $padding_base * 3;
+			line-height: $padding_base * 3;
+		}
+
+		@include scrollbar;
+	}
+
+	.header{
+		display: block;
+		height: $padding_base * 3;
+		font-size: $smallFont + .05;
+		line-height: $padding_base * 3;
+		border-bottom: $border_size solid $borderColor;
+
+		.total{
+			float: left;
+			cursor: default;
+			font-size: $smallFont + .05;
+			margin-right: $padding_base;
+		}
+
+		.label{
+			float: left;
+			padding-left: $padding_base;
+		}
+
+		.far, .fas{
+			float: left;
+			cursor: pointer;
+			width: $icon_size;
+			text-align: center;
+			box-sizing: border-box;
+			line-height: $header_size;
+			border-left: $border_size solid $borderColor;
+			@include hover;
+		}
+	}
+}
