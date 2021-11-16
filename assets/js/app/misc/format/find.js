@@ -1,4 +1,4 @@
-let Find = {
+const Find = {
 
 	search (string, find) {
 		if (string.search(find) != -1) {

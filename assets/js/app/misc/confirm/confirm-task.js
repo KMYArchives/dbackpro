@@ -1,4 +1,4 @@
-let ConfirmTask = {
+const ConfirmTask = {
 
 	close_modal () {
 		$(mask).fadeOut()

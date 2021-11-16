@@ -1,4 +1,4 @@
-let Modals = {
+const Modals = {
 
 	show (modal) {
 		$(mask).fadeIn()

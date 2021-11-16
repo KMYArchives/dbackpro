@@ -1,4 +1,4 @@
-let GUI = {
+const GUI = {
 
 	toggle_boxes (el) {
 		Classes.toggle(el, act_class)

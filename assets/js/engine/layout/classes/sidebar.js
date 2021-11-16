@@ -1,4 +1,10 @@
-let Sidebar = {
+const Sidebar = class {
+
+	element
+
+	constructor (el) {
+		this.element = el
+	}
 
 	set_menu_item (items) {
 		var actived_class
@@ -10,7 +16,7 @@ let Sidebar = {
 				actived_class = ''
 			}
 
-			$(el_sidebar).append(
+			$(this.element).append(
 				`<div id='${
 					item.id
 				}' class='${ 
@@ -22,22 +28,22 @@ let Sidebar = {
 				}'></div>`
 			)
 		})
-	},
+	}
 
 	del_menu_item (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
 				$(`${ 
-					el_sidebar + ' > #' + item.id 
+					this.element + ' > #' + item.id 
 				}`).remove()
 			} else if (item.icon != undefined) {
 				$(`${ 
-					el_sidebar + ' > .' + item.icon 
+					this.element + ' > .' + item.icon 
 				}`).remove()
 			}
 		})
-	},
+	}
 
-	clean_menu_items () { $(el_sidebar).empty() },
+	clean_menu_items () { $(this.element).empty() }
 
 }

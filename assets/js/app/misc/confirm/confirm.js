@@ -1,4 +1,4 @@
-let Confirm = {
+const Confirm = {
 
 	hide_all_box () {
 		$(menu_user).hide()

@@ -1,4 +1,4 @@
-let ConfirmMisc = {
+const ConfirmMisc = {
 
 	text (section) {
 		switch (section) {

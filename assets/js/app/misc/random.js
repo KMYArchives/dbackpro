@@ -1,4 +1,4 @@
-let Random = {
+const Random = {
 
 	slug (length) {
 		var value = '',

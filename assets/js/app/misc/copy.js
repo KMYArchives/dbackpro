@@ -1,4 +1,4 @@
-let Copy = {
+const Copy = {
 
 	input (input) {
 		$(input).select()

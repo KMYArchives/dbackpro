@@ -1,2 +1,2 @@
-const el_sidebar = '#left-sidebar > .menu',
-    el_topbar = '#top-bar'
+const el_sidebar = '#left-sidebar',
+	el_topbar = '#top-bar'

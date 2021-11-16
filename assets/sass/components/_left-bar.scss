@@ -9,19 +9,14 @@
 	z-index: 999999999999999;
 	border-right: $border_size solid $borderColor;
 
-	.menu{
-		.fab, .far, .fas{
-			width: 100%;
-			cursor: pointer;
-			text-align: center;
-			height: $left_bar_size;
-			line-height: $left_bar_size;
-			border-bottom: $border_size solid $borderColor;
-			@include hover;
-		}
-
-		.actived{ background: $secondColor; }
+	.fab, .far, .fas{
+		width: 100%;
+		cursor: pointer;
+		text-align: center;
+		height: $left_bar_size;
+		line-height: $left_bar_size;
+		@include hover($blueColor);
 	}
 
-	.logo-actived{ @include filter(grayscale, 100%); }
+	.actived{ background: $blueColor; }
 }

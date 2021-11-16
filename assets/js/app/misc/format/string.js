@@ -1,4 +1,4 @@
-let Str = {
+const Str = {
 	
 	capitalize (string) {
 		if (typeof string !== 'string') return ''

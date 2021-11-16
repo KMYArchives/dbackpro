@@ -1,15 +1,3 @@
-.actived{
-	color: $fontColor;
-	background: $firstColor;
-	border-color: $firstColor;
-	@include hover($secondColor, $fontColor $secondColor);
-}
-
-.italic{ font-style: italic; }
-.hover{ @include hover($secondColor); }
-
-// IMPORTANT CLASSES
-
 .link:hover{
 	outline: none !important;
 	cursor: pointer !important;

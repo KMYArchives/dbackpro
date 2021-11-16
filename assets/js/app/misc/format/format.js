@@ -1,4 +1,4 @@
-let Format = {
+const Format = {
 
 	base64 (string) {
 		return string.replace('data:', '').

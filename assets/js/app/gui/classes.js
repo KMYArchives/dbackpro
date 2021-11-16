@@ -1,4 +1,4 @@
-let Classes = {
+const Classes = {
 	
 	has (element, selected = act_class) {
 		if (!($(element).parent().find(element).hasClass(selected))) {

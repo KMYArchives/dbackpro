@@ -1,9 +1,8 @@
-header{
+.top-bar{
 	top: 0;
 	width: 94.4%;
 	z-index: 99999999;
 	position: absolute;
-	@include box-shadow;
 	height: $header_size;
 	box-sizing: border-box;
 	background: $firstColor;
@@ -21,8 +20,7 @@ header{
 		text-align: center;
 		font-size: $smallFont;
 		line-height: $header_size + $padding5;
-		border-left: $border_size solid $borderColor;
-		@include hover;
+		@include hover($blueColor);
 	}
 
 	.label{
@@ -40,9 +38,8 @@ header{
 		text-align: center;
 		font-size: $smallFont;
 		line-height: $header_size + $padding5;
-		border-left: $border_size solid $borderColor;
-		@include hover($secondColor, $fontColor);
+		@include hover($blueColor);
 	}
 
-	.actived{ background: $secondColor; }
+	.actived{ background: $blueColor; }
 }

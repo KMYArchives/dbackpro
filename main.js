@@ -1,7 +1,7 @@
 const {app, ipcMain, BrowserWindow} = require('electron')
 
 function createWindow () {
-	const mainWindow = new BrowserWindow({
+	var mainWindow = new BrowserWindow({
 		width: 1000,
 		height: 702,
 		show: false,
@@ -24,8 +24,8 @@ function createWindow () {
 	mainWindow.setMenuBarVisibility(false)
 	mainWindow.on('closed', e => mainWindow = null )
 
-	ipcMain.on('close', () => { mainWindow.close() })
-	ipcMain.on('min', () => { mainWindow.minimize() })
+	ipcMain.on('close', e => { mainWindow.close() })
+	ipcMain.on('min', e => { mainWindow.minimize() })
 }
 
 app.whenReady().then( e => {

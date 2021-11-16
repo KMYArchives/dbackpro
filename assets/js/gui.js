@@ -1,1 +1,1 @@
-"use strict";$(function(t){}),Layout.sidebar();
+"use strict";$(function(t){});var layout=new Layout,top_bar=new Topbar(el_topbar);

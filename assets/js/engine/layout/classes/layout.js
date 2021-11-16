@@ -1,9 +1,17 @@
-const Layout = {
+const Layout = class {
+
+	side
+	topbar
+
+	render () {
+		this.sidebar()
+		this.topbar.render()
+	}
 
 	sidebar () {
-		Sidebar.clean_menu_items()
+		this.side.clean_menu_items()
 		
-		Sidebar.set_menu_item([
+		this.side.set_menu_item([
 			{
 				id: 'menu-app',
 				icon: 'fas fa-bars',
@@ -48,12 +56,25 @@ const Layout = {
 				click: 'Hello.world()'
 			},
 			{
+				id: 'list-scans',
+				icon: 'fas fa-shield-alt',
+				title: 'Scans history',
+				click: 'Hello.world()'
+			},
+			{
 				id: 'list-trash',
 				icon: 'fas fa-trash-alt',
 				title: 'Recicle bin',
 				click: 'Hello.world()'
 			},
 		])
-	},
+	}
+
+	constructor () {
+		this.side = new Sidebar(el_sidebar)
+		this.topbar = new Topbar(el_topbar)
+
+		this.render()
+	}
 
 }
