@@ -1,4 +1,4 @@
-const Topbar = class {
+const TopBar = class {
 
 	element
 
@@ -8,7 +8,8 @@ const Topbar = class {
 			<div class='label'>New connection</div>
 			
 			<nav>
-				<div class='label total'></div>
+				<div class='label' id='total'></div>
+				<div class='custom'></div>
 			</nav>
 		`)
 	}
@@ -19,48 +20,57 @@ const Topbar = class {
 		$(`${ this.element + ' > #back-page' }`).attr('class', item.icon ? item.icon : 'fas fa-arrow-left')
 	}
 
-	del_menu_item (items) {
+	del_right_item (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
 				$(`${ 
-					this.element + ' > nav > #' + item.id 
+					this.element + ' > nav > .custom > #' + item.id 
 				}`).remove()
 			} else if (item.icon != undefined) {
 				$(`${ 
-					this.element + ' > nav > .' + item.icon 
+					this.element + ' > nav > .custom > .' + item.icon 
 				}`).remove()
 			}
 		})
 	}
 	
-	set_menu_item (items) {
-		var actived_class
+	set_right_item (items) {
+		var text, 
+			actived_class
 
 		_.forEach(items, item => {
+			if (item.text != undefined) {
+				text = item.text
+			} else {
+				text = ''
+			}
+
 			if (item.actived != undefined && item.actived == true) {
 				actived_class = 'actived'
 			} else {
 				actived_class = ''
 			}
 
-			$(`${ this.element } > nav`).append(
+			$(`${ this.element } > nav > .custom`).append(
 				`<div class='${ 
-					item.icon + ' ' + actived_class 
+					item.class + ' ' + actived_class 
 				}' title='${ 
 					item.title 
 				}' onclick='${ 
 					item.click 
-				}'></div>`
+				}'>${
+					text
+				}</div>`
 			)
 		})
 	}
 
 	constructor (el) { this.element = el }
 
-	clean_menu_items () { $(`${ this.element } > nav`).empty() }
-
 	title (text) { $(`${ this.element + ' > .label' }`).text(text) }
 
-	total (items) { $(`${ this.element + ' > nav > .total' }`).text(items) }
+	clean_right_items () { $(`${ this.element } > nav > .custom`).empty() }
+
+	total (items) { $(`${ this.element + ' > nav > #total' }`).text(items) }
 
 }

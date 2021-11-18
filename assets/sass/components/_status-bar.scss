@@ -1,12 +1,12 @@
 .status-bar{
 	bottom: 0;
-	width: 95.05%;
 	position: fixed;
-	z-index: 999999;
-	height: $header_size;
-	background: $secondColor;
-	line-height: $header_size;
+	z-index: 999999999;
+	background: $firstColor;
+	line-height: $header_size - $padding2;
+	margin-left: $left_bar_size + $border_size;
 	border-top: $border_size solid $borderColor;
+	width: calc(100% - $left_bar_size - $border_size);
 
 	.icon{
 		float: left;

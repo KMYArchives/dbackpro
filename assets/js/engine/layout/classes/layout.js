@@ -71,8 +71,8 @@ const Layout = class {
 	}
 
 	constructor () {
-		this.side = new Sidebar(el_sidebar)
-		this.topbar = new Topbar(el_topbar)
+		this.side = new SideBar(el_sidebar)
+		this.topbar = new TopBar(el_topbar)
 
 		this.render()
 	}

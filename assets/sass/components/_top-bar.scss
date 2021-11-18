@@ -1,12 +1,14 @@
 .top-bar{
 	top: 0;
-	width: 94.4%;
+	width: 94.62%;
 	z-index: 99999999;
 	position: absolute;
 	height: $header_size;
 	box-sizing: border-box;
 	background: $firstColor;
+	margin-top: $frame_size;
 	margin-left: $left_bar_size;
+	border-left: $border_size solid $borderColor;
 
 	nav{
 		float: right;

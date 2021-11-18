@@ -8,30 +8,14 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
 <body>
+	<div class='frame' id='frame-bar'></div>
 	<div class='mask'></div>
 
 	<div class='top-bar' id='top-bar'></div>
 	<div class='left-bar' id='left-sidebar'></div>
+	<div class='menu-actions' id='menu-actions'></div>
 
-	<div class='menu-actions'>
-		<div class='bar'>
-			<div class='fas fa-history'></div>
-			<div class='fas fa-code'></div>
-			<div class='fas fa-shield-alt'></div>
-			<div class='fas fa-project-diagram'></div>
-		</div>
-
-		<div class='list'>
-			<div class='item'>Drop</div>
-			<div class='item'>Truncate</div>
-			<div class='item'>Rename</div>
-			<div class='item'>Analyze</div>
-			<div class='item'>Lock table</div>
-			<div class='item'>Information</div>
-		</div>
-	</div>
-
-	<div class='content'>
+	<div class='content' id='content-app'>
 		<table>
 			<tr>
 				<th>Company</th>
@@ -40,6 +24,8 @@
 			</tr>
 		</table>
 	</div>
+
+	<div class='status-bar' id='status-bar'></div>
 
 	<script src='../assets/js/app.js'></script>
 	<script src='../assets/js/engine.js'></script>

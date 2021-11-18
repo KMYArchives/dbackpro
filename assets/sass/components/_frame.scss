@@ -4,10 +4,10 @@
 	position: fixed;
 	color: $fontColor;
 	height: $frame_size;
-	z-index: 99999999999;
 	background: $firstColor;
 	-webkit-app-region: drag;
 	z-index: 9999999999999999999999;
+	border-bottom: $border_size solid $borderColor;
 	
 	.label{
 		float: left;
@@ -31,22 +31,7 @@
 			@include hover($secondColor, $fontColor);
 		}
 
-		.offline-mode{
-			float: left;
-			display: none;
-			font-size: 80%;
-			cursor: pointer;
-			color: $fontColor;
-			background: $redColor;
-			letter-spacing: .015em;
-			padding-left: $padding4;
-			margin-right: $padding2;
-			height: $frame_size + .4;
-			padding-right: $padding4;
-			line-height: $frame_size + .4;
-			@include hover($blueColor);
-		}
-
 		.actived{ background: $blueColor; }
+		.fa-times{ @include hover($redColor); }
 	}
 }

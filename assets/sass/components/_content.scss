@@ -1,11 +1,11 @@
 .content{
-	height: 88%;
+	height: 83%;
 	overflow: auto;
 	position: absolute;
 	background: $bgColor;
-	margin-top: $header_size;
 	margin-left: $left_bar_size;
 	width: calc(100% - $left_bar_size);
+	margin-top: $header_size + $frame_size;
 	border-top: $border_size solid $borderColor;
 	border-bottom: $border_size solid $borderColor;
 	

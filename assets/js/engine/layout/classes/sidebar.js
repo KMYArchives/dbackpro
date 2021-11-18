@@ -1,4 +1,4 @@
-const Sidebar = class {
+const SideBar = class {
 
 	element
 
