@@ -14,13 +14,7 @@ const TopBar = class {
 		`)
 	}
 
-	iconBack (item) {
-		$(`${ this.element + ' > #back-page' }`).attr('onclick', item.click)
-		$(`${ this.element + ' > #back-page' }`).attr('title', item.title ? item.title : 'Back page')
-		$(`${ this.element + ' > #back-page' }`).attr('class', item.icon ? item.icon : 'fas fa-arrow-left')
-	}
-
-	del_right_item (items) {
+	del (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
 				$(`${ 
@@ -34,7 +28,7 @@ const TopBar = class {
 		})
 	}
 	
-	set_right_item (items) {
+	set (items) {
 		var text, 
 			actived_class
 
@@ -65,11 +59,17 @@ const TopBar = class {
 		})
 	}
 
-	constructor (el) { this.element = el }
+	iconBack (item) {
+		$(`${ this.element + ' > #back-page' }`).attr('onclick', item.click)
+		$(`${ this.element + ' > #back-page' }`).attr('title', item.title ? item.title : 'Back page')
+		$(`${ this.element + ' > #back-page' }`).attr('class', item.icon ? item.icon : 'fas fa-arrow-left')
+	}
+
+	constructor (element) { this.element = element }
+
+	clean () { $(`${ this.element } > nav > .custom`).empty() }
 
 	title (text) { $(`${ this.element + ' > .label' }`).text(text) }
-
-	clean_right_items () { $(`${ this.element } > nav > .custom`).empty() }
 
 	total (items) { $(`${ this.element + ' > nav > #total' }`).text(items) }
 

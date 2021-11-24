@@ -1,14 +1,19 @@
 @import 'extend';
 @import 'autoload';
 
+*{
+	margin: 0;
+	padding: 0;
+}
+
 body{
 	@include body;
 	
-	@import 'components/frame';
-	@import 'components/top-bar';
-	@import 'components/content';
-	@import 'components/left-bar';
-	@import 'components/status-bar';
+	@import 'components/core/frame';
+	@import 'components/core/top-bar';
+	@import 'components/core/content';
+	@import 'components/core/left-bar';
+	@import 'components/core/status-bar';
 
 	@import 'components/modals/autoload';
 	@import 'components/features/autoload';

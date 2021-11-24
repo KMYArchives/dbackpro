@@ -27,8 +27,7 @@
 			text-align: center;
 			width: $frame_size;
 			padding: $padding + .01;
-			margin-left: -$padding3;
-			@include hover($secondColor, $fontColor);
+			@include hover($blueColor);
 		}
 
 		.actived{ background: $blueColor; }

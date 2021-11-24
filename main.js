@@ -1,11 +1,19 @@
-const {app, ipcMain, BrowserWindow} = require('electron')
+const {
+	app, 
+	ipcMain, 
+	BrowserWindow
+} = require('electron')
+const path = require('path')
 
-function createWindow () {
+const icon_app = './assets/imgs/icon.png'
+
+createWindow = () => {
 	var mainWindow = new BrowserWindow({
 		width: 1050,
 		height: 700,
 		show: false,
 		frame: false,
+		icon: icon_app,
 		resizable: false,
 		autoHideMenuBar: true,
 		webPreferences: {

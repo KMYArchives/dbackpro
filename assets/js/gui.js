@@ -1,1 +1,1 @@
-"use strict";$(function(a){});var layout=new Layout,top_bar=new TopBar(el_topbar),frame_bar=new FrameBar(el_framebar),status_bar=new StatusBar(el_statusbar);frame_bar.render();
+"use strict";$(function(a){});var layout=new Layout,top_bar=new TopBar(el_topbar),frame_bar=new FrameBar(el_framebar),status_bar=new StatusBar(el_statusbar),status_bar_labels=new StatusBarLabels(el_statusbar);layout.render(),top_bar.render(),frame_bar.render(),status_bar.render();

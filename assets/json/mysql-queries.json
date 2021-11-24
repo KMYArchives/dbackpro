@@ -1,0 +1,38 @@
+{
+	"server_queries": { 
+		"processes": "SHOW FULL PROCESSLIST",
+		"variables": "SHOW VARIABLES",
+		"engines": "SHOW ENGINES",
+		"charsets": "SHOW CHARACTER SET",
+		"collations": "SHOW COLLATION",
+		"logs": "SELECT * FROM mysql.general_log ORDER BY event_time DESC LIMIT __param_offset__, __param_limit__"
+	},
+	"users_queries": {
+		"list": "SELECT user, host, password, super_priv FROM mysql.user",
+		"create": "CREATE USER '__param_user__'@'__param_host__' IDENTIFIED BY '__param_password__'",
+		"update": "UPDATE mysql.user SET password = '__param_password__' WHERE user = '__param_user__' AND host = '__param_host__'",
+		"delete": "DROP USER '__param_user__'@'__param_host__'",
+		"grant_priv": "GRANT __param_priv__ ON *.* TO '__param_user__'@'__param_host__'",
+		"revoke_priv": "REVOKE __param_priv__ ON *.* FROM '__param_user__'@'__param_host__'"
+	},
+	"dbs_queries": {
+		"list": "SELECT table_schema, table_collation, engine, Round(Sum(data_length + index_length)) 'db_size' FROM information_schema.tables GROUP BY table_schema ORDER BY table_schema ASC",
+		"create_database": "CREATE DATABASE __param_database__",
+		"drop_database": "DROP DATABASE __param_database__",
+		"create_table": "CREATE TABLE __param_database__.__param_table__ (__param_columns__) ENGINE=__param_engine__",
+		"rename_database": "ALTER DATABASE __param_database__ RENAME TO __param_new_database__"
+	},
+	"tables_queries": {
+		"list": "SELECT table_name, table_collation, engine, ROUND((data_length + index_length)) AS 'size', create_time FROM information_schema.tables WHERE table_schema = '__param_database__' ORDER BY table_name ASC",
+		"indexes": "SHOW INDEX FROM __param_database__.__param_table__",
+		"drop": "DROP TABLE __param_database__.__param_table__",
+		"truncate": "TRUNCATE TABLE __param_database__.__param_table__",
+		"columns": "SHOW COLUMNS FROM __param_database__.__param_table__",
+		"analyze": "ANALYZE TABLE __param_database__.__param_table__",
+		"optimize": "OPTIMIZE TABLE __param_database__.__param_table__",
+		"repair": "REPAIR TABLE __param_database__.__param_table__",
+		"checksum": "CHECKSUM TABLE __param_database__.__param_table__",
+		"clone_structure": "CREATE TABLE __param_database__.__param_table__ LIKE __param_source_database__.__param_source_table__",
+		"clone_data": "INSERT INTO __param_database__.__param_table__ SELECT * FROM __param_source_database__.__param_source_table__"
+	}
+}

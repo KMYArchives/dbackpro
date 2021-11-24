@@ -1,0 +1,8 @@
+[
+	{
+		"client" : "mysql",
+		"local": "__datasets_dir__",
+		"file-name": "mysql-queries.json",
+		"download": "https://gist.githubusercontent.com/thesilvaemily/24778fe01a0a3c7c7d9048243ccce631/raw/2eb74754660753ceadf76f455910d48d23f1a4d0/mysql-queries.json"
+	}
+]

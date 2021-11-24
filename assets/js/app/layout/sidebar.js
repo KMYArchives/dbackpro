@@ -2,11 +2,7 @@ const SideBar = class {
 
 	element
 
-	constructor (el) {
-		this.element = el
-	}
-
-	set_menu_item (items) {
+	set (items) {
 		var actived_class
 
 		_.forEach(items, item => {
@@ -30,7 +26,7 @@ const SideBar = class {
 		})
 	}
 
-	del_menu_item (items) {
+	del (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
 				$(`${ 
@@ -44,6 +40,8 @@ const SideBar = class {
 		})
 	}
 
-	clean_menu_items () { $(this.element).empty() }
+	clean () { $(this.element).empty() }
+
+	constructor (element) { this.element = element }
 
 }

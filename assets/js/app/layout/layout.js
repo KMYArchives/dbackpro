@@ -3,15 +3,10 @@ const Layout = class {
 	side
 	topbar
 
-	render () {
-		this.sidebar()
-		this.topbar.render()
-	}
-
 	sidebar () {
-		this.side.clean_menu_items()
+		this.side.clean()
 		
-		this.side.set_menu_item([
+		this.side.set([
 			{
 				id: 'menu-app',
 				icon: 'fas fa-bars',
@@ -29,6 +24,12 @@ const Layout = class {
 				icon: 'fas fa-database',
 				title: 'Databases',
 				actived: true,
+				click: 'Hello.world()'
+			},
+			{
+				id: 'list-users',
+				icon: 'fas fa-users',
+				title: 'List users',
 				click: 'Hello.world()'
 			},
 			{
@@ -56,9 +57,9 @@ const Layout = class {
 				click: 'Hello.world()'
 			},
 			{
-				id: 'list-scans',
-				icon: 'fas fa-shield-alt',
-				title: 'Scans history',
+				id: 'list-history',
+				icon: 'fas fa-history',
+				title: 'History',
 				click: 'Hello.world()'
 			},
 			{
@@ -73,8 +74,8 @@ const Layout = class {
 	constructor () {
 		this.side = new SideBar(el_sidebar)
 		this.topbar = new TopBar(el_topbar)
-
-		this.render()
 	}
+
+	render () { this.sidebar() }
 
 }

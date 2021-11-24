@@ -1,5 +1,0 @@
-const LisConnections = {
-
-	// code...
-
-}
