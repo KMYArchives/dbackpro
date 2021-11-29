@@ -1,4 +1,6 @@
-let mysql_conn,
+let editor,
+	
+	mysql_conn,
 	mysql_test_conn,
 	mysql_conn_status,
 

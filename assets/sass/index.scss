@@ -1,5 +1,6 @@
 @import 'extend';
 @import 'autoload';
+@import 'editor-autoload';
 
 *{
 	margin: 0;
@@ -9,10 +10,10 @@
 body{
 	@include body;
 	
-	@import 'components/core/frame';
 	@import 'components/core/top-bar';
 	@import 'components/core/content';
 	@import 'components/core/left-bar';
+	@import 'components/core/frame-bar';
 	@import 'components/core/status-bar';
 
 	@import 'components/modals/autoload';

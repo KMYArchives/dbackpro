@@ -1,6 +1,5 @@
-.top-bar{
+.filter-bar{
 	top: 0;
-	width: 94.62%;
 	z-index: 99999999;
 	position: absolute;
 	@include box-shadow;
@@ -8,6 +7,7 @@
 	box-sizing: border-box;
 	background: $firstColor;
 	margin-top: $frame_size;
+	width: $windows_tools_size;
 	margin-left: $left_bar_size;
 	border-left: $border_size solid $borderColor;
 
@@ -16,14 +16,17 @@
 		height: $header_size;
 	}
 
-	.tab{
-		width: 9em;
+	input{
 		float: left;
-		cursor: pointer;
-		text-align: center;
-		font-size: $smallFont;
-		line-height: $header_size + $padding5;
-		@include hover($blueColor);
+		width: 12em;
+		border: none;
+		outline: none;
+		color: inherit;
+		background: inherit;
+		font-size: $smallFont + .1;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $header_size + $padding6;
 	}
 
 	.label{

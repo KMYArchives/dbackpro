@@ -1,0 +1,18 @@
+@import 'extend';
+@import 'autoload';
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	@include body;
+    
+	@import 'components/core/content';
+    @import 'components/core/left-bar';
+	@import 'components/core/frame-bar';
+
+	@import 'components/core/others/list';
+	@import 'components/core/others/filter-bar';
+}

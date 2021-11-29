@@ -12,8 +12,8 @@ const SideBar = class {
 				actived_class = ''
 			}
 
-			$(this.element).append(
-				`<div id='${
+			$(this.element).append(`
+				<div id='${
 					item.id
 				}' class='${ 
 					item.icon + ' ' + actived_class 
@@ -21,8 +21,8 @@ const SideBar = class {
 					item.title 
 				}' onclick='${ 
 					item.click 
-				}'></div>`
-			)
+				}'></div>
+			`)
 		})
 	}
 
@@ -36,6 +36,34 @@ const SideBar = class {
 				$(`${ 
 					this.element + ' > .' + item.icon 
 				}`).remove()
+			}
+		})
+	}
+
+	show (items) {
+		_.forEach(items, item => {
+			if (item.id != undefined) {
+				$(`${ 
+					this.element + ' > #' + item.id 
+				}`).show()
+			} else if (item.icon != undefined) {
+				$(`${ 
+					this.element + ' > .' + item.icon 
+				}`).show()
+			}
+		})
+	}
+
+	hide (items) {
+		_.forEach(items, item => {
+			if (item.id != undefined) {
+				$(`${ 
+					this.element + ' > #' + item.id 
+				}`).hide()
+			} else if (item.icon != undefined) {
+				$(`${ 
+					this.element + ' > .' + item.icon 
+				}`).hide()
 			}
 		})
 	}

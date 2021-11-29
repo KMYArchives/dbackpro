@@ -1,0 +1,58 @@
+.tools-list{
+	top: 0;
+	right: 0;
+	width: 17em;
+	display: none;
+	position: fixed;
+	z-index: 999999999;
+	@include box-shadow;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $frame_size;
+	border-right: 0 !important;
+	border: $border_size solid $borderColor;
+	margin-right: $header_size - $padding_base;
+
+	.item{
+		display: block;
+		cursor: pointer;
+		font-size: $smallFont;
+		line-height: $header_size;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+
+		@include hover($blueColor);
+		&:last-child{ border-bottom: 0; }
+	}
+
+	.list{
+		overflow: auto;
+		max-height: 16em;
+		padding: $padding_base;
+		border-top: $border_size solid $borderColor;
+		border-right: $border_size solid $borderColor;
+		@include scrollbar;
+	}
+
+	.header{
+		text-align: center;
+		line-height: $header_size;
+		font-size: $smallFont + .025;
+		border-right: $border_size solid $borderColor;
+	}
+
+	.tab-tools{
+		width: 50%;
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		font-size: $smallFont;
+		box-sizing: border-box;
+		line-height: $header_size - $padding3;
+		border-right: $border_size solid $borderColor;
+		@include hover($blueColor);
+	}
+
+	.actived{ background: $blueColor; }
+}

@@ -1,0 +1,5 @@
+const LisConnections = {
+
+	// code...
+
+}

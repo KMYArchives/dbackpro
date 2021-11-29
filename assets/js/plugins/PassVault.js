@@ -1,0 +1,5 @@
+const PassVault = {
+
+	// code...
+
+}

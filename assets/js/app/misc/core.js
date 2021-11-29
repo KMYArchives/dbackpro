@@ -34,10 +34,6 @@ const Core = {
 		return path
 	},
 
-	window_close () { ipcRenderer.send('close') },
-
-	window_minimize () { ipcRenderer.send('min') },
-
 	get_os_username () { return os.userInfo().username },
 
 }

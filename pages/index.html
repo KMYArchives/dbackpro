@@ -13,22 +13,33 @@
 
 	<div class='top-bar' id='top-bar'></div>
 	<div class='left-bar' id='left-sidebar'></div>
+
+	<div class='tools-list' id='toolbox'></div>
 	<div class='menu-actions' id='menu-actions'></div>
 
 	<div class='content' id='content-app'>
 		<table>
-			<tr>
-				<th>Company</th>
-				<th>Contact</th>
-				<th>Country</th>
-			</tr>
+			<thead></thead>
+			<tbody></tbody>
 		</table>
 	</div>
 
 	<div class='status-bar' id='status-bar'></div>
 
-	<script src='../assets/js/app.js'></script>
-	<script src='../assets/js/engine.js'></script>
-	<script src='../assets/js/gui.js'></script>
+	<script crossorigin type='text/javascript' src='../assets/js/apis/codemirror/codemirror.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/autorefresh.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/selection.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/languages/sql.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/languages/javascript.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/search.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/scrollbars.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/comments.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/fold.js'></script>
+	<script crossorigin async type='text/javascript' src='../assets/js/apis/codemirror/scrollbars.js'></script>
+
+	<script crossorigin src='../assets/js/app.js'></script>
+	<script crossorigin src='../assets/js/engine.js'></script>
+	<script crossorigin src='../assets/js/plugins.js'></script>
+	<script crossorigin src='../assets/js/gui.js'></script>
 </body>
 </html>

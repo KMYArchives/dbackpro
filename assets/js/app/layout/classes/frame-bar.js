@@ -7,10 +7,10 @@ const FrameBar = class {
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>
-				<div class='fas fa-toolbox'></div>
-				<div class='far fa-bell'></div>
-				<div class='fas fa-window-minimize' onclick='Core.window_minimize()'></div>
-				<div class='fas fa-times' onclick='Core.window_close()'></div>
+				<div class='fas fa-toolbox' id='toggle-toolbox'></div>
+				<div class='far fa-bell' id='toggle-notify'></div>
+				<div class='fas fa-window-minimize' id='minimize'></div>
+				<div class='fas fa-times' id='close'></div>
 			</div>
 		`)
 	}
