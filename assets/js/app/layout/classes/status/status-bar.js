@@ -3,25 +3,30 @@ const StatusBar = class {
 	element
 
 	del (items) {
-		_.forEach(items, item => {
-			if (item.id != undefined) {
+		if (items == '*' || items[0] == '*') {
+			this.clean()
+		} else {
+			_.forEach(items, item => {
 				$(`${ 
-					this.element + ' > nav > #' + item.id 
+					this.element + ' > nav > .' + item 
 				}`).remove()
-			} else if (item.icon != undefined) {
-				$(`${ 
-					this.element + ' > nav > .' + item.icon 
-				}`).remove()
-			}
-		})
+			})
+		}
 	}
 	
 	set (items) {
 		var text,
-			icon, 
+			icon,
+			title,
 			actived_class
 
 		_.forEach(items, item => {
+			if (item.title != undefined) {
+				title = item.title
+			} else {
+				title = ''
+			}
+
 			if (item.text != undefined) {
 				text = item.text
 			} else {
@@ -38,10 +43,10 @@ const StatusBar = class {
 				`<div class='${ 
 					item.class + ' ' + actived_class 
 				}' title='${ 
-					item.title 
-				}' onclick='${ 
+					title 
+				}' onclick="${ 
 					item.click 
-				}'>${
+				}">${
 					text
 				}</div>`
 			)

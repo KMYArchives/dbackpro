@@ -11,3 +11,5 @@ top_bar.render()
 frame_bar.render()
 status_bar.render()
 ToolboxTabs.official()
+
+ListConnections.page_load()

@@ -1,0 +1,99 @@
+.notify-box{
+	top: 0;
+	right: 0;
+	width: 25em;
+	//display: none;
+	position: fixed;
+	z-index: 999999999;
+	@include box-shadow;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $frame_size;
+	border: $border_size solid $borderColor;
+	margin-right: $header_size - $padding_base;
+
+	.list{
+		overflow: auto;
+		max-height: 16em;
+		
+		.nt-item{
+			display: block;
+			color: inherit;
+			cursor: pointer;
+			padding: $padding2;
+			table-layout: fixed;
+			text-decoration: none;
+			font-size: $smallFont;
+			background: $firstColor;
+			border-bottom: $border_size solid $borderColor;
+
+			.nt-text{
+				display: block;
+				cursor: pointer;
+				line-height: $padding_base * 3.5;
+			}
+
+			.nt-header{
+				height: $padding_base * 2.5;
+				line-height: $padding_base * 2.5;
+
+				.nt-info{
+					background: $firstColor;
+
+					.nt-name{
+						float: left;
+						padding-left: $padding2;
+					}
+
+					.nt-time{
+						float: right;
+						padding-right: $padding_base;
+					}
+				}
+
+				.nt-avatar{
+					float: left;
+					margin: $padding2;
+					width: $padding4 * 2;
+					height: $padding4 * 2;
+					@include border-radius(50%);
+				}
+			}
+
+			@include hover($secondColor);
+			&:last-child{ border-bottom: 0; }
+		}
+
+		@include scrollbar;
+	}
+
+	.header{
+		height: $header_size;
+		background: $secondColor;
+		line-height: $header_size;
+		font-size: $smallFont + .05;
+		border-bottom: $border_size solid $borderColor;
+
+		.right{
+			right: 0;
+			line-height: $header_size;
+
+			.far, .fas{
+				float: left;
+				cursor: pointer;
+				text-align: center;
+				width: $header_size;
+				line-height: $header_size;
+				@include hover($blueColor);
+			}
+		}
+
+		.label{
+			left: 0;
+			position: absolute;
+			padding-left: $padding_base;
+		}
+	}
+
+	.actived{ background: $blueColor; }
+}

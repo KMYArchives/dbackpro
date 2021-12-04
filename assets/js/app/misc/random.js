@@ -36,4 +36,12 @@ const Random = {
 		)
 	},
 
+	slug_range (min, max) {
+		return this.slug(
+			Math.floor(
+				Math.random() * (max - min + 1) + min
+			)
+		)
+	},
+
 }

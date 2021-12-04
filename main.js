@@ -18,6 +18,7 @@ Window = (params) => {
 		width: params.width,
 		height: params.height,
 		title: params.title || '',
+		frame: params.frame || false,
 		opacity: params.opacity || 1,
 		modal: params.modal || false,
 		parent: params.parent || null,
@@ -35,12 +36,11 @@ Window = (params) => {
 		skipTaskbar: params.skipTaskbar || false,
 		transparent: params.transparent || false,
 		alwaysOnTop : params.alwaysOnTop || false,
-		frame: params.frame ? params.frame : false,
+		icon: params.icon || './assets/imgs/icon.png',
 		backgroundColor: params.backgroundColor || '',
 		fullscreenable: params.fullscreenable || false,
 		useContentSize: params.useContentSize || false,
 		autoHideMenuBar: params.autoHideMenuBar || true,
-		icon: params.icon ? params.icon : './assets/imgs/icon.png',
 
 		webPreferences: {
 			preload: params.preload || null,
@@ -70,6 +70,8 @@ createWindow = () => {
 	mainWindow.removeMenu()
 	mainWindow.setMenuBarVisibility(false)
 	mainWindow.on('closed', e => mainWindow = null )
+
+	console.log(app.getPath("userData"))
 }
 
 openLinksWindow = () => {
@@ -90,9 +92,6 @@ openLinksWindow = () => {
 }
 
 all_ipc_functions = () => {
-	// Get folders app
-	ipcMain.on('get-folders-app', (path) => { return app.getPath(path) })
-
 	// Main window
 	ipcMain.on('close-main', e => { mainWindow.close() })
 	ipcMain.on('min-main', e => { mainWindow.minimize() })

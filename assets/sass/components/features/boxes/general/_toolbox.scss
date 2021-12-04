@@ -1,4 +1,4 @@
-.tools-list{
+.toolbox{
 	top: 0;
 	right: 0;
 	width: 17em;
@@ -37,8 +37,9 @@
 
 	.header{
 		text-align: center;
+		background: $secondColor;
 		line-height: $header_size;
-		font-size: $smallFont + .025;
+		font-size: $smallFont + .05;
 		border-right: $border_size solid $borderColor;
 	}
 
@@ -49,7 +50,8 @@
 		text-align: center;
 		font-size: $smallFont;
 		box-sizing: border-box;
-		line-height: $header_size - $padding3;
+		background: $secondColor;
+		line-height: $header_size;
 		border-right: $border_size solid $borderColor;
 		@include hover($blueColor);
 	}

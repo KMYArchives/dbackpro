@@ -42,29 +42,17 @@ const SideBar = class {
 
 	show (items) {
 		_.forEach(items, item => {
-			if (item.id != undefined) {
-				$(`${ 
-					this.element + ' > #' + item.id 
-				}`).show()
-			} else if (item.icon != undefined) {
-				$(`${ 
-					this.element + ' > .' + item.icon 
-				}`).show()
-			}
+			$(`${ 
+				this.element + ' > .' + item 
+			}`).show()
 		})
 	}
 
 	hide (items) {
 		_.forEach(items, item => {
-			if (item.id != undefined) {
-				$(`${ 
-					this.element + ' > #' + item.id 
-				}`).hide()
-			} else if (item.icon != undefined) {
-				$(`${ 
-					this.element + ' > .' + item.icon 
-				}`).hide()
-			}
+			$(`${ 
+				this.element + ' > .' + item 
+			}`).hide()
 		})
 	}
 

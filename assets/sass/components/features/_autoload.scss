@@ -1,16 +1,21 @@
 // Boxes
 @import 'boxes/share';
 @import 'boxes/conns';
-@import 'boxes/comment';
 @import 'boxes/collections';
-@import 'boxes/offline-box';
-@import 'boxes/table-status';
-@import 'boxes/list-def-links';
+
+// Boxes table
+@import 'boxes/table/comment';
+@import 'boxes/table/table-status';
+
+// Boxes general
+@import 'boxes/general/toolbox';
+@import 'boxes/general/notify-box';
+@import 'boxes/general/offline-box';
 
 // Menus
 @import 'menus/menu-user';
-@import 'menus/tools-list';
 @import 'menus/menu-actions';
+@import 'menus/context-menu';
 
 // Editor
 @import 'editor/comment-box';

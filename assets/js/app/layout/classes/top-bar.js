@@ -4,7 +4,6 @@ const TopBar = class {
 
 	render () {
 		$(this.element).append(`
-			<div id='back-page'></div>
 			<div class='label'>New connection</div>
 			
 			<nav>
@@ -29,7 +28,8 @@ const TopBar = class {
 	}
 	
 	set (items) {
-		var text, 
+		var text,
+			title,
 			actived_class
 
 		_.forEach(items, item => {
@@ -37,6 +37,12 @@ const TopBar = class {
 				text = item.text
 			} else {
 				text = ''
+			}
+
+			if (item.title != undefined) {
+				title = item.title
+			} else {
+				title = ''
 			}
 
 			if (item.actived != undefined && item.actived == true) {
@@ -49,7 +55,7 @@ const TopBar = class {
 				`<div class='${ 
 					item.class + ' ' + actived_class 
 				}' title='${ 
-					item.title 
+					title 
 				}' onclick='${ 
 					item.click 
 				}'>${
@@ -57,12 +63,6 @@ const TopBar = class {
 				}</div>`
 			)
 		})
-	}
-
-	iconBack (item) {
-		$(`${ this.element + ' > #back-page' }`).attr('onclick', item.click)
-		$(`${ this.element + ' > #back-page' }`).attr('title', item.title ? item.title : 'Back page')
-		$(`${ this.element + ' > #back-page' }`).attr('class', item.icon ? item.icon : 'fas fa-arrow-left')
 	}
 
 	constructor (element) { this.element = element }

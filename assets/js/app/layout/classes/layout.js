@@ -7,23 +7,23 @@ const Layout = class {
 		this.side.clean()
 		
 		this.side.set([
-			{
+			/*{
 				id: 'menu-app',
 				icon: 'fas fa-bars',
 				title: 'Menu',
 				click: 'Hello world()'
-			},
+			},*/
 			{
+				actived: true,
 				id: 'list-conns',
 				icon: 'fas fa-plug',
 				title: 'Connections',
-				click: 'Hello.world()'
+				click: 'ListConnections.page_load()'
 			},
 			{
 				id: 'list-databases',
 				icon: 'fas fa-database',
 				title: 'Databases',
-				actived: true,
 				click: 'Hello.world()'
 			},
 			{

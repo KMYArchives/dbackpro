@@ -10,6 +10,7 @@
 	margin-top: $frame_size;
 	margin-left: $left_bar_size;
 	border-left: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
 
 	nav{
 		float: right;
@@ -43,6 +44,8 @@
 		line-height: $header_size + $padding5;
 		@include hover($blueColor);
 	}
+
+	.custom{ float: right; }
 
 	.actived{ background: $blueColor; }
 }

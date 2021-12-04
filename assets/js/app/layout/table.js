@@ -81,6 +81,8 @@ const Table = {
 		})
 	},
 
+	count_rows () { $(`${ Table.tbody() } > tr`).length },
+
 	thead () {  return `${ el_content_app } > table > thead` },
 
 	tbody () {  return `${ el_content_app } > table > tbody` },

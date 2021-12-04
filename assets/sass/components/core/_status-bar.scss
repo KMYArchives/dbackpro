@@ -6,6 +6,7 @@
 	background: $firstColor;
 	height: $header_size - $padding2;
 	margin-left: $left_bar_size + $border_size;
+	border-top: $border_size solid $borderColor;
 
 	.tab{
 		width: 9em;
@@ -26,7 +27,7 @@
 	}
 
 	.fab, .far, .fas{
-		float: left;
+		float: right;
 		cursor: pointer;
 		width: $icon_size;
 		text-align: center;

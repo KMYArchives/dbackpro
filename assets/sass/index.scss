@@ -1,11 +1,6 @@
-@import 'extend';
-@import 'autoload';
-@import 'editor-autoload';
-
-*{
-	margin: 0;
-	padding: 0;
-}
+@import 'imports/extend';
+@import 'imports/autoload';
+@import 'imports/editor-autoload';
 
 body{
 	@include body;

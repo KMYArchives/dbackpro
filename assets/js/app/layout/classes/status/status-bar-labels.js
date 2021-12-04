@@ -24,18 +24,16 @@ const StatusBarLabels = class {
 	}
 	
 	set (items) {
-		var text
+		var text = '',
+			right = ''
 
 		_.forEach(items, item => {
-			if (item.text != undefined) {
-				text = item.text
-			} else {
-				text = ''
-			}
+			if (item.right != true) { right = 'right' }
+			if (item.text != undefined) { text = item.text }
 
 			$(`${ this.element }`).append(
 				`<div class='label ${
-					item.id
+					item.id + ' ' + right
 				}'>${
 					text
 				}</div>`
@@ -44,7 +42,7 @@ const StatusBarLabels = class {
 	}
 
 	del (items) {
-		if (items[0] == '*') {
+		if (items == '*' || items[0] == '*') {
 			this.clean()
 		} else {
 			_.forEach(items, item => {

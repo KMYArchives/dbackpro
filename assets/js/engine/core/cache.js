@@ -1,0 +1,5 @@
+const Cache = {
+	
+	// code....
+
+}

@@ -1,13 +1,11 @@
 .content{
-	height: 82.6%;
+	height: 82.7%;
 	overflow: auto;
 	position: absolute;
 	background: $bgColor;
 	margin-left: $left_bar_size;
 	width: calc(100% - $left_bar_size);
 	margin-top: $header_size + $frame_size;
-	border-top: $border_size solid $borderColor;
-	border-bottom: $border_size solid $borderColor;
 	
 	.msg-return{
 		left: 0;
