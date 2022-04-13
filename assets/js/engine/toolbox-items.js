@@ -4,7 +4,9 @@ const ToolboxTabs = {
 
 	official () {
 		toolbox_loader.clean()
-		toolbox_loader.change_tab('official')
+
+		Classes.remove(`#third-party`, act_class)
+		Classes.add(`#official`, act_class)
 
 		toolbox_loader.set([
 			{
@@ -27,7 +29,9 @@ const ToolboxTabs = {
 
 	third_party () {
 		toolbox_loader.clean()
-		toolbox_loader.change_tab('third-party')
+
+		Classes.remove(`#official`, act_class)
+		Classes.add(`#third-party`, act_class)
 
 		toolbox_loader.set([
 			{

@@ -23,7 +23,7 @@
 		border-bottom: $border_size solid $borderColor;
 	}
 
-	.far, .fas{
+	@include icons{
 		float: left;
 		text-align: center;
 		width: $padding_base;

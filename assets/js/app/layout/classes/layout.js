@@ -7,12 +7,6 @@ const Layout = class {
 		this.side.clean()
 		
 		this.side.set([
-			/*{
-				id: 'menu-app',
-				icon: 'fas fa-bars',
-				title: 'Menu',
-				click: 'Hello world()'
-			},*/
 			{
 				actived: true,
 				id: 'list-conns',

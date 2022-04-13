@@ -3,8 +3,8 @@ const TopBar = class {
 	element
 
 	render () {
-		$(this.element).append(`
-			<div class='label'>New connection</div>
+		El.append(this.element, `
+			<div class='label'></div>
 			
 			<nav>
 				<div class='label' id='total'></div>
@@ -16,13 +16,13 @@ const TopBar = class {
 	del (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > nav > .custom > #' + item.id 
-				}`).remove()
+				}`)
 			} else if (item.icon != undefined) {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > nav > .custom > .' + item.icon 
-				}`).remove()
+				}`)
 			}
 		})
 	}
@@ -51,8 +51,8 @@ const TopBar = class {
 				actived_class = ''
 			}
 
-			$(`${ this.element } > nav > .custom`).append(
-				`<div class='${ 
+			El.append(`${ this.element } > nav > .custom`, `
+				<div class='${ 
 					item.class + ' ' + actived_class 
 				}' title='${ 
 					title 
@@ -60,17 +60,17 @@ const TopBar = class {
 					item.click 
 				}'>${
 					text
-				}</div>`
-			)
+				}</div>
+			`)
 		})
 	}
 
 	constructor (element) { this.element = element }
 
-	clean () { $(`${ this.element } > nav > .custom`).empty() }
+	clean () { El.empty(`${ this.element } > nav > .custom`) }
 
-	title (text) { $(`${ this.element + ' > .label' }`).text(text) }
+	title (text) { El.text(`${ this.element + ' > .label' }`, text) }
 
-	total (items) { $(`${ this.element + ' > nav > #total' }`).text(items) }
+	total (items) { El.text(`${ this.element + ' > nav > #total' }`, items) }
 
 }

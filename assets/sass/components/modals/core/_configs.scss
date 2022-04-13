@@ -60,7 +60,7 @@
 				margin-left: $padding4; 
 			}
 			
-			.far, .fas{
+			@include icons{
 				float: right;
 				cursor: pointer;
 				line-height: $menu_size;

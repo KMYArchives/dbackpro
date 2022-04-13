@@ -26,7 +26,7 @@
 			cursor: pointer !important;
 			padding-left: $padding_base;
 
-			.fab, .far, .fas{
+			@include icons{
 				float: right;
 				cursor: pointer;
 				text-align: center;

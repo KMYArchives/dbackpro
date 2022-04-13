@@ -10,7 +10,7 @@
 	background: $firstColor;
 	border-right: $border_size solid $borderColor;
 
-	.fab, .far, .fas{
+	@include icons{
 		width: 100%;
 		cursor: pointer;
 		text-align: center;

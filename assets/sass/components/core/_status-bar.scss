@@ -26,7 +26,7 @@
 		line-height: $header_size + $padding3;
 	}
 
-	.fab, .far, .fas{
+	@include icons{
 		float: right;
 		cursor: pointer;
 		width: $icon_size;

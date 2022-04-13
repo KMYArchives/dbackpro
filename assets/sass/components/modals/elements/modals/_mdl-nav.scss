@@ -1,0 +1,22 @@
+.mdl-nav{
+	float: left;
+	width: 100%;
+	z-index: 9999999;
+	@include box-shadow;
+	background: $firstColor;
+	font-size: $smallFont + .05;
+	height: $padding_base * 2.6;
+	line-height: $padding_base * 2.6;
+	border-bottom: $border_size solid $borderColor;
+
+	.item, .tab{
+		width: 9em;
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		font-size: $smallFont + .05;
+		@include hover($secondColor);
+	}
+
+	.actived{ background-color: $secondColor; }
+}

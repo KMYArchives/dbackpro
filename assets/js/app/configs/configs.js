@@ -1,5 +1,3 @@
-window.$ = window.jQuery = require('jquery')
-
 const os = require('os'),
 	_ = require('lodash'),
 	open = require('open'),

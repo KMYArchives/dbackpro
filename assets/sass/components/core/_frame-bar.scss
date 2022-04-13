@@ -24,7 +24,7 @@
 		.fa-times{ @include hover($redColor); }
 	}
 
-	.far, .fas{
+	@include icons{
 		float: left;
 		font-size: 90%;
 		cursor: pointer;

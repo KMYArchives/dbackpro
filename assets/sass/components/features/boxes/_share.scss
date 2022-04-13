@@ -63,7 +63,7 @@
 		@include hover;
 	}
 
-	.fab, .fas, .far{
+	@include icons{
 		cursor: pointer;
 		padding: $padding_base;
 		font-size: $smallFont + .5;

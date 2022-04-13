@@ -1,0 +1,47 @@
+.mdl-title{
+	@include box-shadow;
+	height: $header_size;
+	background: $firstColor;
+	margin-top: $border_size;
+	line-height: $header_size;
+	
+	input{
+		width: 13em;
+		float: right;
+		border: none;
+		outline: none;
+		color: inherit;
+		font-size: $smallFont;
+		padding: $padding_base;
+		padding-top: $padding_base + .35;
+		padding-bottom: $padding_base + .35;
+
+		@include hover;
+		@include placeholder;
+	}
+
+	.label{
+		float: left;
+		outline: none;
+		font-size: $smallFont + .05;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		padding-top: $border_size / 2;
+		padding-bottom: $border_size / 2;
+	}
+
+	.actived{
+		color: $blueColor !important;
+		background: inherit !important;
+	}
+
+	@include icons{
+		float: right;
+		cursor: pointer;
+		margin-right: $padding_base;
+		line-height: $padding_base * 3;
+		@include hover(transparent, $blueColor);
+	}
+
+	.fa-times{ @include hover(transparent, $redColor); }
+}

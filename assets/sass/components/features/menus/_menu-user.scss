@@ -26,7 +26,7 @@
 		line-height: $header_size + $padding2;
 		border-bottom: $border_size solid $borderColor;
 
-		.fas, .far{
+		@include icons{
 			float: left;
 			text-align: center;
 			width: $header_size;

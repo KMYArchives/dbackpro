@@ -1,0 +1,20 @@
+.new-conn{
+	top: 50%;
+	left: 50%;
+	width: 28em;
+	height: 30em;
+	display: none;
+	position: fixed;
+	margin-top: -15em;
+	margin-left: -14em;
+	@include box-shadow;
+	background: $bgColor;
+	z-index: 9999999999999;
+
+	.mdl-content{
+		height: 22.6em;
+		overflow: auto;
+		padding: $padding_base;
+		@include scrollbar;
+	}
+}

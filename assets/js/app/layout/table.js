@@ -1,78 +1,93 @@
 const Table = {
 
-	header (items) {
-		this.clean_thead()
-		$(this.thead()).append(`<tr></tr>`)
+	thead (table = null) {
+		if (table) {
+			return `${ table } > thead`
+		} else {
+			return `${ el_content_app } > table > thead`
+		}
+	},
+
+	tbody (table = null) {
+		if (table) {
+			return `${ table } > tbody`
+		} else {
+			return `${ el_content_app } > table > tbody`
+		}
+	},
+
+	clean_table (table = null) {
+		this.clean_tbody(table)
+		this.clean_thead(table)
+	},
+
+	clean_thead (table = null) {
+		El.empty(
+			this.thead(table)
+		)
+	},
+
+	clean_tbody (table = null) {
+		El.empty(
+			this.tbody(table)
+		)
+	},
+
+	header (items, table = null) {
+		this.clean_thead(table)
+		
+		El.append(
+			this.thead(table), `<tr></tr>`
+		)
 
 		_.forEach(items, item => {
-			$(`${ 
-				this.thead()
-			} > tr`).append(`
+			El.append(`${ 
+				this.thead(table)
+			} > tr`, `
 				<th>${ item }</th>
 			`)
 		})
 	},
 
-	clean_table () {
-		this.clean_tbody()
-		this.clean_thead()
-	},
-
-	clean_thead () { 
-		$(
-			this.thead()
-		).empty()
-	},
-
-	clean_tbody () {
-		$(
-			this.tbody()
-		).empty()
-	},
-
-	del_rows (items) {
+	del_rows (items, table = null) {
 		if (items != '*' || items[0] != '*') {
 			_.forEach(items, item => {
-				$(`
-					${ this.tbody() } > .${ item }
-				`).remove()
+				El.remove(`
+					${ this.tbody(table) } > .${ item }
+				`)
 			})
 		} else {
-			this.clean_tbody()
+			this.clean_tbody(table)
 		}
 	},
 
-	add_rows_data (item_id, data) {
-		// coming soon...
-	},
+	add_rows (items, append = false, table = null) {
+		var item_id,
+			click = '',
+			slug_class
 
-	add_rows (items, append = false) {
-		var slug_class, item_id
-		if (append != true) { this.clean_tbody() }
-
+		if (append != true) { this.clean_tbody(table) }
 		_.forEach(items, item => {
-			slug_class = Random.slug(24)
+			slug_class = Slug.letters(32)
 			if (item.slug != undefined) { slug_class = item.slug }
-			item_id = `${ this.tbody() } > .${ slug_class }`
 
-			$(
-				this.tbody()
-			).append(`
-				<tr class='${
-					slug_class
-				}' onclick="${
+			if (item.click != undefined) {
+				click =  `onclick="${
 					item.click
-				}"></tr>
+				}"`
+			}
+			
+			item_id = `${ this.tbody(table) } > #${ slug_class }`
+			El.append(this.tbody(table), `
+				<tr id='${
+					slug_class
+				}' ${
+					click
+				}></tr>
 			`)
 
-			if (item.data != undefined) {
-				_.forEach(item.data, row_data => {
-					console.log(row_data)
-				})
-			}
-
 			_.forEach(item.rows, row_text => {
-				$(item_id).append(`
+				El.append(item_id, `
 					<td>${ 
 						row_text 
 					}</td>
@@ -80,11 +95,5 @@ const Table = {
 			})
 		})
 	},
-
-	count_rows () { $(`${ Table.tbody() } > tr`).length },
-
-	thead () {  return `${ el_content_app } > table > thead` },
-
-	tbody () {  return `${ el_content_app } > table > tbody` },
 
 }

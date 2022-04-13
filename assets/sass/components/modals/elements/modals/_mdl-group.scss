@@ -1,0 +1,46 @@
+.mdl-group{
+	font-size: $smallFont + .05;
+	margin-bottom: $padding_base;
+	border: $border_size solid $borderColor;
+
+	.mdl-group-title{
+		cursor: pointer;
+		background: $firstColor;
+		font-size: $smallFont + .1;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $padding_base * 2.5;
+	}
+	
+	.mdl-group-content{
+		text-align: center;
+		padding: $padding_base;
+		border-top: $border_size solid $borderColor;
+
+		input{
+			width: 92%;
+			color: inherit;
+			background: $firstColor;
+			margin-bottom: $padding2;
+			padding: 0 $padding_base;
+			height: $padding_base * 3;
+			font-size: $smallFont + .05;
+			border: $border_size solid $borderColor;
+
+			@include placeholder;
+			&:last-child{ margin-bottom: 0; }
+			@include hover($firstColor, inherit, $fontColor);
+		}
+
+		.label{
+			text-align: left;
+			padding-left: $padding2;
+			padding-right: $padding2;
+			font-size: $smallFont + .05;
+			line-height: $padding_base * 3;
+			&:first-child{ margin-top: -$padding_base; }
+		}
+	}
+
+	&:last-child{ margin-bottom: 0; }
+}

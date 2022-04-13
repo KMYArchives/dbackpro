@@ -1,3 +1,17 @@
+@mixin icons{
+	.fab, 
+	.far, 
+	.fas, 
+	.fa-thin, 
+	.fa-solid, 
+	.fa-light, 
+	.fa-brands, 
+	.fa-regular, 
+	.fa-duotone{
+		@content;
+	}
+}
+
 @mixin body {
 	margin: 0;
 	padding: 0;

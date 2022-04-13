@@ -3,12 +3,12 @@ const FrameBar = class {
 	element
 
 	render () {
-		$(this.element).append(`
+		El.append(this.element, `
 			<div class='fas fa-bars'></div>
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>
-				<div class='fas fa-toolbox' onclick='toolbox.toggle(this)'></div>
+				<div class='fas fa-toolbox' id='toggle-tools' onclick='toolbox.toggle()'></div>
 				<div class='far fa-bell' id='toggle-notify'>
 					<div class='counter-bubble'></div>
 				</div>
@@ -20,9 +20,9 @@ const FrameBar = class {
 	}
 
 	title (text) {
-		$(`${ 
+		El.text(`${ 
 			this.element + ' > .label' 
-		}`).text(`${
+		}`, `${
 			text
 		}`)
 	}

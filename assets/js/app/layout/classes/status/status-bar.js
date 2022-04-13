@@ -7,9 +7,9 @@ const StatusBar = class {
 			this.clean()
 		} else {
 			_.forEach(items, item => {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > nav > .' + item 
-				}`).remove()
+				}`)
 			})
 		}
 	}
@@ -39,8 +39,8 @@ const StatusBar = class {
 				actived_class = ''
 			}
 
-			$(`${ this.element } > nav`).append(
-				`<div class='${ 
+			El.append(`${ this.element } > nav`, `
+				<div class='${ 
 					item.class + ' ' + actived_class 
 				}' title='${ 
 					title 
@@ -48,15 +48,15 @@ const StatusBar = class {
 					item.click 
 				}">${
 					text
-				}</div>`
-			)
+				}</div>
+			`)
 		})
 	}
 
 	constructor (element) { this.element = element }
 
-	clean () { $(`${ this.element } > nav`).empty() }
+	clean () { El.empty(`${ this.element } > nav`) }
 
-	render () { $(this.element).append(`<nav></nav>`) }
+	render () { El.append(this.element, `<nav></nav>`) }
 
 }

@@ -1,0 +1,31 @@
+.mdl-list{
+	top: 0;
+	width: 16em;
+	display: none;
+	position: absolute;
+	@include box-shadow;
+	z-index: 99999999999;
+	background: $firstColor;
+	font-size: $smallFont + .05;
+	margin-top: $header_size * 2 + $padding3;
+	border-right: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+
+	.mdl-items{
+		overflow: auto;
+		max-height: 16em;
+
+		.item{
+			cursor: pointer;
+			padding-left: $padding_base;
+			padding-right: $padding_base;
+			line-height: $padding_base * 3;
+			border-bottom: $border_size solid $borderColor;
+	
+			@include hover;
+			&:last-child{ border-bottom: 0; }
+		}
+
+		@include scrollbar;
+	}
+}

@@ -1,0 +1,32 @@
+.mdl-menu{
+	top: 0;
+	float: left;
+	width: 15em;
+	display: none;
+	overflow: auto;
+	max-height: 16em;
+	position: absolute;
+	z-index: 99999999999;
+	background: $firstColor;
+	font-size: $smallFont + .025;
+	border-top: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+	margin-top: $header_size * 2 + $padding3 + $border_size;
+
+	.li{
+		outline: none;
+		display: block;
+		color: inherit;
+		cursor: pointer;
+		text-decoration: none;
+		padding: $padding_base;
+		border-bottom: $border_size solid $borderColor;
+
+		@include hover($secondColor);
+		@include icons{ float: right; }
+		&:last-child{ border-bottom: none; }
+	}
+
+	@include scrollbar;
+	select{ @include hover($secondColor); }
+}

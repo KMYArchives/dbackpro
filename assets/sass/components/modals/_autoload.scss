@@ -1,12 +1,18 @@
 // Element's of modal
-@import 'elements/mdl-els';
-@import 'elements/mdl-menus';
-@import 'elements/mdl-form-elements';
+@import 'elements/modals/mdl-bar';
+@import 'elements/modals/mdl-nav';
+@import 'elements/modals/mdl-mask';
+@import 'elements/modals/mdl-menu';
+@import 'elements/modals/mdl-list';
+@import 'elements/modals/mdl-title';
+@import 'elements/modals/mdl-group';
+@import 'elements/modals/mdl-form-elements';
 
 // Core
 @import 'core/login';
 @import 'core/configs';
 @import 'core/confirm';
+@import 'core/new-conn';
 @import 'core/activation';
 
 // Features

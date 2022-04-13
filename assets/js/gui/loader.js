@@ -1,4 +1,4 @@
-const layout = new Layout
+const layout = new Layout()
 const top_bar = new TopBar(el_topbar)
 const toolbox = new Toolbox(el_toolbox)
 const frame_bar = new FrameBar(el_framebar)

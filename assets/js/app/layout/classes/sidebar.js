@@ -12,7 +12,7 @@ const SideBar = class {
 				actived_class = ''
 			}
 
-			$(this.element).append(`
+			El.append(this.element, `
 				<div id='${
 					item.id
 				}' class='${ 
@@ -29,34 +29,34 @@ const SideBar = class {
 	del (items) {
 		_.forEach(items, item => {
 			if (item.id != undefined) {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > #' + item.id 
-				}`).remove()
+				}`)
 			} else if (item.icon != undefined) {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > .' + item.icon 
-				}`).remove()
+				}`)
 			}
 		})
 	}
 
 	show (items) {
 		_.forEach(items, item => {
-			$(`${ 
+			El.show(`${ 
 				this.element + ' > .' + item 
-			}`).show()
+			}`)
 		})
 	}
 
 	hide (items) {
 		_.forEach(items, item => {
-			$(`${ 
+			El.hide(`${ 
 				this.element + ' > .' + item 
-			}`).hide()
+			}`)
 		})
 	}
 
-	clean () { $(this.element).empty() }
+	clean () { El.empty(this.element) }
 
 	constructor (element) { this.element = element }
 

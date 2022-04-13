@@ -25,6 +25,7 @@
 
 		.name{ float: left; }
 		.value{ float: right; }
+		
 		&:last-child{ border-bottom: none; }
 		&:nth-child(even) { background: $secondColor; }
 	}

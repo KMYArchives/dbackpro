@@ -52,7 +52,7 @@
 			.icons{
 				float: right;
 	
-				.far, .fas{
+				@include icons{
 					float: left;
 					cursor: pointer;
 					width: $icon_size;
@@ -92,7 +92,7 @@
 		.icons{
 			float: right;
 
-			.far, .fas{
+			@include icons{
 				float: left;
 				cursor: pointer;
 				width: $icon_size;

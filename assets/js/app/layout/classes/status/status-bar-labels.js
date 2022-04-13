@@ -8,9 +8,9 @@ const StatusBarLabels = class {
 
 		_.forEach(items, item => {
 			labels.push(
-				$(`${ 
+				El.text(`${ 
 					this.element + ' > .' + item 
-				}`).text()
+				}`)
 			)
 
 			count_labels++	
@@ -31,13 +31,13 @@ const StatusBarLabels = class {
 			if (item.right != true) { right = 'right' }
 			if (item.text != undefined) { text = item.text }
 
-			$(`${ this.element }`).append(
-				`<div class='label ${
+			El.append(`${ this.element }`, `
+				<div class='label ${
 					item.id + ' ' + right
 				}'>${
 					text
-				}</div>`
-			)
+				}</div>
+			`)
 		})
 	}
 
@@ -46,23 +46,21 @@ const StatusBarLabels = class {
 			this.clean()
 		} else {
 			_.forEach(items, item => {
-				$(`${ 
+				El.remove(`${ 
 					this.element + ' > .' + item
-				}`).remove()
+				}`)
 			})
 		}
 	}
 	
 	edit (id, text) {
-		$(`${ 
+		El.text(`${ 
 			this.element + ' > .' + id 
-		}`).text(
-			text
-		)
+		}`, text)
 	}
 
 	constructor(element) { this.element = element }
 
-	clean () { $(`${ this.element } > .label`).empty() }
+	clean () { El.empty(`${ this.element } > .label`) }
 
 }

@@ -49,84 +49,14 @@
 	}
 }
 
-@mixin slide_features {
-	.features{
-		width: 100%;
-		height: auto;
-		max-height: 10em;
-		text-align: center;
-		background: $secondColor;
-		padding-top: $padding_base;
-		margin-left: -$padding_base;
-		padding-bottom: $padding_base;
-		border-bottom: $border_size solid $borderColor;
-
-		.label{
-			font-weight: lighter;
-			margin-left: -$padding4;
-			font-size: $smallFont + .2;
-			margin-bottom: $padding_base;
-		}
-
-		.count-alert{
-			color: $fontColor;
-			text-align: center;
-			background: $redColor;
-			padding: $padding_base;
-			font-size: $smallFont - .05;
-			margin-bottom: -$padding_base - $padding3;
-		}
-
-		@include spinner;
-		.spinner{
-			top: 0;
-			margin-top: 7em;
-			position: absolute;
-			margin-left: 10.5em;
-		}
-
-		.slide-btn{
-			top: 0;
-			width: 100%;
-			position: absolute;
-			text-align: center;
-			margin-top: 12.6em;
-			height: $padding_base * 2.4;
-			margin-bottom: $border_size;
-			line-height: $padding_base * 2.4;
-
-			.btn{
-				cursor: pointer;
-				width: $padding4;
-				height: $padding4;
-				margin-top: $padding3;
-				display: inline-block;
-				box-sizing: border-box;
-				background: $fontColor;
-				line-height: $padding_base * 2.4;
-				@include hover($blueColor);
-			}
-
-			.prev, .forw{
-				cursor: pointer;
-				text-align: center;
-				width: $padding_base * 2.5;
-				line-height: $padding_base * 2.5;
-				@include hover($firstColor, $fontColor);
-			}
-
-			.actived{ background: $blueColor; }
-		}
-	}
-}
-
-@mixin hover($background: $secondColor, $color: inherit, $bdr_color: $borderColor, $time: 1.2s) {
+@mixin hover($background: $secondColor, $color: inherit, $bdr_color: $borderColor) {
 	&:hover, &:focus{
 		outline: none;
 		color: $color;
 		border-color: $bdr_color;
 		background-color: $background;
-		@include transition(background-color $time);
+
+		@content;
 	}
 }
 

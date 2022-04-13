@@ -3,7 +3,7 @@ const Toolbox = class {
 	element
 
 	render () {
-		$(`${ this.element }`).append(`
+		El.append(`${ this.element }`, `
 			<div class='header'>Tools</div>
 
 			<div class='tab-tools actived' id='official' onclick='ToolboxTabs.official()'>Official</div>
@@ -15,38 +15,33 @@ const Toolbox = class {
 
 	set (items) {
 		_.forEach(items, item => {
-			$(`${ this.element } > .list`).append(
-				`<div id='${
+			El.append(`${ this.element } > .list`, `
+				<div id='${
 					item.id
 				}' class='item' onclick="${ 
 					item.click 
 				}">${
 					item.text
-				}</div>`
-			)
+				}</div>
+			`)
 		})
 	}
 
 	del (items) {
 		_.forEach(items, item => {
-			$(`${ 
+			El.remove(`${ 
 				this.element + ' > .list > #' + item.id 
-			}`).remove()
+			}`)
 		})
 	}
 
-	toggle (el_btn) {
-		$(this.element).slideToggle(250)
-		Classes.toggle(el_btn)
-	}
-
-	change_tab (tab) {
-		$(`${ this.element } > .tab-tools`).removeClass('actived')
-		$(`${ this.element } > .tab-tools#${ tab }`).addClass('actived')
+	toggle () {
+		El.toggle(this.element, act_class)
+		Classes.toggle('#toggle-tools', act_class)
 	}
 
 	constructor (element) { this.element = element }
 
-	clean () { $(`${ this.element } > .list`).empty() }
+	clean () { El.empty(`${ this.element } > .list`) }
 
 }

@@ -18,7 +18,7 @@
 		line-height: $header_size;
 		border-bottom: $border_size solid $borderColor;
 
-		.fab, .far, .fas{
+		@include icons{
 			width: 25%;
 			float: left;
 			cursor: pointer;

@@ -98,7 +98,7 @@
 			padding-left: $padding_base;
 		}
 
-		.far, .fas{
+		@include icons{
 			float: left;
 			cursor: pointer;
 			width: $icon_size;

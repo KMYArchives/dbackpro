@@ -10,4 +10,5 @@ const el_topbar = '#top-bar',
 	el_content_app = '#content-app',
 	el_menu_actions = '#menu-actions',
 
-	el_toolbox = '#toolbox'
+	el_toolbox = '#toolbox',
+	el_mdl_new_conn = '#mdl-new-conn'

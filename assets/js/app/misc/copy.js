@@ -1,7 +1,7 @@
 const Copy = {
 
 	input (input) {
-		$(input).select()
+		El.select(input)
 		document.execCommand('copy')
 	},
 

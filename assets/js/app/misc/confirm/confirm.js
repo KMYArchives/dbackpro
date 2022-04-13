@@ -1,27 +1,30 @@
 const Confirm = {
 
 	hide_all_box () {
-		$(menu_user).hide()
-		$(trash_box).hide()
-		$(share_box).hide()
-		$(conns_list).hide()
-		$(menu_action).hide()
-		$(history_box).hide()
-		$(contacts_box).hide()
-		$(collections_box).hide()
+		El.hide([
+			menu_user,
+			share_box,
+			conns_list,
+			menu_action,
+			history_box,
+			contacts_box,
+			collections_box
+		])
 	},
 
 	run (text, slug = null) {
 		Modals.close_all()
 		this.hide_all_box()
 
-		$(menu_btn).removeClass(act_class)
-		$(show_conns).removeClass(act_class)
-		$(menu_sidebar + ' > div').removeClass(act_class)
-		$(menu_manager + ' > .icon').removeClass(act_class)
+		Classes.remove([
+			menu_btn,
+			show_conns,
+			menu_sidebar,
+			menu_manager + ' > .icon'
+		], act_class)
 
-		$(confirm_mdl).empty()
-		$(confirm_mdl).append(`
+		El.empty(confirm_mdl).empty()
+		El.append(confirm_mdl, `
 			<div class='conf-content'>
 				<div class='label'>${ ConfirmMisc.text(text) }</div>
 				<input type='text' id='confirm-input' placeholder='${ ConfirmMisc.placeholder(text) }'>
@@ -34,9 +37,10 @@ const Confirm = {
 			</div>
 		`)
 
-		$(mask).fadeIn()
-		$(confirm_mdl).fadeIn()
-		if (Find.in_array(text, [ 'drop_table', 'rename_table', 'truncate_table' ])) { $('#confirm-input').show() }
+		Modals.show(mask)
+		if (Find.in_array(text, [
+			'drop_table', 'rename_table', 'truncate_table'
+		])) { El.show('#confirm-input') }
 	},
 
 }

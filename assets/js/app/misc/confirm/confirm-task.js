@@ -1,8 +1,10 @@
 const ConfirmTask = {
 
 	close_modal () {
-		$(mask).fadeOut()
-		$(confirm_mdl).fadeOut()
+		El.hide([
+			mask,
+			confirm_modal
+		])
 	},
 
 	close (item = null) {
@@ -20,8 +22,8 @@ const ConfirmTask = {
 	},
 
 	action (task = null) {
-		if ($('#confirm-input').val() != '') {
-			if ($('#confirm-input').val() == Storage.get('table')) {
+		if (El.value('#confirm-input') != '') {
+			if (El.value('#confirm-input') == Storage.get('table')) {
 				switch (task) {
 					case 'drop_table':
 						MySqlTableQueries.drop()
