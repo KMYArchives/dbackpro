@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .menu-user{
 	top: 0;
 	right: 0;
@@ -11,9 +13,9 @@
 	border-top: none !important;
 	border-left: none !important;
 	border-bottom: none !important;
-	padding-bottom: $border_size / 2;
 	margin-top: $frame_size + $header_size;
 	border: $border_size solid $borderColor;
+	padding-bottom: math.div($border_size, 2);
 
 	.item{
 		display: block;
@@ -54,7 +56,7 @@
 		cursor: pointer;
 		text-decoration: none;
 		padding: $padding_base;
-		margin-left: $border_size / 2;
+		margin-left: math.div($border_size, 2);
 		border-bottom: $border_size solid $borderColor;
 
 		.name{
@@ -76,10 +78,10 @@
 		.avatar{
 			float: left;
 			margin-right: $padding4;
-			margin-top: -$padding3 / 2;
 			@include border-radius(50%);
 			width: $header_size + $padding3;
 			height: $header_size + $padding3;
+			margin-top: math.div(-$padding3, 2);
 		}
 
 		@include hover($secondColor);

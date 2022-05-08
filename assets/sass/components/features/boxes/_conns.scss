@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .conns-box{
 	top: 0;
 	right: 0;
@@ -7,8 +9,8 @@
 	z-index: 99999999;
 	box-sizing: border-box;
 	background: $firstColor;
-	padding-bottom: $border_size / 2;
 	margin-top: $frame_size + $header_size;
+	padding-bottom: math.div($border_size, 2);
 	border-left: $border_size solid $borderColor;
 	border-bottom: $border_size solid $borderColor;
 

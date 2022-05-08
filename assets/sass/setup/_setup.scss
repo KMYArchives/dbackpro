@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $fontSize: 1em;
 $smallFont: .8em;
 
@@ -21,7 +23,7 @@ $left-bar_size: 3.5em;
 $form_input_size: 100%;
 $menu_settings_size: 9em;
 $windows_tools_size: 34em;
-$shadow_size: $padding3 / 2 $padding3 / 2 $padding3 / 2;
+$shadow_size: math.div($padding3, 2) math.div($padding3, 2) math.div($padding3, 2);
 
 $codeFont: 'Consolas';
 $font-path: '../fonts/';

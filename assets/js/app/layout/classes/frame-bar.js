@@ -4,7 +4,7 @@ const FrameBar = class {
 
 	render () {
 		El.append(this.element, `
-			<div class='fas fa-bars'></div>
+			<div class='fas fa-bars' id='menu-app-btn'></div>
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>

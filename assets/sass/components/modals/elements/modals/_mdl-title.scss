@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .mdl-title{
 	@include box-shadow;
 	height: $header_size;
@@ -26,8 +28,8 @@
 		font-size: $smallFont + .05;
 		padding-left: $padding_base;
 		padding-right: $padding_base;
-		padding-top: $border_size / 2;
-		padding-bottom: $border_size / 2;
+		padding-top: math.div($border_size, 2);
+		padding-bottom: math.div($border_size, 2);
 	}
 
 	.actived{

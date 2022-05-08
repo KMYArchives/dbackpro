@@ -36,6 +36,9 @@ const Toolbox = class {
 	}
 
 	toggle () {
+		El.hide(el_menu_app)
+		Classes.remove(el_menu_app_btn, act_class)
+
 		El.toggle(this.element, act_class)
 		Classes.toggle('#toggle-tools', act_class)
 	}

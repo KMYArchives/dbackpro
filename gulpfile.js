@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-sass')(require('sass')),
 	babel = require('gulp-babel'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),

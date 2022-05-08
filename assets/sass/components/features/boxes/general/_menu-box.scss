@@ -1,7 +1,7 @@
-.toolbox{
+.menu-box{
 	top: 0;
-	right: 0;
-	width: 17em;
+	left: 0;
+	width: 20em;
 	display: none;
 	position: fixed;
 	z-index: 999999999;
@@ -10,10 +10,11 @@
 	background: $firstColor;
 	border-radius: $padding2;
 	border-top: 0 !important;
-	border-right: 0 !important;
+	border-left: 0 !important;
+	border-top-left-radius: 0 !important;
 	margin-top: $frame_size + $border_size;
+	border-bottom-left-radius: 0 !important;
 	border: $border_size solid $borderColor;
-	margin-right: $header_size - $padding_base;
 	border-bottom: $padding solid $blueColor !important;
 
 	.item{
@@ -37,17 +38,54 @@
 		overflow: auto;
 		max-height: 16em;
 		padding: $padding_base;
+		border-top: $border_size solid $borderColor;
 		@include scrollbar;
 	}
 
 	.header{
+		height: 4em;
+		line-height: 4em;
 		text-align: center;
 		@include drop-shadow-sm;
 		background: $secondColor;
-		line-height: $header_size;
 		font-size: $smallFont + .05;
 		border-top-left-radius: $padding2;
 		border-top-right-radius: $padding2;
+
+		img{
+			float: left;
+			width: 2.5em;
+			margin-top: .75em;
+			border-radius: 50%;
+			margin-left: $padding4;
+			margin-right: $padding4;
+		}
+
+		.name{
+			float: left;
+			max-width: 15em;
+			cursor: pointer;
+			text-align: left;
+			&:hover, &:focus{ text-decoration: underline; }
+		}
+
+		.right{
+			float: right;
+			margin-right: $padding2;
+
+			@include icons{
+				width: 3em;
+				float: left;
+				cursor: pointer;
+				margin-top: .5em;
+				line-height: 3em;
+				text-align: center;
+				border-radius: $padding2;
+				@include hover(inherit, $blueColor);
+			}
+
+			.fa-arrow-right-from-bracket{ @include hover(inherit, $redColor); }
+		}
 	}
 
 	.tab-tools{

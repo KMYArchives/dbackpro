@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .configs-mdl{
 	top: 50%;
 	left: 50%;
@@ -52,7 +54,7 @@
 			height: $menu_size;
 			line-height: $menu_size;
 			font-size: $smallFont - .05;
-			padding-bottom: $border_size / 2;
+			padding-bottom: math.div($border_size, 2);
 			border-bottom: $border_size solid $borderColor;
 
 			.name{

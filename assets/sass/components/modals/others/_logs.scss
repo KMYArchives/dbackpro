@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .logs-mdl{
 	top: 50%;
 	left: 50%;
@@ -106,7 +108,7 @@
 					text-align: left;
 					padding: $padding_base;
 					background: $firstColor;
-					margin-bottom: -$padding3 / 2;
+					margin-bottom: math.div(-$padding3, 2);
 
 					@include scrollbar;
 				}

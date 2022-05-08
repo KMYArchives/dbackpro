@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .table-status{
 	right: 0;
 	width: 22em;
@@ -10,7 +12,7 @@
 	box-sizing: border-box;
 	background: $firstColor;
 	margin-top: $border_size;
-	padding-bottom: $border_size / 2;
+	padding-bottom: math.div($border_size, 2);
 	margin-right: $icon_size + $padding3 + .05;
 	border-left: $border_size solid $borderColor;
 
