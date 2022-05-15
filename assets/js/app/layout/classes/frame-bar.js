@@ -8,7 +8,6 @@ const FrameBar = class {
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>
-				<div class='fas fa-toolbox' id='toggle-tools' onclick='toolbox.toggle()'></div>
 				<div class='far fa-bell' id='toggle-notify'>
 					<div class='counter-bubble'></div>
 				</div>

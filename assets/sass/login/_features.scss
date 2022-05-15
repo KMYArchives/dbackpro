@@ -1,0 +1,42 @@
+.features{
+	width: 48%;
+	float: left;
+	height: 100%;
+	padding: $padding_base;
+	box-sizing: border-box;
+
+	.item{
+		height: 10vh;
+		display: block;
+		cursor: pointer;
+		line-height: 10vh;
+		font-size: $smallFont;
+		border-radius: $padding2;
+		border-color: transparent;
+
+		.label{
+			float: left;
+			text-decoration: none;
+		}
+
+		@include icons{
+			width: 10vh;
+			float: left;
+			line-height: 10vh;
+			text-align: center;
+		}
+
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-left: $padding solid $blueColor;
+		}
+	}
+
+	.header{
+		text-align: center;
+		font-size: $smallFont + .1;
+		margin-top: $padding_base + $padding2;
+		margin-bottom: $padding_base + $padding2;
+	}
+}

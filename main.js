@@ -1,15 +1,15 @@
 const {
 	app, 
+	Tray,
+	Menu,
 	ipcMain, 
 	BrowserWindow
 } = require('electron')
 
-var mainWindow, 
-	passWindow, 
-	aboutWindow,
-	linksWindow, 
-	sumixWindow, 
-	configsWindow
+var mainWindow,
+	loginWindow,
+	linksWindow,
+	splashWindow
 
 Window = (params) => {
 	return new BrowserWindow({
@@ -69,29 +69,17 @@ createWindow = () => {
 
 	mainWindow.removeMenu()
 	mainWindow.setMenuBarVisibility(false)
-	mainWindow.on('closed', e => mainWindow = null )
-
-	console.log(app.getPath("userData"))
-}
-
-openLinksWindow = () => {
-	linksWindow = Window({
-		width: 600,
-		height: 490,
-	})
-
-	linksWindow.removeMenu()
-	linksWindow.setMenuBarVisibility(false)
-	linksWindow.on('closed', e => linksWindow = null )
-
-	linksWindow.loadFile('pages/links-history.html')
-	linksWindow.once('ready-to-show', e => {
-		linksWindow.show()
-		linksWindow.webContents.openDevTools()
-	})
+	mainWindow.on('closed', e => mainWindow = null)
 }
 
 all_ipc_functions = () => {
+	// Open login screen
+	ipcMain.on('open-login', e => { loginScreenWindow() })
+
+	// Close splash screen and open main screen
+	ipcMain.on('open-main', e => { createWindow() })
+	ipcMain.on('close-splash', e => { splashWindow.close() })
+
 	// Main window
 	ipcMain.on('close-main', e => { mainWindow.close() })
 	ipcMain.on('min-main', e => { mainWindow.minimize() })
@@ -100,11 +88,52 @@ all_ipc_functions = () => {
 	ipcMain.on('open-links', e => { openLinksWindow() })
 	ipcMain.on('close-links', e => { linksWindow.close() })
 	ipcMain.on('min-links', e => { linksWindow.minimize() })
+
+	// Main window
+	ipcMain.on('close-login', e => { loginWindow.close() })
+	ipcMain.on('min-login', e => { loginWindow.minimize() })
+}
+
+loginScreenWindow = () => {
+	loginWindow = Window({
+		width: 540,
+		height: 380,
+		modal: true,
+		parent: mainWindow
+	})
+
+	loginWindow.loadFile('pages/login.html')
+	loginWindow.once('ready-to-show', e => {
+		loginWindow.show()
+		loginWindow.webContents.openDevTools()
+	})
+
+	loginWindow.removeMenu()
+	loginWindow.setMenuBarVisibility(false)
+	loginWindow.on('closed', e => mainWindow = null)
+}
+
+splashScreenWindow = () => {
+	splashWindow = Window({
+		width: 480,
+		height: 360,
+		show: false,
+	})
+
+	splashWindow.loadFile('pages/splash.html')
+	splashWindow.once('ready-to-show', e => {
+		splashWindow.show()
+		splashWindow.webContents.openDevTools()
+	})
+
+	splashWindow.removeMenu()
+	splashWindow.setMenuBarVisibility(false)
+	splashWindow.on('closed', e => splashWindow = null)
 }
 
 app.whenReady().then( e => {
-	createWindow()
 	all_ipc_functions()
+	splashScreenWindow()
 
 	app.on('activate', function () {
 		if (BrowserWindow.getAllWindows().length === 0) createWindow()

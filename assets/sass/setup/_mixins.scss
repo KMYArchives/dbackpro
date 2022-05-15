@@ -19,6 +19,8 @@
 	font-family: $font;
 	font-size: $fontSize;
 	background: $bgColor;
+
+	@content;
 	
 	@include scrollbar;
 	@include no-text-select;

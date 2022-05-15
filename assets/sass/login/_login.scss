@@ -1,0 +1,109 @@
+.login{
+	width: 52%;
+	float: left;
+	height: 100%;
+	padding: $padding_base;
+	box-sizing: border-box;
+
+	.box{
+		width: 100%;
+		margin-top: 1.5vh;
+		position: relative;
+		@include drop-shadow-sm;
+		background: $secondColor;
+		border-radius: $padding2;
+
+		.msg{
+			height: 8vh;
+			display: none;
+			line-height: 8vh;
+			text-align: center;
+			font-size: $smallFont;
+			background: $firstColor;
+			padding-left: $padding_base;
+			border-bottom: $border_size solid $borderColor;
+		}
+
+		.link{
+			display: block;
+			line-height: 9vh;
+			letter-spacing: .1em;
+			font-size: $smallFont;
+			padding-left: $padding_base;
+		}
+
+		.title{
+			width: 100%;
+			height: 9vh;
+			line-height: 9vh;
+			text-align: center;
+			background: $firstColor;
+			font-size: $smallFont + .05;
+			border-top-left-radius: $padding2;
+			border-top-right-radius: $padding2;
+			border-bottom: $border_size solid $borderColor;
+		}
+
+		button{
+			width: 100%;
+			height: 9vh;
+			border: none;
+			color: inherit;
+			cursor: pointer;
+			line-height: 9vh;
+			text-align: center;
+			background: $firstColor;
+			font-size: $smallFont + .05;
+			border-bottom-left-radius: $padding2;
+			border-bottom-right-radius: $padding2;
+			border-top: $border_size solid $borderColor;
+
+			@include hover($blueColor) {
+				@include drop-shadow-sm;
+				transition: .3s ease-in-out;
+				border-bottom-color: $blueColor;
+			}
+		}
+
+		.input-group{
+			input{
+				height: 6vh;
+				width: 89.5%;
+				border: none;
+				display: block;
+				color: inherit;
+				padding-left: 5%;
+				line-height: 6vh;
+				padding-right: 5%;
+				background: inherit;
+				padding-top: $padding2;
+				padding-bottom: $padding2;
+				font-size: $smallFont + .05;
+				border-bottom: $border_size solid $secondColor;
+
+				@include hover($firstColor) {
+					@include drop-shadow-sm;
+					transition: .3s ease-in-out;
+					border-bottom-color: $blueColor;
+				}
+			}
+
+			.label{
+				display: block;
+				line-height: 8vh;
+				letter-spacing: .1em;
+				font-size: $smallFont;
+				padding-left: $padding_base;
+
+				@include icons{
+					height: 8vh;
+					float: right;
+					cursor: pointer;
+					line-height: 8vh;
+					margin-right: $padding_base;
+					@include hover(inherit, $blueColor);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+.body-area{
+	top: 0;
+	width: 100%;
+	height: 92.2vh;
+	overflow: auto;
+	position: fixed;
+	margin-top: $frame_size;
+	
+	@import 'login';
+	@import 'features';
+
+	@include scrollbar;
+}

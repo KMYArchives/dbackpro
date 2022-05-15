@@ -41,6 +41,16 @@ let File = {
 			}
 		})
 	},
+	
+	new_folder (folder) {
+		if (Array.isArray(folder)) {
+			folder.forEach( path => {
+				if (this.has(path) == false) { fs.mkdirSync(path) }
+			})
+		} else {
+			if (this.has(folder) == false) { fs.mkdirSync(folder) }
+		}
+	},
 
 	size (file, format = false) {
 		var file_size = fs.statSync(file).size
@@ -73,16 +83,6 @@ let File = {
 		})
 	
 		return datetime.create(date_time).format('m-d-Y H:M:S')
-	},
-	
-	new_folder (folder, multiple = false) {
-		if (multiple == true) {
-			folder.forEach( path => {
-				if (this.has(path) == false) { fs.mkdirSync(path) }
-			})
-		} else {
-			if (this.has(path) == false) { fs.mkdirSync(path) }
-		}
 	},
 
 }

@@ -30,11 +30,7 @@ const ListConnections = {
 		).from(
 			'conns'
 		).then( callback => {
-			topbar_loader.total(`
-				${ 
-					callback[0]['count(*)'] 
-				} item's
-			`)
+			topbar_loader.total(`${ callback[0]['count(*)'] } item's`)
 		})
 	},
 

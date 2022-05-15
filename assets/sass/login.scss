@@ -1,0 +1,10 @@
+@import 'imports/extend';
+@import 'imports/effects';
+@import 'imports/autoload';
+
+body{
+	@include body;
+    
+	@import 'login/body-area';
+	@import 'components/core/frame-bar';
+}

@@ -1,0 +1,16 @@
+@import 'imports/effects';
+@import 'imports/autoload';
+
+body{
+	@include body{
+		cursor: default;
+		background-size: cover;
+		@include no-text-select;
+		background-position: center;
+		background-repeat: no-repeat;
+		background: url($splash_screen_bg) !important;
+	};
+
+	@import 'splash/body-area';
+	@import 'splash/footer-area';
+}

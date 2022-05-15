@@ -1,4 +1,6 @@
 const os = require('os'),
+	xss = require('xss'),
+	md5 = require('md5'),
 	_ = require('lodash'),
 	open = require('open'),
 	knex = require('knex'),

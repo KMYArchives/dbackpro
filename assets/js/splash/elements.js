@@ -1,0 +1,1 @@
+var el_splash_text = '.splash-txt'

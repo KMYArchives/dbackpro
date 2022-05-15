@@ -68,6 +68,19 @@ gulp.task('gui', e => {
 		.pipe(gulp.dest('./assets/js/'))
 })
 
+gulp.task('splash', e => {
+	return gulp.src(['./assets/js/splash/**/*.js'])
+		.pipe(plumber())
+		.pipe(babel({
+			compact: false,
+			presets: ['@babel/env']
+		}))
+		.pipe(uglify())
+		.pipe(concat('splash.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./assets/js/'))
+})
+
 gulp.task('sass', e => {
 	gulp.watch([
 		'assets/sass/**/*.{scss, sass}'
@@ -84,6 +97,7 @@ gulp.task('js', e => {
 		'app', 
 		'engine',
 		'plugins',
-		'gui' 
+		'gui',
+		'splash'
 	]))
 })

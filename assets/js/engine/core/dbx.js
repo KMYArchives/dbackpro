@@ -3,7 +3,7 @@ var DBX = knex({
 	
 	connection: {
 		filename: Core.get_file(
-			'app', 'dbackpro.db', false
+			'app', 'dbackpro.db'
 		)
 	},
 })
