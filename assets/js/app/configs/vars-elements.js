@@ -1,7 +1,6 @@
 const close_btn = '#close',
 	act_class = 'actived',
-	minimize_btn = '#minimize',
-	toggle_toolbox = '#toggle-toolbox'
+	minimize_btn = '#minimize'
 
 const el_topbar = '#top-bar',
 	el_framebar = '#frame-bar', 
@@ -9,6 +8,7 @@ const el_topbar = '#top-bar',
 	el_sidebar = '#left-sidebar',
 	el_content_app = '#content-app',
 	el_menu_actions = '#menu-actions',
+	el_list_content = el_content_app + ' > #list-content',
 
 	el_toolbox = '#toolbox',
 	el_mdl_new_conn = '#mdl-new-conn',
@@ -18,3 +18,6 @@ const el_topbar = '#top-bar',
 
 	el_error_login = '#login-error',
 	el_menu_box_avatar = '#menu-box-avatar'
+
+// Variables of storage
+var store_force_update = 'forcedUpdate'

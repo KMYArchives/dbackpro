@@ -7,6 +7,7 @@ const SplashScreen = {
 	
 				Core.get_path('app/cache'),
 				Core.get_path('app/tasks'),
+				Core.get_path('app/dumps'),
 				Core.get_path('app/models'),
 				Core.get_path('app/clients'),
 				Core.get_path('app/plugins'),

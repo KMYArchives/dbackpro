@@ -7,9 +7,8 @@ const {
 } = require('electron')
 
 var mainWindow,
-	loginWindow,
-	linksWindow,
-	splashWindow
+	splashWindow,
+	customWindow
 
 Window = (params) => {
 	return new BrowserWindow({
@@ -73,9 +72,6 @@ createWindow = () => {
 }
 
 all_ipc_functions = () => {
-	// Open login screen
-	ipcMain.on('open-login', e => { loginScreenWindow() })
-
 	// Close splash screen and open main screen
 	ipcMain.on('open-main', e => { createWindow() })
 	ipcMain.on('close-splash', e => { splashWindow.close() })
@@ -84,33 +80,12 @@ all_ipc_functions = () => {
 	ipcMain.on('close-main', e => { mainWindow.close() })
 	ipcMain.on('min-main', e => { mainWindow.minimize() })
 
-	// Opem links window
-	ipcMain.on('open-links', e => { openLinksWindow() })
-	ipcMain.on('close-links', e => { linksWindow.close() })
-	ipcMain.on('min-links', e => { linksWindow.minimize() })
-
 	// Main window
 	ipcMain.on('close-login', e => { loginWindow.close() })
 	ipcMain.on('min-login', e => { loginWindow.minimize() })
-}
 
-loginScreenWindow = () => {
-	loginWindow = Window({
-		width: 540,
-		height: 380,
-		modal: true,
-		parent: mainWindow
-	})
-
-	loginWindow.loadFile('pages/login.html')
-	loginWindow.once('ready-to-show', e => {
-		loginWindow.show()
-		loginWindow.webContents.openDevTools()
-	})
-
-	loginWindow.removeMenu()
-	loginWindow.setMenuBarVisibility(false)
-	loginWindow.on('closed', e => mainWindow = null)
+	// Close custom window
+	ipcMain.on('close-custom', e => { customWindow.close() })
 }
 
 splashScreenWindow = () => {
@@ -123,7 +98,7 @@ splashScreenWindow = () => {
 	splashWindow.loadFile('pages/splash.html')
 	splashWindow.once('ready-to-show', e => {
 		splashWindow.show()
-		splashWindow.webContents.openDevTools()
+		//splashWindow.webContents.openDevTools()
 	})
 
 	splashWindow.removeMenu()
@@ -142,4 +117,41 @@ app.whenReady().then( e => {
 
 app.on('window-all-closed', function () {
 	if (process.platform !== 'darwin') app.quit()
+})
+
+ipcMain.on('open-screen', (event, params) => {
+	// regex to check params.url is url
+	if (params.parent) {
+		params.modal = true
+
+		switch (params.parent) {
+			case 'main':
+				params.parent = mainWindow
+				break
+			
+			case 'login':
+				params.parent = loginWindow
+				break
+	
+			default:
+				params.parent = mainWindow
+				break
+		}
+	}
+
+	customWindow = Window(params)
+	if (params.url.match(/^(http|https):\/\/[^ "]+$/)) {
+		customWindow.loadURL(params.url)
+	} else {
+		customWindow.loadFile(params.url)
+	}
+
+	customWindow.once('ready-to-show', e => {
+		customWindow.show()
+		customWindow.webContents.openDevTools()
+	})
+
+	customWindow.removeMenu()
+	customWindow.setMenuBarVisibility(false)
+	customWindow.on('closed', e => customWindow = null)
 })

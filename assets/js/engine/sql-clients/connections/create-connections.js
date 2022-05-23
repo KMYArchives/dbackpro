@@ -1,5 +1,0 @@
-const CreateConnections = {
-
-	// code...
-
-}

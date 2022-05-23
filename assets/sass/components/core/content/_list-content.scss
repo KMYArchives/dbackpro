@@ -1,0 +1,79 @@
+.list-content{
+	width: 130vh;
+	margin: auto;
+	margin-top: 4vh;
+	margin-bottom: 4vh;
+
+	.item{
+		height: 4em;
+		color: inherit;
+		display: block;
+		cursor: pointer;
+		line-height: 4em;
+		text-decoration: none;
+		box-sizing: border-box;
+		background: $firstColor;
+		margin-bottom: $padding2;
+		border-radius: $padding2;
+		border-left-color: transparent;
+
+		.host,
+		.name, 
+		.user, 
+		.icon,
+		.menu{
+			float: left;
+			font-size: $smallFont + .05;
+		}
+
+		.icon{
+			width: 4em;
+			height: 4.7em;
+			line-height: 4.7em;
+			text-align: center;
+		}
+
+		.menu{
+			width: 8.25em;
+
+			@include icons{
+				width: 4em;
+				float: left;
+				height: 4.7em;
+				line-height: 4.7em;
+				text-align: center;
+				border-radius: $padding2;
+				@include hover($blueColor) { transition: .3s ease-in-out; }
+			}
+		}
+
+		.host{ width: 18em; }
+
+		.user{ width: 14em; }
+
+		.name{ width: 21.9em; }
+
+		@include hover($secondColor) {
+			@include drop-shadow-sm;
+			transition: .3s ease-in-out;
+			border-left: $padding solid $blueColor;
+		}
+	}
+
+	.zero{
+		height: 4em;
+		color: inherit;
+		display: block;
+		cursor: default;
+		line-height: 4em;
+		text-decoration: none;
+		box-sizing: border-box;
+		padding-left: $padding2;
+		@include drop-shadow-sm;
+		margin-bottom: $padding2;
+		border-radius: $padding2;
+		background: $secondColor;
+		font-size: $smallFont + .05;
+		border-left: $padding solid $blueColor;
+	}
+}

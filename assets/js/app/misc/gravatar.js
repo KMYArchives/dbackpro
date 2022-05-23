@@ -56,4 +56,11 @@ const Gravatar = {
 		}
 	},
 
+	auto_download () {
+		if (Storage.has(store_force_update) && Storage.get(store_force_update) == 'download-avatar') {
+			this.download()
+			Storage.delete(store_force_update)
+		}
+	}
+
 }

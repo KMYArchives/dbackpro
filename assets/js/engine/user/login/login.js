@@ -38,7 +38,12 @@ const Login = {
 			Classes.remove(el_menu_app_btn, act_class)
 			El.hide(el_menu_app)
 
-			Windows.login_open()
+			Windows.load_custom({
+				width: 540,
+				height: 380,
+				parent: 'main',
+				url: 'pages/login.html',
+			})
 		}
 	},
 

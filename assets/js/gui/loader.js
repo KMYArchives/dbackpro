@@ -9,4 +9,5 @@ top_bar.render()
 frame_bar.render()
 status_bar.render()
 
+RealTime.tasks()
 ListConnections.page_load()

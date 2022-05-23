@@ -1,0 +1,14 @@
+.msg-return{
+	left: 0;
+	width: 100%;
+	display: none;
+	z-index: 999999;
+	position: fixed;
+	background: $firstColor;
+	font-size: $smallFont + .05;
+	padding-left: $padding_base;
+	height: $padding_base * 3.5;
+	line-height: $padding_base * 3.5;
+	border-top: $border_size solid $borderColor;
+	border-bottom: $border_size solid $borderColor;
+}

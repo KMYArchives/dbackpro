@@ -16,7 +16,7 @@ const Classes = {
 		}
 	},
 
-	_remove_class (elem, class_name) {
+	_remove_classes (elem, class_name) {
 		if (/\s/.test(class_name)) {
 			class_name.split(' ').forEach( class_css => {
 				Classes._remove(elem, class_css)
@@ -50,10 +50,10 @@ const Classes = {
 		} else {
 			if (Array.isArray(elem)) {
 				elem.forEach( e => {
-					Classes._remove_class(e, class_name)
+					Classes._remove_classes(e, class_name)
 				})
 			} else {
-				Classes._remove_class(elem, class_name)
+				Classes._remove_classes(elem, class_name)
 			}
 		}
 	},

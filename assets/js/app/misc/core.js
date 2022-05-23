@@ -13,6 +13,7 @@ const Core = {
 			case 'roaming': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming')
 			case 'app': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro')
 			case 'app/cache': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro\\cache')
+			case 'app/dumps': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro\\dumps')
 			case 'app/tasks': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro\\tasks')
 			case 'app/models': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro\\models')
 			case 'app/clients': return Find.replace_all(tmp_dir, '\\Local\\Temp', '\\Roaming\\dbackpro\\clients')

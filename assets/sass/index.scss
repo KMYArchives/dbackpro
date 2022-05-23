@@ -14,4 +14,7 @@ body{
 
 	@import 'components/modals/autoload';
 	@import 'components/features/autoload';
+	
+	@import 'components/pages/login/login-body-area';
+	@import 'components/pages/new-conn/new-conn-body-area';
 }

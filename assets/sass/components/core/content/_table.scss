@@ -1,0 +1,8 @@
+@include table;
+table{
+	width: 95%;
+	table-layout: fixed;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin: $padding_base + $padding2;
+}

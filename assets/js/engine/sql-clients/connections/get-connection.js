@@ -1,6 +1,24 @@
 const GetConnection = {
 
-	get (slug) {},
+	get () {
+		if (Storage.has('editConnID')) {
+			DBX.select(
+				'*'
+			).from(
+				'conns'
+			).where({
+				slug: Storage.get('editConnID')
+			}).then( callback => {
+				El.value('#conn-name', callback[0].name)
+				El.value('#conn-host', callback[0].host)
+				El.value('#conn-port', callback[0].port)
+				El.value('#conn-user', callback[0].user)
+				El.value('#conn-driver', callback[0].driver)
+				El.value('#conn-pass', callback[0].password)
+				El.value('#conn-timeout', callback[0].timeout)
+			})
+		}
+	},
 
 	connect (slug) {
 		mysql_conn = knex({

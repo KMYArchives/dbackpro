@@ -28,11 +28,18 @@ const TopBar = class {
 	}
 	
 	set (items) {
-		var text,
+		var id,
+			text,
 			title,
 			actived_class
 
 		_.forEach(items, item => {
+			if (item.id != undefined) {
+				id = `id='${ item.id }'`
+			} else {
+				id = ''
+			}
+
 			if (item.text != undefined) {
 				text = item.text
 			} else {
@@ -54,7 +61,9 @@ const TopBar = class {
 			El.append(`${ this.element } > nav > .custom`, `
 				<div class='${ 
 					item.class + ' ' + actived_class 
-				}' title='${ 
+				}' ${
+					id
+				} title='${ 
 					title 
 				}' onclick='${ 
 					item.click 

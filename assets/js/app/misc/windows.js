@@ -5,9 +5,16 @@ const Windows = {
 		this.window_close('splash')
 	},
 
-	login_open () { this.open('login') },
+	custom_close () {
+		Storage.delete('editConnID')
+		this.window_close('custom')
+	},
 
-	login_close () { this.window_close('login') },
+	load_custom (params) {
+		ipcRenderer.send(
+			'open-screen', params
+		)
+	},
 
 	main_window_close () { this.window_close('main') },
 

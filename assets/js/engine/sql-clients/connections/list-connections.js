@@ -4,23 +4,22 @@ var topbar_loader = new TopBar(el_topbar),
 const ListConnections = {
 
 	list () {
-		Table.clean_table()
-		Table.header([ 'Name', 'Host', 'User', 'Added in' ])
+		El.empty(el_list_content)
 
 		DBX.select([
 			'slug', 'name', 'host', 'user', 'added_in'
 		]).from(
 			'conns'
 		).then( callback => {
-			callback.forEach( conn => {
-				Table.add_rows([
-					{
-						slug: conn.slug,
-						click: "Hello.world()",
-						rows: [ conn.name, conn.host, conn.user, conn.added_in ]
-					}
-				], true)
-			})
+			if (callback.length > 0) { 
+				callback.forEach( conn => {
+					this.item_layout(conn)
+				})
+			} else {
+				El.append(el_list_content, `
+					<div class="zero">No connection's</div>
+				`)
+			}
 		})
 	},
 
@@ -41,13 +40,19 @@ const ListConnections = {
 				id: 'create-conn',
 				icon: 'fas fa-plus',
 				title: 'Create connection',
+				click: 'ManagerConnections.open()'
+			},
+			{
+				id: 'search-conn',
+				icon: 'fas fa-search',
+				title: 'Search connections',
 				click: 'Hello.world()'
 			},
 			{
 				id: 'delete-conn',
 				icon: 'fas fa-trash-alt',
 				title: 'Delete all connections',
-				click: 'Hello.world()'
+				click: 'DeleteConnections.clear()'
 			},
 		])
 	},
@@ -62,6 +67,35 @@ const ListConnections = {
 		this.list()
 		this.top_bar()
 		this.sidebar()
+	},
+
+	item_layout (conn) {
+		El.append(el_list_content, `
+			<div class="item">
+				<div onclick="alert('${ conn.slug }')">
+					<div class="icon">
+						<div class="fas fa-server"></div>
+					</div>
+
+					<div class="name">${ conn.name }</div>
+					<div class="host">${ conn.host }</div>
+					<div class="user">${ conn.user }</div>
+				</div>
+
+				<div class="menu">
+					<div class="fas fa-pen" onclick="ManagerConnections.get('${ conn.slug }')"></div>
+					<div class="fas fa-trash-alt" onclick="DeleteConnections.delete('${ conn.slug }')"></div>
+				</div>
+			</div>
+		`)
+	},
+
+	auto_refresh_list () {
+		if (Storage.has(store_force_update) && Storage.get(store_force_update) == 'list-conns') {
+			this.list()
+			this.total()
+			Storage.delete(store_force_update)
+		}
 	},
 
 }

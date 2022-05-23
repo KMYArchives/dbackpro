@@ -56,7 +56,9 @@ const UserDB = {
 					'configs'
 				).then( callback => {
 					this.get()
-					Windows.login_close()
+					Storage.set(store_force_update, 'download-avatar')
+					
+					Windows.custom_close()
 				})
 			}
 		})
