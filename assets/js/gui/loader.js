@@ -7,7 +7,6 @@ const status_bar_labels = new StatusBarLabels(el_statusbar)
 layout.render()
 top_bar.render()
 frame_bar.render()
-status_bar.render()
 
 RealTime.tasks()
 ListConnections.page_load()

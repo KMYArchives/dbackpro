@@ -2,17 +2,18 @@
 	top: 50%;
 	left: 50%;
 	width: 42em;
-	height: 26em;
 	display: none;
 	position: fixed;
+	margin-top: -16em;
 	margin-left: -21em;
-	margin-top: -13.5em;
 	z-index: 9999999999999;
+	@include drop-shadow-sm;
 	background: $firstColor;
+	border-radius: $padding2;
 
 	.CodeMirror{
 		padding: 0;
-		height: 23em;
+		height: 24em;
 		direction: ltr;
 		overflow: hidden;
 		color: #707070;

@@ -19,8 +19,8 @@ const SplashScreen = {
 		}, 1000)
 	},
 
-	download () {
-		setTimeout( e=> {
+	download_db () {
+		setTimeout( e => {
 			fetch(`${ Apis.core() }private/app-files/list-all?product=dbackpro`).then(
 				json => json.json()
 			).then( callback => {
@@ -49,6 +49,58 @@ const SplashScreen = {
 		setTimeout( e => {
 			Windows.load_main()
 		}, 4000)
+	},
+
+	download_sync () {
+		if (Storage.has('userData')) {
+			setTimeout( e => {
+				var data = JSON.parse(Storage.get('userData'))
+
+				fetch(`${ Apis.core() }private/backups/get?product=dbackpro&username=${ data.id }`).then(
+					json => json.json()
+				).then( callback => {
+					_.forEach(callback.list, item => {
+						if (!File.has(
+							Core.get_file('app', item.original_name)
+						)) {
+							if (download(
+								Find.replace(
+									item.download, 'https', 'http'
+								)
+							).pipe(
+								fs.createWriteStream(
+									Core.get_file('app', item.original_name)
+								)
+							)) {
+								El.text(el_splash_text, 'File was downloaded with successfully...')
+							}
+						}
+					})
+				})
+			}, 1000)
+		}
+	},
+
+	download_gravatar () {
+		if (Storage.has('userData') && !File.has(
+			Core.get_file('app/cache', 'avatar.png')
+		)) {
+			var data = JSON.parse(
+				Storage.get('userData')
+			)
+
+			download(
+				data.gravatar	
+			).pipe(
+				fs.createWriteStream(
+					Core.get_file('app/cache', 'avatar.png')
+				)
+			)
+
+			setTimeout( e => {
+				El.text(el_splash_text, 'Download user avatar...')
+			}, 1000)
+		}
 	},
 
 }

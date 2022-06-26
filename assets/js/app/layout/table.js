@@ -1,5 +1,25 @@
 const Table = {
 
+	show (table = null) {
+		if (table) {
+			table = table
+		} else {
+			table = `${ el_content_app } > table`
+		}
+
+		El.show(table)
+	},
+
+	hide (table = null) {
+		if (table) {
+			table = table
+		} else {
+			table = `${ el_content_app } > table`
+		}
+
+		El.hide(table)
+	},
+
 	thead (table = null) {
 		if (table) {
 			return `${ table } > thead`

@@ -7,6 +7,7 @@ const {
 } = require('electron')
 
 var mainWindow,
+	homeWindow,
 	splashWindow,
 	customWindow
 

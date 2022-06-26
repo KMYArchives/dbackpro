@@ -4,6 +4,7 @@ var topbar_loader = new TopBar(el_topbar),
 const ListConnections = {
 
 	list () {
+		Table.hide()
 		El.empty(el_list_content)
 
 		DBX.select([
@@ -41,12 +42,6 @@ const ListConnections = {
 				icon: 'fas fa-plus',
 				title: 'Create connection',
 				click: 'ManagerConnections.open()'
-			},
-			{
-				id: 'search-conn',
-				icon: 'fas fa-search',
-				title: 'Search connections',
-				click: 'Hello.world()'
 			},
 			{
 				id: 'delete-conn',

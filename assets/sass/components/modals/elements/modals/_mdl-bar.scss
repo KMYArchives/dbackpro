@@ -2,17 +2,17 @@
 	width: 100%;
 	z-index: 9999999;
 	position: relative;
-	background: $firstColor;
+	background: $secondColor;
 	font-size: $smallFont + .05;
 	height: $padding_base * 2.6;
 	line-height: $padding_base * 2.6;
+	border-bottom: $border_size solid $borderColor;
 
 	.icon{
 		float: left;
 		cursor: pointer;
 		text-align: center;
 		width: auto !important;
-		border-right: $border_size solid $borderColor;
 
 		@include hover($firstColor);
 		@include icons{ width: $icon_size; }
@@ -23,8 +23,8 @@
 		float: left;
 		cursor: pointer;
 		text-align: center;
+		margin-left: 0 !important;
 		font-size: $smallFont + .05;
-		border-right: $border_size solid $borderColor;
 		@include hover($firstColor);
 	}
 
@@ -65,8 +65,7 @@
 
 	.right{
 		float: right !important;
-		border-right: 0 !important; 
-		border-left: $border_size solid $borderColor;
+		border-right: 0 !important;
 	}
 
 	.message{

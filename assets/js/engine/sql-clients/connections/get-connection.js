@@ -49,20 +49,17 @@ const GetConnection = {
 				port: data.port,
 				user: data.user,
 				host: data.host,
-				timeout: data.timeout,
 				password: data.password,
-			},
-
-			debug: true
+			}
 		})
 
-		if (mysql_test_conn) {
-			return true
-		} else {
-			return false
-		}
-
-		mysql_test_conn.destroy()
+		mysql_test_conn.raw(`SELECT count(*) FROM information_schema.tables GROUP BY table_schema ORDER BY table_schema ASC`).then(callback => {
+			if (callback.length > 0) {
+				console.log('connected')
+			} else {
+				console.log('error')
+			}
+		})
 	},
 
 }

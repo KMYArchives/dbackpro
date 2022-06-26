@@ -2,14 +2,10 @@ window.onload = e => {
 
 	El.text(el_splash_text, 'Loading...')
 
-	Gravatar.download()
-	
-	setTimeout( e=> {
-		El.text(el_splash_text, 'Download user avatar...')
-	}, 1000)
-
 	SplashScreen.folders()
-	SplashScreen.download()
+	SplashScreen.download_db()
+	SplashScreen.download_sync()
+	SplashScreen.download_gravatar()
 
 	SplashScreen.close_splash()
 

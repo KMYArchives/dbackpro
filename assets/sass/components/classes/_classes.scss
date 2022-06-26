@@ -7,3 +7,9 @@
 
 .italic{ font-style: italic; }
 .hover{ @include hover($secondColor); }
+
+.bdrr{ border-radius: $padding2; }
+.btlr{ border-top-left-radius: $padding2; }
+.btrr{ border-top-right-radius: $padding2; }
+.bblr{ border-bottom-left-radius: $padding2; }
+.bbrr{ border-bottom-right-radius: $padding2; }

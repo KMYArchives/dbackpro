@@ -13,70 +13,13 @@ const TopBar = class {
 		`)
 	}
 
-	del (items) {
-		_.forEach(items, item => {
-			if (item.id != undefined) {
-				El.remove(`${ 
-					this.element + ' > nav > .custom > #' + item.id 
-				}`)
-			} else if (item.icon != undefined) {
-				El.remove(`${ 
-					this.element + ' > nav > .custom > .' + item.icon 
-				}`)
-			}
-		})
-	}
-	
-	set (items) {
-		var id,
-			text,
-			title,
-			actived_class
-
-		_.forEach(items, item => {
-			if (item.id != undefined) {
-				id = `id='${ item.id }'`
-			} else {
-				id = ''
-			}
-
-			if (item.text != undefined) {
-				text = item.text
-			} else {
-				text = ''
-			}
-
-			if (item.title != undefined) {
-				title = item.title
-			} else {
-				title = ''
-			}
-
-			if (item.actived != undefined && item.actived == true) {
-				actived_class = 'actived'
-			} else {
-				actived_class = ''
-			}
-
-			El.append(`${ this.element } > nav > .custom`, `
-				<div class='${ 
-					item.class + ' ' + actived_class 
-				}' ${
-					id
-				} title='${ 
-					title 
-				}' onclick='${ 
-					item.click 
-				}'>${
-					text
-				}</div>
-			`)
-		})
-	}
+	clean () { El.empty(this.nav()) }
 
 	constructor (element) { this.element = element }
 
-	clean () { El.empty(`${ this.element } > nav > .custom`) }
+	append (content) { El.append(this.nav(), content) }
+
+	nav () { return `${ this.element } > nav > .custom` }
 
 	title (text) { El.text(`${ this.element + ' > .label' }`, text) }
 

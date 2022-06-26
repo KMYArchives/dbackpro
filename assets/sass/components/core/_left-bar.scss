@@ -1,13 +1,13 @@
 .left-bar{
 	top: 0;
 	left: 0;
-	height: 96%;
+	height: 88.5%;
 	position: fixed;
 	z-index: 9999999;
 	text-align: center;
 	width: $left_bar_size;
-	margin-top: $frame_size;
 	background: $firstColor;
+	margin-top: $header_size + $frame_size;
 	border-right: $border_size solid $borderColor;
 
 	@include icons{
