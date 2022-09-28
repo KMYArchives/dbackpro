@@ -20,4 +20,4 @@ const el_topbar = '#top-bar',
 	el_menu_box_avatar = '#menu-box-avatar'
 
 // Variables of storage
-var store_force_update = 'forcedUpdate'
+const store_force_update = 'forcedUpdate'

@@ -47,9 +47,9 @@
 		background: $orangeColor;
 		width: $padding_base * 3;
 		font-size: $smallFont - .1;
+		margin-left: calc($padding3, 2);
 		margin-top: -$padding_base * 2.15;
-		margin-left: math.div($padding3, 2);
-		letter-spacing: math.div($padding3, 2);
+		letter-spacing: calc($padding3, 2);
 		line-height: $padding_base + $padding3;
 	}
 

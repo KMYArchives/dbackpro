@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-	<meta charset="UTF-8">
+	<meta charset='UTF-8'>
 	<title>Trypice: New connection</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<link rel='stylesheet' href='../assets/css/index.css'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 </head>
-<body onload="GetConnection.get()">
+<body onload='GetConnection.get()'>
 	<div class='frame' id='frame-bar'>
 		<div class='label'>New connection</div>
 
@@ -16,42 +16,37 @@
 		</div>
 	</div>
 
-	<div class="new-conn-body-area">
-		<div class="msg-bar"></div>
+	<div class='new-conn-body-area'>
+		<div class='msg-bar'></div>
 
-		<div class="label">Name</div>
-		<input type="text" placeholder="new connection" value="new connection" id="conn-name">
-		
-		<div class="btn-group">
-			<div class="btn actived">Basic</div>
-			<div class="btn">Advanced</div>
-		</div>
+		<div class='label'>Name</div>
+		<input type='text' placeholder='new connection' value='new connection' id='conn-name'>
 
-		<div class="tab-control">
-			<div class="label">Driver</div>
-			<select id="conn-driver">
-				<option value="mysql2">MySQL</option>
+		<div class='tab-control'>
+			<div class='label'>Driver</div>
+			<select id='conn-driver'>
+				<option value='mysql2'>MySQL</option>
 			</select>
 
-			<div class="label">Host</div>
-			<input type="text" value="localhost" placeholder="localhost" id="conn-host">
+			<div class='label'>Host</div>
+			<input type='text' value='localhost' placeholder='localhost' id='conn-host'>
 
-			<div class="label">Username</div>
-			<input type="text" value="root" placeholder="username" id="conn-user">
+			<div class='label'>Username</div>
+			<input type='text' value='root' placeholder='username' id='conn-user'>
 
-			<div class="label">Password (optional)</div>
-			<input type="text" placeholder="password" id="conn-pass">
+			<div class='label'>Password (optional)</div>
+			<input type='text' placeholder='password' id='conn-pass'>
 
-			<div class="label">Port</div>
-			<input type="number" value="3306" min="1" max="999999" placeholder="port" id="conn-port">
+			<div class='label'>Port</div>
+			<input type='number' value='3306' min='1' max='999999' placeholder='port' id='conn-port'>
 
-			<div class="label">Timeout</div>
-			<input type="number" value="1000" min="1" max="999999" placeholder="timeout" id="conn-timeout">
+			<div class='label'>Timeout</div>
+			<input type='number' value='1000' min='1' max='999999' placeholder='timeout' id='conn-timeout'>
 		</div>
 		
-		<div class="btn-group">
-			<div class="btn">Test</div>
-			<div class="btn" onclick="ManagerConnections.toggle()">Save</div>
+		<div class='btn-group'>
+			<div class='btn'>Test</div>
+			<div class='btn' onclick='ManagerConnections.toggle()'>Save</div>
 		</div>
 	</div>
 

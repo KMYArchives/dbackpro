@@ -87,6 +87,9 @@ all_ipc_functions = () => {
 
 	// Close custom window
 	ipcMain.on('close-custom', e => { customWindow.close() })
+
+	// Open devtool
+	ipcMain.on('open-devtool', e => { mainWindow.webContents.openDevTools() })
 }
 
 splashScreenWindow = () => {

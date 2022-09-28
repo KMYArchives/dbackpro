@@ -5,7 +5,9 @@ const ListConnections = {
 
 	list () {
 		Table.hide()
+		topbar_loader.clean()
 		El.empty(el_list_content)
+		top_bar.title("Connection's")
 
 		DBX.select([
 			'slug', 'name', 'host', 'user', 'added_in'
@@ -67,14 +69,14 @@ const ListConnections = {
 	item_layout (conn) {
 		El.append(el_list_content, `
 			<div class="item">
-				<div onclick="alert('${ conn.slug }')">
+				<div onclick="GetConnection.connect('${ conn.slug }')">
 					<div class="icon">
 						<div class="fas fa-server"></div>
 					</div>
 
-					<div class="name">${ conn.name }</div>
-					<div class="host">${ conn.host }</div>
-					<div class="user">${ conn.user }</div>
+					<div class="field1">${ conn.name }</div>
+					<div class="field2">${ conn.host }</div>
+					<div class="field3">${ conn.user }</div>
 				</div>
 
 				<div class="menu">

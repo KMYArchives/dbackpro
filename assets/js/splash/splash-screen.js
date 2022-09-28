@@ -81,26 +81,4 @@ const SplashScreen = {
 		}
 	},
 
-	download_gravatar () {
-		if (Storage.has('userData') && !File.has(
-			Core.get_file('app/cache', 'avatar.png')
-		)) {
-			var data = JSON.parse(
-				Storage.get('userData')
-			)
-
-			download(
-				data.gravatar	
-			).pipe(
-				fs.createWriteStream(
-					Core.get_file('app/cache', 'avatar.png')
-				)
-			)
-
-			setTimeout( e => {
-				El.text(el_splash_text, 'Download user avatar...')
-			}, 1000)
-		}
-	},
-
 }

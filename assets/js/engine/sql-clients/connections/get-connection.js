@@ -21,7 +21,7 @@ const GetConnection = {
 	},
 
 	connect (slug) {
-		mysql_conn = knex({
+		/*mysql_conn = knex({
 			client: 'mysql',
 
 			connection: {
@@ -30,15 +30,21 @@ const GetConnection = {
 				password: null,
 				host: 'localhost',
 			},
+		})*/
 
-			debug: true
+		DBX.select(
+			'*'
+		).from(
+			'conns'
+		).where({
+			slug: slug
+		}).then( callback => {
+			topbar_loader.total('')
+			topbar_loader.title(callback[0].name)
+
+			topbar_loader.clean()
+			topbar_loader.append(`<div class='fas fa-home'></div>`)
 		})
-
-		if (mysql_conn) {
-			mysql_conn_status = 'connected'
-		} else {
-			mysql_conn_status = 'error-connected'
-		}
 	},
 
     test_connect (data) {

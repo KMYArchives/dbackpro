@@ -9,7 +9,7 @@
 	position: absolute;
 	margin-right: $padding2;
 	background: $firstColor;
-	padding-top: math.div($border_size, 3);
+	padding-top: calc($border_size, 3);
 	line-height: $padding_base + $padding2;
 	border: $border_size solid $borderColor;
 	margin-top: $header_size + $padding_base * 2.75;
@@ -31,7 +31,7 @@
 		height: $padding_base * 3;
 		font-size: $smallFont - .05;
 		line-height: $padding_base * 3;
-		margin-bottom: math.div($border_size, 3);
+		margin-bottom: calc($border_size, 3);
 
 		.learn{
 			float: left;

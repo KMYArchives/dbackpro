@@ -12,7 +12,6 @@
 	box-sizing: border-box;
 	background: $firstColor;
 	margin-top: $border_size;
-	padding-bottom: math.div($border_size, 2);
 	margin-right: $icon_size + $padding3 + .05;
 	border-left: $border_size solid $borderColor;
 

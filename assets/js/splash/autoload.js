@@ -5,7 +5,9 @@ window.onload = e => {
 	SplashScreen.folders()
 	SplashScreen.download_db()
 	SplashScreen.download_sync()
-	SplashScreen.download_gravatar()
+
+	Avatar.user()
+	Avatar.default()
 
 	SplashScreen.close_splash()
 

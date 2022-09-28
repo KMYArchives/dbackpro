@@ -2,6 +2,7 @@
 	width: 130vh;
 	margin: auto;
 	margin-top: 4vh;
+	margin-left: 5vh;
 	margin-bottom: 4vh;
 
 	.item{
@@ -17,11 +18,11 @@
 		border-radius: $padding2;
 		border-left-color: transparent;
 
-		.host,
-		.name, 
-		.user, 
 		.icon,
-		.menu{
+		.menu,
+		.field1,
+		.field2, 
+		.field3{
 			float: left;
 			font-size: $smallFont + .05;
 		}
@@ -47,11 +48,17 @@
 			}
 		}
 
-		.host{ width: 18em; }
+		.field1,
+		.field2,
+		.field3{
+			padding-left: $padding2;
+		}
 
-		.user{ width: 14em; }
+		.field1{ width: 17.5em; }
 
-		.name{ width: 21.9em; }
+		.field2{ width: 13.5em; }
+
+		.field3{ width: 21.4em; }
 
 		@include hover($secondColor) {
 			@include drop-shadow-sm;

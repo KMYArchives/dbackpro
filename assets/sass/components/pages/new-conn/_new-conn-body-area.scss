@@ -21,6 +21,7 @@
 		font-size: $smallFont + .05;
 		border-bottom: $border_size solid $secondColor;
 
+		@include placeholder;
 		@include hover($firstColor) {
 			@include drop-shadow-sm;
 			transition: .3s ease-in-out;
@@ -74,14 +75,14 @@
 
 	.btn-group{
 		width: 100%;
-		height: 8vh;
-		line-height: 8vh;
+		height: 9vh;
+		line-height: 9vh;
 
 		.btn{
 			width: 50%;
 			float: left;
 			cursor: pointer;
-			line-height: 8vh;
+			line-height: 9vh;
 			box-sizing: border-box;
 			font-size: $smallFont + .05;
 
@@ -94,7 +95,7 @@
 
 	.tab-control{
 		overflow: auto;
-		max-height: 59.2vh;
+		max-height: 65vh;
 		border-top: $border_size solid $borderColor;
 		border-bottom: $border_size solid $borderColor;
 		@include scrollbar;

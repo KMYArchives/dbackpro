@@ -1,5 +1,5 @@
 var DBX = knex({
-	client: 'sqlite3',
+	client: 'sqlite',
 	
 	connection: {
 		filename: Core.get_file(

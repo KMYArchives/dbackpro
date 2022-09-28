@@ -1,18 +1,36 @@
 {
+	"name": "dbackpro",
+	"version": "1.0.0",
 	"main": "main.js",
+	"author": "Copice",
+	"description": "SQL Database Backup app",
 	"scripts": {
 		"js": "gulp js",
 		"sass": "gulp sass",
 		"start": "electron .",
-		"dist": "electron-builder",
+		"builder": "yarn electron-builder",
 		"js-nw": "gulp app engine plugins gui splash",
 		"dpkg": "yarn remove gulp gulp-concat gulp-sass@4.1.1 node-sass gulp-babel @babel/core @babel/preset-env gulp-plumber gulp-uglify gulp-watch",
 		"ipkg": "yarn add --dev gulp gulp-concat gulp-sass node-sass gulp-babel @babel/core @babel/preset-env gulp-plumber gulp-uglify gulp-watch"
 	},
+	"build": {
+		"appId": "com.copice.dbackpro",
+		"win": {
+			"target": "nsis",
+			"icon": "assets/imgs/icon.ico"
+		},
+		"nsis": {
+			"deleteAppDataOnUninstall": true
+		},
+		"linux": {}
+	},
 	"devDependencies": {
 		"@babel/core": "^7.17.10",
 		"@babel/preset-env": "^7.17.10",
-		"electron": "^16.0.7",
+		"electron": "^20.0.2",
+		"electron-build": "^0.0.3",
+		"electron-builder": "^23.3.3",
+		"electron-packager": "^15.5.1",
 		"gulp": "^4.0.2",
 		"gulp-babel": "^8.0.0",
 		"gulp-concat": "^2.6.1",
@@ -37,8 +55,8 @@
 		"js-cache": "^1.0.3",
 		"jsonfile": "^6.1.0",
 		"knex": "^0.95.14",
-		"level": "^7.0.1",
 		"lodash": "^4.17.21",
+		"lowdb": "^3.0.0",
 		"md5": "^2.3.0",
 		"microdiff": "^1.2.0",
 		"mime-types": "^2.1.34",
@@ -50,8 +68,8 @@
 		"node-datetime": "^2.1.2",
 		"open": "^8.4.0",
 		"readjson": "^2.2.2",
-		"sass": "^1.51.0",
-		"sqlite3": "^5.0.2",
+		"sql-formatter": "^8.0.2",
+		"sqlite3": "^5.0.11",
 		"systeminformation": "^5.9.10",
 		"xss": "^1.0.10",
 		"zxcvbn": "^4.4.2"

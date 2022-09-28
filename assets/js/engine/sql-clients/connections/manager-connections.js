@@ -3,7 +3,7 @@ const ManagerConnections = {
 	open () {
 		Windows.load_custom({
 			width: 360,
-			height: 480,
+			height: 420,
 			parent: 'main',
 			url: 'pages/new-conn.html',
 		})
