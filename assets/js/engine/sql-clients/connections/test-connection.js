@@ -1,8 +1,6 @@
 const TestConnection = {
 
-	test () {
-		
-	},
+	test () {},
 
 	message (text) {},
 

@@ -8,6 +8,10 @@ const FrameBar = class {
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>
+				<div class='fas fa-bell' id='notify-icon'>	
+					<div class='notify-bubble'></div>
+				</div>
+
 				<div class='fas fa-window-minimize' id='minimize'></div>
 				<div class='fas fa-times' id='close'></div>
 			</div>

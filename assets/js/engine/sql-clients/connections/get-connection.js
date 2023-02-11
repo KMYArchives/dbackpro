@@ -21,17 +21,6 @@ const GetConnection = {
 	},
 
 	connect (slug) {
-		/*mysql_conn = knex({
-			client: 'mysql',
-
-			connection: {
-				port: 3306,
-				user: 'root',
-				password: null,
-				host: 'localhost',
-			},
-		})*/
-
 		DBX.select(
 			'*'
 		).from(
@@ -39,11 +28,31 @@ const GetConnection = {
 		).where({
 			slug: slug
 		}).then( callback => {
-			topbar_loader.total('')
-			topbar_loader.title(callback[0].name)
+			Storage.set(
+				'connData', JSON.stringify({
+					name: callback[0].name,
+					host: callback[0].host,
+					user: callback[0].user,
+					port: callback[0].port,
+					driver: callback[0].driver,
+					password: callback[0].password,
+				})
+			)
+			
+			MySQL_ListDatabases.page_load()
+		})
+	},
 
-			topbar_loader.clean()
-			topbar_loader.append(`<div class='fas fa-home'></div>`)
+	create_conn () {
+		return knex({
+			client: JSON.parse(Storage.get('connData'))['driver'],
+
+			connection: {
+				host: JSON.parse(Storage.get('connData'))['host'],
+				port: JSON.parse(Storage.get('connData'))['port'],
+				user: JSON.parse(Storage.get('connData'))['user'],
+				password: JSON.parse(Storage.get('connData'))['password'],
+			},
 		})
 	},
 

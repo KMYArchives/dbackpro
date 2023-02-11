@@ -4,13 +4,12 @@ var topbar_loader = new TopBar(el_topbar),
 const ListConnections = {
 
 	list () {
-		Table.hide()
 		topbar_loader.clean()
 		El.empty(el_list_content)
 		top_bar.title("Connection's")
 
 		DBX.select([
-			'slug', 'name', 'host', 'user', 'added_in'
+			'slug', 'name', 'host', 'user', 'port'
 		]).from(
 			'conns'
 		).then( callback => {
@@ -64,6 +63,8 @@ const ListConnections = {
 		this.list()
 		this.top_bar()
 		this.sidebar()
+
+		Storage.delete('connData')
 	},
 
 	item_layout (conn) {
@@ -74,9 +75,10 @@ const ListConnections = {
 						<div class="fas fa-server"></div>
 					</div>
 
-					<div class="field1">${ conn.name }</div>
-					<div class="field2">${ conn.host }</div>
-					<div class="field3">${ conn.user }</div>
+					<div class="field1">${ Str.cut(conn.name, 40) }</div>
+					<div class="field2">${ Str.cut(conn.host, 24) }</div>
+					<div class="field3">${ Str.cut(conn.user, 24) }</div>
+					<div class="field4">${ conn.port }</div>
 				</div>
 
 				<div class="menu">

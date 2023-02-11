@@ -1,53 +1,36 @@
 .menu-actions{
 	top: 0;
 	right: 0;
-	width: 15.7em;
+	width: 13em;
 	display: none;
+	overflow: auto;
 	position: fixed;
 	@include box-shadow;
 	z-index: 9999999999;
 	box-sizing: border-box;
 	background: $firstColor;
 	margin-top: $header_size;
+	border-radius: $padding2;
+	border-top: 0 !important;
 	border-right: 0 !important;
+	margin-top: $header_size + $frame_size;
 	border: $border_size solid $borderColor;
 
-	.bar{
-		height: $header_size;
-		background: $secondColor;
-		line-height: $header_size;
-		border-bottom: $border_size solid $borderColor;
-
-		@include icons{
-			width: 25%;
-			float: left;
-			cursor: pointer;
-			text-align: center;
-			box-sizing: border-box;
-			line-height: $header_size;
-			border-right: $border_size solid $borderColor;
-
-			@include hover($firstColor);
-			&:last-child{ border-right: 0 !important; }
-		}
-	}
-
-	.list{
-		overflow: auto;
-		max-height: 22em;
+	.item{
+		cursor: pointer;
 		font-size: $smallFont;
-
-		.item{
-			cursor: pointer;
-			padding-left: $padding_base;
-			padding-right: $padding_base;
-			line-height: $header_size + $padding3;
-			border-bottom: $border_size solid $borderColor;
-			
-			@include hover;
-			&:last-child{ border-bottom: none; }
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		border-left-color: transparent;
+		line-height: $header_size + $padding3;
+		
+		@include hover($secondColor) {
+			transition: .3s ease-in-out;
+			border-left: $padding solid $blueColor;
 		}
-	
-		@include scrollbar;
+
+		&:last-child{ border-bottom: none; }
 	}
+
+	@include scrollbar;
 }

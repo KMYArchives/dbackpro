@@ -1,0 +1,130 @@
+.notify-box{
+	top: 0;
+	right: 0;
+	width: 22em;
+	display: none;
+	position: fixed;
+	@include box-shadow;
+	z-index: 99999999999;
+	box-sizing: border-box;
+	background: $firstColor;
+	margin-top: $frame_size;
+	border-radius: $padding2;
+	border: $border_size solid $borderColor;
+
+	.list{
+		overflow: auto;
+		max-height: 20em;
+		padding: $padding2;
+		font-size: $smallFont;
+
+		.none{
+			display: block;
+			margin: $padding2;
+			background: $secondColor;
+			border-radius: $padding2;
+			line-height: $header_size;
+			padding-left: $padding_base;
+			border-left: $padding2 solid $blueColor;
+		}
+
+		.item{
+			cursor: pointer;
+			border-radius: $padding2;
+			margin-bottom: $padding2;
+			padding-bottom: $padding3;
+			border: $border_size solid $borderColor;
+
+			.body{
+				text-align: center;
+
+				.btn{
+					width: 10em;
+					cursor: pointer;
+					display: inline-block;
+					margin-bottom: $padding2;
+					border-radius: $padding2;
+					line-height: $padding_base * 2.5;
+					border: $border_size solid $borderColor;
+
+					@include icons{
+						float: left;
+						text-align: center;
+						width: $padding_base * 2.5;
+						line-height: $padding_base * 2.5;
+					}
+
+					@include hover($firstColor);
+				}
+
+				.label{
+					line-height: 1.5;
+					text-align: left;
+					padding: $padding_base;
+				}
+			}
+
+			.header{
+				height: $header_size - $padding3;
+				line-height: $header_size - $padding3;
+				border-bottom: $border_size solid $borderColor;
+
+				.name{
+					float: left;
+					font-size: $smallFont + .05;
+					padding-left: $padding_base;
+				}
+
+				.time{
+					float: right;
+					font-size: $smallFont + .05;
+					padding-right: $padding_base;
+				}
+			}
+
+			@include hover($secondColor) {
+				@include drop-shadow-sm;
+				transition: .3s ease-in-out;
+				border-left: $padding solid $blueColor;
+			}
+
+			&:last-child{ margin-bottom: 0; }
+		}
+
+		@include scrollbar;
+	}
+
+	.title{
+		height: $header_size;
+		font-size: $smallFont;
+		background: $secondColor;
+		line-height: $header_size;
+		border-top-left-radius: $padding2;
+		border-top-right-radius: $padding2;
+		border-bottom: $border_size solid $borderColor;
+
+		.label{
+			float: left;
+			padding-left: $padding_base;
+		}
+
+		.right{
+			float: right;
+
+			.total{
+				float: left;
+				padding-right: $padding_base;
+			}
+
+			@include icons{
+				float: left;
+				cursor: pointer;
+				text-align: center;
+				width: $header_size;
+				line-height: $header_size;
+				border-top-right-radius: $padding2;
+				@include hover($blueColor);
+			}
+		}
+	}
+}

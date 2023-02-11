@@ -10,12 +10,36 @@
 	margin-top: $header_size + $frame_size;
 	border-right: $border_size solid $borderColor;
 
-	@include icons{
+	.item{
 		width: 100%;
 		cursor: pointer;
-		text-align: center;
+		height: $left_bar_size;
 		line-height: $left_bar_size;
+		
+		&:hover{
+			.tooltip{
+				display: block;
+				position: absolute;
+			}
+		}
+
+		.tooltip{
+			left: 100%;
+			display: none;
+			min-width: 14em;
+			padding: $padding2;
+			text-align: center;
+			position: relative;
+			line-height: 3.5em;
+			margin-top: -4.45em;
+			font-size: $smallFont;
+			background: $blueColor;
+			border-top-right-radius: $padding2;
+			border-bottom-right-radius: $padding2;
+		}
+
 		@include hover($blueColor);
+		@include icons{ text-align: center; }
 	}
 
 	.actived{ background: $blueColor; }

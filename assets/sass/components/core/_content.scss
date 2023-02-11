@@ -2,9 +2,12 @@
 	height: 88.5%;
 	overflow: auto;
 	position: absolute;
+	overflow-x: hidden;
 	margin-left: $left_bar_size;
 	width: calc(100% - $left_bar_size);
 	margin-top: $header_size + $frame_size;
+
+	@import '../features/menus/menu-actions';
 
 	@include scrollbar;
 	@import 'content/table';

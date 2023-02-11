@@ -7,7 +7,7 @@ const Table = {
 			table = `${ el_content_app } > table`
 		}
 
-		El.show(table)
+		Classes.remove(table, 'hide-table')
 	},
 
 	hide (table = null) {
@@ -17,7 +17,7 @@ const Table = {
 			table = `${ el_content_app } > table`
 		}
 
-		El.hide(table)
+		Classes.add(table, 'hide-table')
 	},
 
 	thead (table = null) {

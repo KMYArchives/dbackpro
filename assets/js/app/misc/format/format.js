@@ -36,6 +36,20 @@ const Format = {
 		) + ' ' + sizes[i]
 	},
 
+	number (number, decimals = 2) {
+		number = parseInt(number)
+		if (number === 0) { return '0' }
+	
+		var k = 1000,
+			dm = decimals < 0 ? 0 : decimals,
+			sizes = [ '', 'K', 'B', 'T', 'P' ],
+			i = Math.floor(Math.log(number) / Math.log(k))
+			
+		return parseFloat(
+			(number / Math.pow(k, i)).toFixed(dm)
+		) + sizes[i]
+	},
+
 	date_time (date_time, locale, options = null) {
 		var data
 		

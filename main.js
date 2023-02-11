@@ -90,6 +90,9 @@ all_ipc_functions = () => {
 
 	// Open devtool
 	ipcMain.on('open-devtool', e => { mainWindow.webContents.openDevTools() })
+
+	// Reload window
+	ipcMain.on('force-reload', e => { mainWindow.webContents.reloadIgnoringCache() })
 }
 
 splashScreenWindow = () => {

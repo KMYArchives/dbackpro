@@ -1,16 +1,13 @@
 .list-content{
-	width: 130vh;
-	margin: auto;
-	margin-top: 4vh;
-	margin-left: 5vh;
-	margin-bottom: 4vh;
+	margin: 2em;
+	width: 57.4em;
 
 	.item{
-		height: 4em;
+		height: 3.75em;
 		color: inherit;
 		display: block;
 		cursor: pointer;
-		line-height: 4em;
+		line-height: 3.75em;
 		text-decoration: none;
 		box-sizing: border-box;
 		background: $firstColor;
@@ -20,11 +17,15 @@
 
 		.icon,
 		.menu,
+		
 		.field1,
 		.field2, 
-		.field3{
+		.field3,
+		.field4,
+		.field5{
 			float: left;
-			font-size: $smallFont + .05;
+			text-align: center;
+			font-size: $smallFont;
 		}
 
 		.icon{
@@ -35,6 +36,7 @@
 		}
 
 		.menu{
+			float: right;
 			width: 8.25em;
 
 			@include icons{
@@ -48,17 +50,15 @@
 			}
 		}
 
-		.field1,
-		.field2,
-		.field3{
-			padding-left: $padding2;
-		}
+		.field4{ width: 7em; }
 
-		.field1{ width: 17.5em; }
+		.field1{ width: 21em; }
 
-		.field2{ width: 13.5em; }
+		.field2{ width: 16em; }
 
-		.field3{ width: 21.4em; }
+		.field5{ width: 8.5em; }
+
+		.field3{ width: 14.4em; }
 
 		@include hover($secondColor) {
 			@include drop-shadow-sm;

@@ -4,7 +4,6 @@ window.onload = e => {
 
 	SplashScreen.folders()
 	SplashScreen.download_db()
-	SplashScreen.download_sync()
 
 	Avatar.user()
 	Avatar.default()

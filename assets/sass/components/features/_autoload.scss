@@ -7,13 +7,9 @@
 @import 'boxes/table/comment';
 @import 'boxes/table/table-status';
 
-// Boxes general
-@import 'boxes/menu-box';
-
 // Menus
-@import 'menus/menu-user';
+@import 'menus/menu-box';
 @import 'menus/menu-actions';
-@import 'menus/context-menu';
 
 // Editor
 @import 'editor/comment-box';

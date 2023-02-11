@@ -15,13 +15,19 @@ const SideBar = class {
 			El.append(this.element, `
 				<div id='${
 					item.id
-				}' class='${ 
-					item.icon + ' ' + actived_class 
-				}' title='${ 
-					item.title 
+				}' class='item ${
+					actived_class 
 				}' onclick='${ 
 					item.click 
-				}'></div>
+				}'>
+					<div class='${ 
+						item.icon
+					}'></div>
+
+					<div class='tooltip animate__animated animate__fadeIn animate__faster'>${
+						item.title
+					}</div>
+				</div>
 			`)
 		})
 	}

@@ -1,7 +1,7 @@
 @include table;
 table{
-	width: 95%;
-	margin: auto;
-	table-layout: fixed;
-	margin-top: $padding_base + $padding2;
+	margin: 2em;
+	width: 94.5%;
 }
+
+.hide-table{ display: none; }
