@@ -21,6 +21,18 @@ const MySQL_ListDatabases = {
 				click: 'MySQL_ListDatabases.page_load()'
 			},
 			{
+				id: 'list-users',
+				title: "List users",
+				icon: 'fas fa-users',
+				click: 'Hello.world()'
+			},
+			{
+				id: 'list-backups',
+				icon: 'fas fa-cloud',
+				title: "List backups",
+				click: 'Hello.world()',
+			},
+			{
 				id: 'list-code',
 				icon: 'fas fa-code',
 				title: "List models",
@@ -36,12 +48,6 @@ const MySQL_ListDatabases = {
 				id: 'list-tasks',
 				title: "List tasks",
 				icon: 'fas fa-list-check',
-				click: 'Hello.world()'
-			},
-			{
-				id: 'list-users',
-				title: "List users",
-				icon: 'fas fa-users',
 				click: 'Hello.world()'
 			},
 		])
@@ -62,7 +68,8 @@ const MySQL_ListDatabases = {
 	page_load () {
 		this.sidebar()
 		this.databases()
-		Classes.add('#list-databases', 'actived')
+
+		CodeModal.layout()
 
 		topbar_loader.title(
 			JSON.parse(

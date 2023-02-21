@@ -99,7 +99,7 @@
 				padding-left: $padding_base;
 			}
 			
-			.far, .fas{
+			@include icons{
 				float: right;
 				cursor: pointer;
 				padding-right: $padding_base;
@@ -111,8 +111,8 @@
 				cursor: pointer;
 				text-decoration: underline;
 
-				.far, .fas{ color: $blueColor; }
 				.lbl{ text-decoration: underline; }
+				@include icons{ color: $blueColor; }
 			}
 		}
 

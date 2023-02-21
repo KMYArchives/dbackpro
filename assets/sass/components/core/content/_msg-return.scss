@@ -4,11 +4,13 @@
 	display: none;
 	z-index: 999999;
 	position: fixed;
+	font-size: $smallFont;
 	background: $firstColor;
-	font-size: $smallFont + .05;
 	padding-left: $padding_base;
 	height: $padding_base * 3.5;
+	padding-right: $padding_base;
 	line-height: $padding_base * 3.5;
-	border-top: $border_size solid $borderColor;
+	margin-left: $left_bar_size + $padding4;
+	border-left: $border_size solid $borderColor;
 	border-bottom: $border_size solid $borderColor;
 }

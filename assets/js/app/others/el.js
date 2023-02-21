@@ -103,6 +103,10 @@ const El = {
 		}
 	},
 
+	focus (el) {
+		El.get(el).focus()
+	},
+
 	select (el) {
 		El.get(el).select()
 	},
@@ -142,6 +146,21 @@ const El = {
 			El.get(el).value = value
 		} else {
 			return El.get(el).value
+		}
+	},
+
+	copy (content) {
+		var dummy = document.createElement('input')
+		document.body.appendChild(dummy)
+		dummy.setAttribute('value', content)
+		dummy.select()
+
+		if (document.execCommand('copy') == true) {
+			document.body.removeChild(dummy)
+			return true
+		} else {
+			document.body.removeChild(dummy)
+			return false
 		}
 	},
 

@@ -28,6 +28,6 @@
 		border-left: $border_size solid $borderColor; 
 	}
 
-	@import '../elements/tbl-item';
+	@import '../../plugins/tbl-item';
 	.bar{ border-bottom: $border_size solid $borderColor; }
 }

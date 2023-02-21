@@ -2,6 +2,7 @@ const {
 	app, 
 	Tray,
 	Menu,
+	shell,
 	ipcMain, 
 	BrowserWindow
 } = require('electron')

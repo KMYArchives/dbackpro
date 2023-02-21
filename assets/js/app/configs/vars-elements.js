@@ -18,7 +18,15 @@ const el_topbar = '#top-bar',
 	el_menu_app_btn = '#menu-app-btn',
 
 	el_error_login = '#login-error',
-	el_menu_box_avatar = '#menu-box-avatar'
+	el_menu_box_avatar = '#menu-box-avatar',
+
+	el_editor = '#editor',
+	el_msg_return = '#msg-return',
+
+	el_mask_mdl = '#mask-mdl',
+	el_code_mdl = '#code-mdl',
+	el_clone_mdl = '#clone-mdl',
+	el_confirm_modal = '#confirm-mdl'
 
 // Variables of storage
 const store_force_update = 'forcedUpdate'

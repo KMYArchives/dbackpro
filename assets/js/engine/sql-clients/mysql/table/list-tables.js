@@ -9,17 +9,21 @@ const MySQL_ListTables = {
 		var conn = GetConnection.create_conn()
 
 		conn.raw(`SELECT table_name, table_collation, engine, ROUND((data_length + index_length)) AS 'size', create_time FROM information_schema.tables WHERE table_schema = '${ Storage.get('dbSelected') }' ORDER BY table_name ASC`).then( callback => {
-			_.forEach( callback[0], element => {
-				conn.raw("SELECT COUNT(*) AS 'rows' FROM " + Storage.get('dbSelected') + "." + element.table_name).then( callback => {
-					callback[0].forEach( total => {
-						this.item_layout(
-							element, total.rows
-						)
+			if (callback[0].length > 0) {
+				_.forEach( callback[0], element => {
+					conn.raw("SELECT COUNT(*) AS 'rows' FROM " + Storage.get('dbSelected') + "." + element.table_name).then( callback => {
+						callback[0].forEach( total => {
+							this.item_layout(
+								element, total.rows
+							)
+						})
 					})
-				})
 
-				topbar_loader.total(`${ callback[0].length } table's`)
-			})
+					topbar_loader.total(`${ callback[0].length } table's`)
+				})
+			} else {
+				MySQL_ListDatabases.page_load()
+			}
 		})
 	},
 
@@ -41,8 +45,8 @@ const MySQL_ListTables = {
 			},
 			{
 				id: 'list-backups',
+				icon: 'fas fa-cloud',
 				title: "List backups",
-				icon: 'fas fa-arrows-rotate',
 				click: 'Hello.world()',
 			},
 		])

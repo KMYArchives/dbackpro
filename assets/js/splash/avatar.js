@@ -27,7 +27,7 @@ const Avatar = {
             'https://i.imgur.com/k73r6An.png'	
         ).pipe(
             fs.createWriteStream(
-                Core.get_file('app/cache', 'avatar.png')
+                Core.get_file('app/cache', 'default-avatar.png')
             )
         )
 

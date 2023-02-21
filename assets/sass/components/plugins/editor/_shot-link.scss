@@ -1,0 +1,57 @@
+.shot-link{
+	top: 0;
+	right: 0;
+	width: 16em;
+	opacity: .9;
+	//display: none;
+	z-index: 999999;
+	position: absolute;
+	box-sizing: border-box;
+	@include drop-shadow-sm;
+	margin-right: $padding2;
+	margin-top: $header_size + $padding_base * 2.5;
+
+	img{
+		width: 16em;
+		float: left;
+		height: 12em;
+		border-top-left-radius: $padding2;
+		border-top-right-radius: $padding2;
+		border: $border_size solid $borderColor;
+	}
+
+	.bottom{
+		width: 20.16em;
+		cursor: pointer;
+		margin-top: 13em;
+		position: absolute;
+		text-decoration: none;
+		font-size: $smallFont;
+		background: $firstColor;
+		line-height: $padding_base * 3;
+		border-bottom-left-radius: $padding2;
+		border-bottom-right-radius: $padding2;
+
+		.hostname{
+			float: left;
+			color: inherit;
+			cursor: pointer;
+			text-decoration: none;
+			padding-left: $padding2;
+			padding-right: $padding2;
+			&:hover, &:focus{ text-decoration: underline; }
+		}
+
+		@include icons{
+			float: right;
+			cursor: pointer;
+			text-align: center;
+			height: $padding_base * 3;
+			width: $padding_base * 2.5;
+			line-height: $padding_base * 3;
+			@include hover(transparent, $blueColor);
+		}
+	}
+
+	&:hover{ opacity: 1; }
+}

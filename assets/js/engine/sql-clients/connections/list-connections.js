@@ -48,7 +48,7 @@ const ListConnections = {
 				id: 'delete-conn',
 				icon: 'fas fa-trash-alt',
 				title: 'Delete all connections',
-				click: 'DeleteConnections.clear()'
+				click: 'ConfirmModalConns.clear()'
 			},
 		])
 	},
@@ -83,7 +83,7 @@ const ListConnections = {
 
 				<div class="menu">
 					<div class="fas fa-pen" onclick="ManagerConnections.get('${ conn.slug }')"></div>
-					<div class="fas fa-trash-alt" onclick="DeleteConnections.delete('${ conn.slug }')"></div>
+					<div class="fas fa-trash-alt" onclick="ConfirmModalConns.delete('${ conn.slug }')"></div>
 				</div>
 			</div>
 		`)

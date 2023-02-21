@@ -1,19 +1,24 @@
 // Element's of modal
-@import 'elements/modals/mdl-bar';
-@import 'elements/modals/mdl-mask';
-@import 'elements/modals/mdl-menu';
-@import 'elements/modals/mdl-list';
-@import 'elements/modals/mdl-title';
-@import 'elements/modals/mdl-group';
-@import 'elements/modals/mdl-form-elements';
+@import 'elements/mdl-bar';
+@import 'elements/mdl-mask';
+@import 'elements/mdl-menu';
+@import 'elements/mdl-list';
+@import 'elements/mdl-title';
+@import 'elements/mdl-group';
+@import 'elements/mdl-form-elements';
 
 // Features
-@import 'others/code';
-@import 'others/logs';
-@import 'others/dump';
-@import 'others/restore';
-@import 'others/default';
-@import 'others/diagrams';
-@import 'others/collection';
-@import 'others/virus-total';
-@import 'others/default-table';
+@import 'modals/code';
+@import 'modals/logs';
+@import 'modals/dump';
+@import 'modals/clone';
+@import 'modals/restore';
+@import 'modals/confirm';
+@import 'modals/default';
+@import 'modals/diagrams';
+@import 'modals/collection';
+@import 'modals/virus-total';
+@import 'modals/default-table';
+
+// Load all plugin's
+@import '../plugins/autoload';

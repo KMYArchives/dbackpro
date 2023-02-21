@@ -1,0 +1,67 @@
+.confirm-mdl{
+	top: 50%;
+	left: 50%;
+	width: 26em;
+	display: none;
+	position: fixed;
+	margin-top: -14em;
+	margin-left: -13em;
+	font-size: $smallFont;
+	z-index: 9999999999999;
+	@include drop-shadow-sm;
+	background: $firstColor;
+	border-radius: $padding2;
+
+	input{
+		border: none;
+		outline: none;
+		width: 23.95em;
+		color: inherit;
+		background: $firstColor;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $padding_base * 2.5;
+		border-top: $border_size solid $borderColor;
+
+		@include hover;
+		@include placeholder;
+	}
+
+	select{
+		border: none;
+		outline: none;
+		width: 25.95em;
+		color: inherit;
+		cursor: pointer;
+		background: $firstColor;
+		padding-left: $padding_base;
+		padding-right: $padding_base;
+		line-height: $padding_base * 2.5;
+		border-top: $border_size solid $borderColor;
+
+		@include hover;
+		@include select;
+	}
+
+	button{
+		width: 50%;
+		float: left;
+		border: none;
+		color: inherit;
+		cursor: pointer;
+		text-align: center;
+		background: $firstColor;
+		line-height: $padding_base * 2.5;
+		border-top: $border_size solid $borderColor;
+		@include hover;
+	}
+
+	.label{
+		display: block;
+		text-align: left;
+		line-height: 1.6;
+		padding: $padding_base;
+		border-top-left-radius: $padding2;
+		border-top-right-radius: $padding2;
+	}
+}

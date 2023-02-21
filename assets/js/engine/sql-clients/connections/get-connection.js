@@ -48,6 +48,7 @@ const GetConnection = {
 			client: JSON.parse(Storage.get('connData'))['driver'],
 
 			connection: {
+				multipleStatements: true,
 				host: JSON.parse(Storage.get('connData'))['host'],
 				port: JSON.parse(Storage.get('connData'))['port'],
 				user: JSON.parse(Storage.get('connData'))['user'],

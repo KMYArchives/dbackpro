@@ -5,8 +5,8 @@
 	display: none;
 	overflow: auto;
 	position: fixed;
+	z-index: 999999;
 	@include box-shadow;
-	z-index: 9999999999;
 	box-sizing: border-box;
 	background: $firstColor;
 	margin-top: $header_size;

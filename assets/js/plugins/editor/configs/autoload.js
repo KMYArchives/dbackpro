@@ -2,7 +2,11 @@ const EditorAutoload = {
 
 	loader () {
 		if (editor == null || editor == undefined) {
-			editor = CodeMirror.fromTextArea(document.getElementById(cm_editor), {
+			editor = CodeMirror.fromTextArea(
+				document.getElementById(
+					Find.replace(el_editor, '#', '')
+				), 
+			{
 				readOnly: true,
 				autofocus: true,
 				theme: 'default',
@@ -25,6 +29,10 @@ const EditorAutoload = {
 	auto_refresh () {
 		setInterval( e => {
 			editor.refresh()
+
+			// Plugin's
+			SMDGet.get()
+			ShotLink.watch()
 		}, 100)
 	},
 

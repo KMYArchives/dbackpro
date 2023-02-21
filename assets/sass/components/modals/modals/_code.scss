@@ -10,20 +10,21 @@
 	@include drop-shadow-sm;
 	background: $firstColor;
 	border-radius: $padding2;
+	font-size: $smallFont + .05;
+	border-right: $border_size solid $firstColor;
 
 	.CodeMirror{
 		padding: 0;
 		height: 24em;
+		width: 99.9%;
 		direction: ltr;
 		overflow: hidden;
-		color: #707070;
 		font-weight: 700;
 		position: relative;
-		background: white;
 		font-family: $codeFont;
 		overflow-x: hidden !important;
-		border-top: $border_size solid $borderColor;
-		border-bottom: $border_size solid $borderColor;
+		border-bottom-left-radius: $padding2;
+		border-bottom-right-radius: $padding2;
 	}
 
 	.options-mdl{

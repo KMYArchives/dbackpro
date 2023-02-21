@@ -2,9 +2,12 @@
 	table{
 		width: 100%;
 		margin-top: 2%;
+		overflow: hidden;
 		border-spacing: 0;
 		margin-bottom: 2%;
 		font-size: $smallFont;
+		border-radius: $padding2;
+		border-collapse: separate;
 		border-bottom: none !important;
 		border: $border_size * 2 solid $borderColor;
 
@@ -28,7 +31,6 @@
 			cursor: pointer;
 			background: $firstColor;
 			padding: $padding_base + $padding3;
-			border-bottom: $border_size solid $borderColor;
 		}
 
 		tr{

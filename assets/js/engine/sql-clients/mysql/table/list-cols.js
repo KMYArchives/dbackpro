@@ -28,9 +28,9 @@ const MySQL_ListCols = {
 			},
 			{
 				id: 'view-code',
-				title: "View code",
 				icon: 'fas fa-code',
-				click: 'Hello.world()',
+				title: "Show CREATE",
+				click: 'MySQL_TableProperties.show_create()',
 			},
 		])
 	},
@@ -40,12 +40,18 @@ const MySQL_ListCols = {
 		var conn = GetConnection.create_conn()
 
 		Table.clean_tbody()
-		Table.header([ "Field", "Type", "Key", "NULL", "Default", "Extra" ])
+		Table.header([ "Field", "Type", "Collation", "Key", "NULL", "Default", "Extra" ])
 
-		conn.raw(`SHOW COLUMNS FROM ${ Storage.get('dbSelected') }.${ Storage.get('tblSelected') }`).then( callback => {
+		conn.raw(`SHOW FULL COLUMNS FROM ${ Storage.get('dbSelected') }.${ Storage.get('tblSelected') }`).then( callback => {
 			_.forEach( callback, results => {
 				_.forEach( results, column => {
-					var key_val, def_val, extra_val
+					var coll_key, key_val, def_val, extra_val
+					
+					if (column.Collation == '' || column.Collation == null) {
+						coll_key = "<div class='italic'>None</div>"
+					} else {
+						coll_key = column.Collation
+					}
 					
 					if (column.Key == '' || column.Key == null) {
 						key_val = "<div class='italic'>None</div>"
@@ -70,6 +76,7 @@ const MySQL_ListCols = {
 							rows: [
 								Str.cut(column.Field, 36),
 								Str.cut(column.Type, 36),
+								coll_key,
 								key_val,
 								column.Null,
 								def_val,
@@ -90,6 +97,9 @@ const MySQL_ListCols = {
 		this.columns()
 		this.menu_actions()
 
+		CloneModal.layout()
+		CloneTable.databases()
+
 		topbar_loader.title(
 			Storage.get('tblSelected')
 		)
@@ -108,37 +118,42 @@ const MySQL_ListCols = {
 			{
 				text: "Rename",
 				id: 'rename-tbl',
-				click: 'Hello.world()',
+				click: 'ConfirmModalTable.rename_table()',
+			},
+			{
+				text: "Check",
+				id: 'check-tbl',
+				click: 'MySQL_TableProperties.check()',
 			},
 			{
 				text: "Analyze",
 				id: 'analyze-tbl',
-				click: 'Hello.world()',
+				click: 'MySQL_TableProperties.analyze()',
 			},
 			{
 				text: "Repair",
 				id: 'repair-tbl',
-				click: 'Hello.world()',
+				click: 'MySQL_TableProperties.repair()',
 			},
 			{
-				text: "Opitimze",
+				text: "Optimize",
 				id: 'optimize-tbl',
-				click: 'Hello.world()',
+				click: 'MySQL_TableProperties.optimize()',
 			},
 			{
-				id: 'clone-tbl',
 				text: "Clone",
-				click: 'Hello.world()',
+				id: 'clone-tbl',
+				click: 'CloneModal.show()',
 			},
 			{
 				text: "Truncate",
 				id: 'truncate-tbl',
-				click: 'Hello.world()',
+				click: 'ConfirmModalTable.truncate_table()',
 			},
 			{
 				text: "Drop",
 				id: 'drop-tbl',
-				click: 'Hello.world()',
+				click: 'ConfirmModalTable.drop_table()',
 			},
 		])
 	},

@@ -3,6 +3,9 @@ window.onload = e => {
 	Classes.add([
 		el_menu_app,
 		el_menu_actions,
+		
+		el_code_mdl,
+		el_confirm_modal,
 	], 'animate__animated animate__zoomIn animate__faster')
 
 	Profile.menu()

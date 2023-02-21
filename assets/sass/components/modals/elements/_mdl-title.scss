@@ -1,11 +1,11 @@
 @use "sass:math";
 
 .mdl-title{
-	height: $header_size;
 	background: $secondColor;
-	line-height: $header_size;
+	height: $header_size - $padding2;
 	border-top-left-radius: $padding2;
 	border-top-right-radius: $padding2;
+	line-height: $header_size - $padding2;
 	
 	input{
 		width: 13em;
@@ -25,10 +25,10 @@
 	.label{
 		float: left;
 		outline: none;
-		line-height: $header_size;
 		font-size: $smallFont + .05;
 		padding-left: $padding_base;
 		padding-right: $padding_base;
+		line-height: $header_size - $padding3;
 	}
 
 	.actived{
@@ -39,10 +39,14 @@
 	@include icons{
 		float: right;
 		cursor: pointer;
-		margin-right: $padding_base;
-		line-height: $padding_base * 3;
+		text-align: center;
+		width: $header_size - $padding2;
+		line-height: $header_size - $padding2;
 		@include hover(transparent, $blueColor);
 	}
 
-	.fa-times{ @include hover(transparent, $redColor); }
+	.fa-times{
+		border-top-right-radius: $padding2;
+		@include hover($redColor);
+	}
 }

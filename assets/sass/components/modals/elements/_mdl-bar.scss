@@ -3,7 +3,6 @@
 	z-index: 9999999;
 	position: relative;
 	background: $secondColor;
-	font-size: $smallFont + .05;
 	height: $padding_base * 2.6;
 	line-height: $padding_base * 2.6;
 	border-bottom: $border_size solid $borderColor;
@@ -69,7 +68,8 @@
 	}
 
 	.message{
-		float: right;
+		float: left;
+		display: none;
 		text-align: center;
 		font-size: $smallFont + .05;
 		padding-left: $padding_base;
