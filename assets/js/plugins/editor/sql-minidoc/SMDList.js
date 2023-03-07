@@ -18,17 +18,29 @@ const SMDList = {
 		}
 	},
 
+	hide () {
+		El.hide(SMD.el_list_main)
+		Classes.remove('#smd-list', act_class)
+
+		Storage.set('smdListVisible', false)
+	},
+
 	show () {
 		if (!Classes.is_visible(SMD.el_main)) {
 			this.list()
 			SMDGetDataset.hide()
 			El.show(SMD.el_list_main)
+			Classes.add('#smd-list', act_class)
 		}
 	},
 
-	hide () {
-		El.hide(SMD.el_list_main)
-		Storage.set('smdListVisible', false)
+	toggle () {
+		if (!Classes.is_visible(SMD.el_main)) {
+			this.list()
+			SMDGetDataset.hide()
+			El.toggle(SMD.el_list_main)
+			Classes.toggle('#smd-list', act_class)
+		}
 	},
 
 	search () {

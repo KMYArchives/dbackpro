@@ -7,17 +7,17 @@
 	position: fixed;
 	margin-top: -15em;
 	margin-left: -12.5em;
+	font-size: $smallFont;
 	z-index: 9999999999999;
 	@include drop-shadow-sm;
 	background: $firstColor;
 	border-radius: $padding2;
 
 	.diagram{
-		height: 22.6em;
 		overflow: auto;
+		height: 22.7em;
 		text-align: center;
 		padding: $padding_base;
-		border-top: $border_size * 1.15 solid $borderColor;
 
 		@include scrollbar;
 		img{ border: none !important; }
@@ -29,5 +29,4 @@
 	}
 
 	@import '../../plugins/tbl-item';
-	.bar{ border-bottom: $border_size solid $borderColor; }
 }

@@ -21,18 +21,6 @@ const MySQL_ListDatabases = {
 				click: 'MySQL_ListDatabases.page_load()'
 			},
 			{
-				id: 'list-users',
-				title: "List users",
-				icon: 'fas fa-users',
-				click: 'Hello.world()'
-			},
-			{
-				id: 'list-backups',
-				icon: 'fas fa-cloud',
-				title: "List backups",
-				click: 'Hello.world()',
-			},
-			{
 				id: 'list-code',
 				icon: 'fas fa-code',
 				title: "List models",
@@ -57,7 +45,7 @@ const MySQL_ListDatabases = {
 		El.empty(el_list_content)
 		var conn = GetConnection.create_conn()
 
-		conn.raw(`SELECT table_schema, table_collation, engine, Round(Sum(data_length + index_length)) 'db_size' FROM information_schema.tables GROUP BY table_schema ORDER BY table_schema ASC`).then( callback => {
+		conn.raw(`SELECT * FROM information_schema.schemata ORDER BY SCHEMA_NAME ASC`).then( callback => {
 			_.forEach( callback[0], element => {
 				this.item_layout(element)
 				topbar_loader.total(`${ callback[0].length } databases's`)
@@ -87,15 +75,13 @@ const MySQL_ListDatabases = {
 	item_layout (db) {
 		El.append(el_list_content, `
 			<div class="item">
-				<div onclick="MySQL_ListTables.go_list_tables('${ db.table_schema }')">
+				<div onclick="MySQL_ListTables.go_list_tables('${ db.SCHEMA_NAME }')">
 					<div class="icon">
 						<div class="fas fa-database"></div>
 					</div>
 
-					<div class="field1">${ Str.cut(db.table_schema, 40) }</div>
-					<div class="field2">${ Str.cut(db.table_collation, 24) }</div>
-					<div class="field3">${ Str.cut(db.engine, 24) }</div>
-					<div class="field4">${ Format.bytes(db.db_size) }</div>
+					<div class="mid-field">${ db.SCHEMA_NAME }</div>
+					<div class="mid-field">${ db.DEFAULT_COLLATION_NAME }</div>
 				</div>
 			</div>
 		`)

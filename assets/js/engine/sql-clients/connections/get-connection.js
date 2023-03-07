@@ -30,6 +30,7 @@ const GetConnection = {
 		}).then( callback => {
 			Storage.set(
 				'connData', JSON.stringify({
+					slug: callback[0].slug,
 					name: callback[0].name,
 					host: callback[0].host,
 					user: callback[0].user,

@@ -23,8 +23,8 @@ const MySQL_ListCols = {
 			{
 				id: 'view-diagram',
 				title: "View diagram",
+				click: 'DiagramModel.show()',
 				icon: 'fas fa-project-diagram',
-				click: 'Hello.world()',
 			},
 			{
 				id: 'view-code',
@@ -45,45 +45,47 @@ const MySQL_ListCols = {
 		conn.raw(`SHOW FULL COLUMNS FROM ${ Storage.get('dbSelected') }.${ Storage.get('tblSelected') }`).then( callback => {
 			_.forEach( callback, results => {
 				_.forEach( results, column => {
-					var coll_key, key_val, def_val, extra_val
+					if (column.Field != undefined) {
+						var coll_key, key_val, def_val, extra_val
 					
-					if (column.Collation == '' || column.Collation == null) {
-						coll_key = "<div class='italic'>None</div>"
-					} else {
-						coll_key = column.Collation
-					}
-					
-					if (column.Key == '' || column.Key == null) {
-						key_val = "<div class='italic'>None</div>"
-					} else {
-						key_val = Str.cut(column.Key, 36)
-					}
-	
-					if (column.Default == '' || column.Default == null) {
-						def_val = "<div class='italic'>None</div>"
-					} else {
-						def_val = Str.cut(column.Default, 36)
-					}
-	
-					if (column.Extra == '' || column.Extra == null) {
-						extra_val = "<div class='italic no-hover'>None</div>"
-					} else {
-						extra_val = Str.cut(column.Extra.toUpperCase(), 36)
-					}
-	
-					Table.add_rows([
-						{
-							rows: [
-								Str.cut(column.Field, 36),
-								Str.cut(column.Type, 36),
-								coll_key,
-								key_val,
-								column.Null,
-								def_val,
-								extra_val
-							]
+						if (column.Collation == '' || column.Collation == null) {
+							coll_key = "<div class='italic'>None</div>"
+						} else {
+							coll_key = column.Collation
 						}
-					], true)
+						
+						if (column.Key == '' || column.Key == null) {
+							key_val = "<div class='italic'>None</div>"
+						} else {
+							key_val = Str.cut(column.Key, 36)
+						}
+		
+						if (column.Default == '' || column.Default == null) {
+							def_val = "<div class='italic'>None</div>"
+						} else {
+							def_val = Str.cut(column.Default, 36)
+						}
+		
+						if (column.Extra == '' || column.Extra == null) {
+							extra_val = "<div class='italic no-hover'>None</div>"
+						} else {
+							extra_val = Str.cut(column.Extra.toUpperCase(), 36)
+						}
+		
+						Table.add_rows([
+							{
+								rows: [
+									Str.cut(column.Field, 36),
+									Str.cut(column.Type, 36),
+									coll_key,
+									key_val,
+									column.Null,
+									def_val,
+									extra_val
+								]
+							}
+						], true)
+					}
 				})
 			})
 		})
@@ -98,18 +100,22 @@ const MySQL_ListCols = {
 		this.menu_actions()
 
 		CloneModal.layout()
+		DiagramModel.layout()
+
+		CreateDiagram.create()
+
 		CloneTable.databases()
 
 		topbar_loader.title(
 			Storage.get('tblSelected')
 		)
 
-		menubox_loader.hide()
-
 		topbar_loader.clean()
 		topbar_loader.append(`
 			<div class='fa-solid fa-bars' id='menu-manager' title='Manager' onclick='menubox_loader.toggle()'></div>
 		`)
+
+		menubox_loader.hide()
 	},
 
 	menu_actions () {

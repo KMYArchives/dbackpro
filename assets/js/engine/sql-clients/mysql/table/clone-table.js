@@ -24,7 +24,11 @@ const CloneTable = {
 			_.forEach( callback[0], element => {
 				if (element.Database != Storage.get('dbSelected')) {
 					El.append('#clone-db-name', `
-						<option value='${ element.Database }'>${ element.Database }</option>
+						<option value='${
+							element.Database
+						}'>${
+							element.Database
+						}</option>
 					`)
 				}
 			})

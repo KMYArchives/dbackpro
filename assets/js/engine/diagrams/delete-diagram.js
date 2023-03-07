@@ -1,5 +1,5 @@
 const DeleteDiagram = {
 
-    // code...
+	// code...
 
 }

@@ -8,7 +8,6 @@ const {
 } = require('electron')
 
 var mainWindow,
-	homeWindow,
 	splashWindow,
 	customWindow
 
@@ -34,6 +33,7 @@ Window = (params) => {
 		focusable : params.focusable || true,
 		resizable: params.resizable || false,
 		show: params.show ? params.show : false,
+		alwaysOnTop: params.alwaysOnTop || false,
 		skipTaskbar: params.skipTaskbar || false,
 		transparent: params.transparent || false,
 		alwaysOnTop : params.alwaysOnTop || false,
@@ -128,7 +128,6 @@ app.on('window-all-closed', function () {
 })
 
 ipcMain.on('open-screen', (event, params) => {
-	// regex to check params.url is url
 	if (params.parent) {
 		params.modal = true
 
@@ -156,7 +155,7 @@ ipcMain.on('open-screen', (event, params) => {
 
 	customWindow.once('ready-to-show', e => {
 		customWindow.show()
-		customWindow.webContents.openDevTools()
+		//customWindow.webContents.openDevTools()
 	})
 
 	customWindow.removeMenu()

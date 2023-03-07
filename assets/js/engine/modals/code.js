@@ -27,7 +27,7 @@ const CodeModal = {
 					<div class='right'>
 						<div class='message' id='code-tbl-msg'></div>
 
-						<div class='icon' id='smd-list' onclick='SMDList.show()'>
+						<div class='icon' id='smd-list' onclick='SMDList.toggle()'>
 							<div class='fas fa-book'></div>
 						</div>
 

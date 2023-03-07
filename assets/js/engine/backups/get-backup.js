@@ -1,5 +1,0 @@
-const GetBackup = {
-
-    // code...
-
-}

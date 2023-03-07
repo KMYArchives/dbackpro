@@ -5,22 +5,22 @@
 	position: relative;
 	box-sizing: border-box;
 	background: $secondColor;
+	border-radius: $padding2;
 	border: $border_size solid $borderColor;
 
 	li{
 		text-align: left;
 		list-style: none;
+		font-size: $smallFont;
 		padding: $padding_base;
-		font-size: $smallFont - .1;
 	}
 
 	.tbl-name{
 		text-align: center;
-		font-size: $smallFont;
 		text-transform: lowercase;
 		padding-top: $padding_base;
+		font-size: $smallFont + .05;
 		padding-bottom: $padding_base;
-		border-bottom: $border_size solid $borderColor;
 	}
 
 	@include icons{

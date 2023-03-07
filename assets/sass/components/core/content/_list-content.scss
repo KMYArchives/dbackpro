@@ -22,7 +22,10 @@
 		.field2, 
 		.field3,
 		.field4,
-		.field5{
+		.field5,
+		.mid-field,
+		.max-field,
+		.mid2-field{
 			float: left;
 			text-align: center;
 			font-size: $smallFont;
@@ -48,6 +51,23 @@
 				border-radius: $padding2;
 				@include hover($blueColor) { transition: .3s ease-in-out; }
 			}
+		}
+
+		.mid-field{
+			float: left;
+			width: 43.5em;
+			text-align: left;
+
+			&:last-child{
+				width: 22.5em;
+				text-align: right;
+				padding-right: $padding_base;
+			}
+		}
+
+		.max-field{
+			width: 67em;
+			text-align: left;
 		}
 
 		.field4{ width: 7em; }

@@ -1,5 +1,5 @@
 const UploadDiagram = {
 
-    // code...
+	// code...
 
 }

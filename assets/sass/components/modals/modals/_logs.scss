@@ -9,6 +9,7 @@
 	position: fixed;
 	margin-top: -14em;
 	margin-left: -13em;
+	font-size: $smallFont;
 	z-index: 9999999999999;
 	@include drop-shadow-sm;
 	background: $firstColor;

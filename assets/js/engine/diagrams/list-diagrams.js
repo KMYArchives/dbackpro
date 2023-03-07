@@ -1,5 +1,5 @@
 const ListDiagrams = {
 
-    // code...
+	// code...
 
 }

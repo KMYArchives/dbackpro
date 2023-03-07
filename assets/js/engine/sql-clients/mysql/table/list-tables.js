@@ -18,12 +18,15 @@ const MySQL_ListTables = {
 							)
 						})
 					})
-
-					topbar_loader.total(`${ callback[0].length } table's`)
 				})
 			} else {
-				MySQL_ListDatabases.page_load()
+				topbar_loader.clean()
+				El.append(el_list_content, `
+					<div class="zero">Database is empty</div>
+				`)
 			}
+
+			topbar_loader.total(`${ callback[0].length } table's`)
 		})
 	},
 
@@ -45,49 +48,33 @@ const MySQL_ListTables = {
 			},
 			{
 				id: 'list-backups',
-				icon: 'fas fa-cloud',
-				title: "List backups",
-				click: 'Hello.world()',
+				icon: 'fas fa-file',
+				title: "List backup's",
+				click: 'ListBackups.page_load()',
 			},
 		])
 	},
 
 	page_load () {
+		topbar_loader.clean()
+		topbar_loader.append(`
+			<div class='fa-solid fa-file-export' onclick='BackupModal.show()' title='Create backup'></div>
+		`)
+
 		Table.hide()
 		Table.clean_table()
+		El.hide(el_menu_actions)
 
 		this.tables()
 		this.sidebar()
-		this.menu_actions()
+
+		BackupModal.layout()
 
 		topbar_loader.title(
 			Storage.get('dbSelected')
 		)
 
-		topbar_loader.clean()
-		topbar_loader.append(`
-			<div class='fa-solid fa-file-export' title='Create backup'></div>
-			<div class='fa-solid fa-bars' id='menu-manager' title='Manager' onclick='menubox_loader.toggle()'></div>
-		`)
-
-		menubox_loader.hide()
 		Storage.delete('tblSelected')
-	},
-
-	menu_actions () {
-		menubox_loader.clean()
-		menubox_loader.set([
-			{
-				id: 'rename-db',
-				text: "Rename database",
-				click: 'Hello.world()',
-			},
-			{
-				id: 'drop-db',
-				text: "Drop database",
-				click: 'Hello.world()',
-			},
-		])
 	},
 
 	go_list_tables (db) {
