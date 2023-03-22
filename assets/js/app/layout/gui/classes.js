@@ -1,5 +1,7 @@
 const Classes = {
 
+	version: '2.0.3',
+
 	_remove (elem, class_name) {
 		if (Classes.has(elem, class_name)) {
 			El.get(elem).classList.remove(class_name)

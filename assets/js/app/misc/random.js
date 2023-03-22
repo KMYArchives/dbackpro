@@ -1,5 +1,7 @@
 const Random = {
 
+	version: '1.4.3',
+
 	slug (length) {
 		var value = '',
 			charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'

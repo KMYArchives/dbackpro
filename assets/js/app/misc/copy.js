@@ -1,5 +1,7 @@
 const Copy = {
 
+	version: '1.4.3',
+
 	input (input) {
 		El.select(input)
 		document.execCommand('copy')

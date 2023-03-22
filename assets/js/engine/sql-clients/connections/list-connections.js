@@ -63,6 +63,7 @@ const ListConnections = {
 		this.list()
 		this.top_bar()
 		this.sidebar()
+		El.hide(el_backup_logs_btn)
 
 		Storage.delete('connData')
 	},

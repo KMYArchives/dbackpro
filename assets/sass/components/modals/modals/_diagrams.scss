@@ -1,17 +1,17 @@
 .diagram-mdl{
 	top: 50%;
 	left: 50%;
-	width: 25em;
+	width: 30em;
 	height: 30em;
 	display: none;
 	position: fixed;
 	margin-top: -15em;
-	margin-left: -12.5em;
-	font-size: $smallFont;
+	margin-left: -15em;
 	z-index: 9999999999999;
 	@include drop-shadow-sm;
 	background: $firstColor;
 	border-radius: $padding2;
+	font-size: $smallFont + .05;
 
 	.diagram{
 		overflow: auto;

@@ -8,7 +8,13 @@ const FrameBar = class {
 			<div class='label'>${ document.title }</div>
 
 			<div class='options'>
-				<div class='fas fa-bell' id='notify-icon'>	
+				<div class='fas fa-clock-rotate-left' id='${
+					Find.replace(el_backup_logs_btn, '#', '')
+				}' title='Backup logs'></div>
+
+				<div class='fas fa-bell' id='${
+					Find.replace(el_notify_box_btn, '#', '')
+				}' title="Notifications">	
 					<div class='notify-bubble'></div>
 				</div>
 

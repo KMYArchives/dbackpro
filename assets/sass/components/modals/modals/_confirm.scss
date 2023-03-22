@@ -64,4 +64,23 @@
 		border-top-left-radius: $padding2;
 		border-top-right-radius: $padding2;
 	}
+	
+	.legend{
+		display: block;
+		text-align: left;
+		padding-left: $padding4;
+		line-height: $padding_base * 2.5;
+		border-top: $border_size solid $borderColor;
+
+		@include icons{
+			float: right;
+			cursor: pointer;
+			text-align: center;
+			width: $padding_base * 2.5;
+			line-height: $padding_base * 2.5;
+			@include hover;
+		}
+
+		&:first-child{ border-top: 0; }
+	}
 }

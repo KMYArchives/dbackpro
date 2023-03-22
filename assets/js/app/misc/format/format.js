@@ -1,5 +1,7 @@
 const Format = {
 
+	version: '2.0.4',
+
 	base64 (string) {
 		return string.replace('data:', '').
 			replace('image/png', '').

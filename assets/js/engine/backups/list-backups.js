@@ -12,7 +12,9 @@ const ListBackups = {
 			'backups'
 		).then( callback => {
 			if (callback.length > 0) { 
-				callback.forEach( backup => {
+				_.forEach( _.orderBy(
+					callback, 'added_in', 'asc'
+				), backup => {
 					this.item_layout(backup)
 				})
 			} else {

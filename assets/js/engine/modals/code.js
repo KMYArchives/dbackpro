@@ -31,7 +31,7 @@ const CodeModal = {
 							<div class='fas fa-book'></div>
 						</div>
 
-						<div class='icon' id='code-tbl-save' onclick='Hello.world()'>
+						<div class='icon' id='code-tbl-save' onclick='CreateSnippets.create()'>
 							<div class='fas fa-floppy-disk'></div>
 						</div>
 					</div>
@@ -60,5 +60,11 @@ const CodeModal = {
 			EditorAutoload.loader()
 		}
 	},
+
+	show_save () { El.show('#code-tbl-save') },
+
+	hide_save () { El.hide('#code-tbl-save') },
+
+	title (text) { El.text('#code-tbl-name', text) },
 
 }

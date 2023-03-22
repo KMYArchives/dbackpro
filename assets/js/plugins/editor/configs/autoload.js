@@ -1,10 +1,22 @@
 const EditorAutoload = {
 
-	loader () {
+	auto_refresh () {
+		setInterval( e => {
+			editor.refresh()
+
+			// Plugin's
+			SMDGet.get()
+			ShotLink.watch()
+		}, 100)
+	},
+
+	loader (el = el_editor) {
 		if (editor == null || editor == undefined) {
 			editor = CodeMirror.fromTextArea(
 				document.getElementById(
-					Find.replace(el_editor, '#', '')
+					Find.replace(
+						el, '#', ''
+					)
 				), 
 			{
 				readOnly: true,
@@ -26,14 +38,8 @@ const EditorAutoload = {
 		}
 	},
 
-	auto_refresh () {
-		setInterval( e => {
-			editor.refresh()
+	getValue () { return editor.getDoc().getValue() },
 
-			// Plugin's
-			SMDGet.get()
-			ShotLink.watch()
-		}, 100)
-	},
+	setValue (code) { editor.getDoc().setValue(code) },
 
 }

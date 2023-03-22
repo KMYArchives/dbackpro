@@ -25,6 +25,15 @@ const DeleteBackup = {
 			ListBackups.list()
 			ListBackups.total()
 
+			CreateBackupLogs.insert({
+				type: 'success',
+				show_msg: false,
+				query: 'delete_backup',
+				database: Storage.get('dbSelected'),
+				message: `Backup deleted with successfully`,
+				conn_id: JSON.parse(Storage.get('connData'))['slug'],
+			})
+
 			ConfirmModal.hide()
 			Storage.delete('backupID')
 		})	

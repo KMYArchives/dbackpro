@@ -1,5 +1,7 @@
 const Attr = {
 
+	version: '2.0.0',
+
 	set (e, attr, value) {
 		El.get(
 			e

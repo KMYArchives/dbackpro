@@ -44,7 +44,7 @@
 			padding-right: $padding_base;
 			border-bottom: $border_size solid $borderColor;
 			
-			.far, .fas{
+			@include icons{
 				float: right;
 				cursor: pointer;
 				line-height: $menu_size;
@@ -79,7 +79,7 @@
 					padding-left: $padding_base;
 				}
 
-				.far, .fas{
+				@include icons{
 					float: right;
 					cursor: pointer;
 					width: $icon_size;
@@ -112,7 +112,6 @@
 					margin-bottom: -.15em;
 					padding: $padding_base;
 					background: $firstColor;
-
 					@include scrollbar;
 				}
 

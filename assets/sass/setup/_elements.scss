@@ -51,6 +51,55 @@
 	}
 }
 
+@mixin checkbox {
+	.checkbox{
+		display: block;
+		padding: $padding4;
+		margin-top: -$padding_base - $padding4;
+
+		label{
+			cursor: pointer;
+			padding-top: .4em;
+			position: relative;
+			display: inline-block;
+			padding-left: $padding_base * 2;
+
+			&:before, &:after{
+				content: '';
+				position: absolute;
+				display: inline-block;
+			}
+
+			&:before{
+				top: 3px;
+				left: 0px;
+				width: 16px;
+				height: 16px;
+				background: $secondColor;
+				border-radius: $padding2;
+				border: $border_size solid $borderColor;
+				@include hover($secondColor, inherit, $blueColor);
+			}
+			
+			&:after{
+				top: 7px;
+				left: 4px;
+				width: 9px;
+				height: 5px;
+				transform: rotate(-45deg);
+				border-left: $border_size * 2 solid $fontColor;
+				border-bottom: $border_size * 2 solid $fontColor;
+			}
+		}
+
+		input[type='checkbox']{ opacity: 0; }
+
+		input[type='checkbox'] + label::after{ content: none; }
+
+		input[type='checkbox']:checked + label::after{ content: ''; }
+	}
+}
+
 @mixin hover($background: $secondColor, $color: inherit, $bdr_color: $borderColor) {
 	&:hover, &:focus{
 		outline: none;

@@ -1,5 +1,7 @@
 const El = {
 
+	version: '2.0.10',
+
 	get (el, type = null) {
 		switch (type) {
 			case 'id':
@@ -146,6 +148,14 @@ const El = {
 			El.get(el).value = value
 		} else {
 			return El.get(el).value
+		}
+	},
+
+	checked (el, value = null) {
+		if (value != null) {
+			El.get(el).checked = value
+		} else {
+			return El.get(el).checked
 		}
 	},
 

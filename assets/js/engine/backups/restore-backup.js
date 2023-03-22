@@ -23,10 +23,15 @@ const RestoreBackup = {
 		), (err) => {
 			ConfirmModal.hide()
 			MySQL_ListTables.page_load()
-			El.text(el_msg_return, `Backup retrieved successfully...`)
 
-			El.show(el_msg_return)
-			setTimeout( e => El.hide(el_msg_return), 2500)
+			CreateBackupLogs.insert({
+				show_msg: true,
+				type: 'success',
+				query: 'restore_backup',
+				database: Storage.get('dbSelected'),
+				message: `Backup retrieved successfully`,
+				conn_id: JSON.parse(Storage.get('connData'))['slug'],
+			})
 		})
 	},
 

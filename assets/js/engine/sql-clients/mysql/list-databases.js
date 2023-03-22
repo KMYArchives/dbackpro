@@ -23,8 +23,8 @@ const MySQL_ListDatabases = {
 			{
 				id: 'list-code',
 				icon: 'fas fa-code',
-				title: "List models",
-				click: 'Hello.world()'
+				title: "List snippets",
+				click: 'ListSnippets.page_load()'
 			},
 			{
 				id: 'list-diagrams',
@@ -50,13 +50,30 @@ const MySQL_ListDatabases = {
 				this.item_layout(element)
 				topbar_loader.total(`${ callback[0].length } databases's`)
 			})
+		}).catch( error => {
+			File.play('error.wav')
+
+			var message = `Error: connect ECONNREFUSED ${
+				JSON.parse(Storage.get('connData'))['host']
+			}:${
+				JSON.parse(Storage.get('connData'))['port']
+			}`
+
+			CreateBackupLogs.insert({
+				type: 'error',
+				show_msg: true,
+				message: message,
+				query: 'error_connection',
+				conn_id: JSON.parse(Storage.get('connData'))['slug'],
+			})
+
+			ListConnections.page_load()
 		})
 	},
 
 	page_load () {
 		this.sidebar()
 		this.databases()
-
 		CodeModal.layout()
 
 		topbar_loader.title(
@@ -67,6 +84,7 @@ const MySQL_ListDatabases = {
 
 		menubox_loader.clean()
 		El.hide(el_menu_actions)
+		El.show(el_backup_logs_btn)
 		
 		topbar_loader.clean()
 		Storage.delete('dbSelected')

@@ -61,6 +61,6 @@ const Gravatar = {
 			this.download()
 			Storage.delete(store_force_update)
 		}
-	}
+	},
 
 }

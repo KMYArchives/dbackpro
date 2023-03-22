@@ -15,6 +15,14 @@ let File = {
 			return false
 		}
 	},
+	
+	play (sound) {
+		var sound = new Howl({
+			src: ['../assets/sounds/' + sound]
+		})
+		
+		sound.play()
+	},
 
 	unlink (file) {
 		if (this.has(file) == true) { 

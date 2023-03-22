@@ -1,5 +1,7 @@
 const Slug = {
 
+	version: '1.4.3',
+
 	_gen (charset, n) {
 		return charset.charAt(
 			Math.floor(

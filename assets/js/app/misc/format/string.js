@@ -1,4 +1,6 @@
 const Str = {
+
+	version: '2.0.4',
 	
 	capitalize (string) {
 		if (typeof string !== 'string') return ''
@@ -16,8 +18,6 @@ const Str = {
 	parse (json_content) { return JSON.parse(json_content) },
 
 	slice (string, char, slice) { return string.split(char)[slice] },
-	
-	percent (x, y, p = 100, f = 1) { return (x * p / y).toFixed(f) },
 
 	get_last_param (string) { return string.split('/').slice(-1)[0] },
 

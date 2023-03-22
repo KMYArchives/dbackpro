@@ -4,14 +4,16 @@ let Storage = {
 		var content = localStorage.getItem(key)
 
 		if (Array.isArray(content) == true) {
-			return Str.parse(content)
+			return JSON.parse(content)
 		} else {
 			return content
 		}
 	},
 
 	has (key) {
-		if (!Find.in_array(this.get(key), [ null, undefined ])) {
+		if (!Find.in_array(this.get(key), [
+			null, undefined
+		])) {
 			return true
 		} else {
 			return false

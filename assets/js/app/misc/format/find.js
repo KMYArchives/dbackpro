@@ -1,5 +1,7 @@
 const Find = {
 
+	version: '2.0.4',
+
 	search (string, find) {
 		if (string.search(find) != -1) {
 			return true

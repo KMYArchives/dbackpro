@@ -4,7 +4,7 @@
 	width: 26em;
 	display: none;
 	position: fixed;
-	margin-top: -14em;
+	margin-top: -16em;
 	margin-left: -13em;
 	font-size: $smallFont;
 	z-index: 9999999999999;
@@ -13,7 +13,6 @@
 	border-radius: $padding2;
 
 	.body{
-		max-height: 22em;
 		overflow-x: hidden;
 		border-top: $border_size solid $borderColor;
 
@@ -51,8 +50,19 @@
 		.legend{
 			display: block;
 			text-align: left;
-			padding: $padding4;
+			padding-left: $padding4;
+			line-height: $padding_base * 2.5;
 			border-top: $border_size solid $borderColor;
+
+			@include icons{
+				float: right;
+				cursor: pointer;
+				text-align: center;
+				width: $padding_base * 2.5;
+				line-height: $padding_base * 2.5;
+				@include hover;
+			}
+
 			&:first-child{ border-top: 0; }
 		}
 
@@ -61,6 +71,69 @@
 			color: $redColor;
 			text-align: center;
 		}
+
+		.dump-settings{
+			display: none;
+			overflow-x: hidden;
+			background: $firstColor;
+			border-top: $border_size solid $borderColor;
+
+			.tabs{
+				background: $secondColor;
+				height: $padding_base * 2.5;
+				line-height: $padding_base * 2.5;
+				border-bottom: $border_size solid $borderColor;
+
+				.tab{
+					width: 20%;
+					float: left;
+					cursor: pointer;
+					text-align: center;
+					box-sizing: border-box;
+					border-right: $border_size solid $borderColor;
+
+					@include hover($blueColor);
+					&:last-child{ border-right: 0; }
+				}
+
+				.actived{ background: $blueColor; }
+			}
+
+			.tab-content{
+				overflow: auto;
+				overflow-x: hidden;
+				max-height: 10.5em;
+				
+				input{ width: 24.3em; }
+
+				@include scrollbar;
+			}
+
+			@include scrollbar;
+		}
+
+		@include checkbox;
+
+		.dump-settings-toggle{
+			display: block;
+			cursor: pointer;
+			text-align: left;
+			text-decoration: none;
+			line-height: $padding_base * 2.5;
+
+			@include icons{
+				float: left;
+				text-align: center;
+				width: $padding_base * 3;
+				line-height: $padding_base * 2.5;
+			}
+
+			.dump-settings-toggle-text{ display: inline-block; }
+
+			@include hover;
+		}
+
+		.actived{ background: $secondColor; }
 
 		@include scrollbar;
 	}

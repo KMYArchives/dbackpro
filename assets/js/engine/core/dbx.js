@@ -6,4 +6,6 @@ var DBX = knex({
 			'app', 'dbackpro.db'
 		)
 	},
+	
+	useNullAsDefault: true
 })

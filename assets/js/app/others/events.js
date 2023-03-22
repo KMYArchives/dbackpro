@@ -1,5 +1,7 @@
 const Events = {
 
+	version: '2.0.0',
+
 	command (command) {
 		document.execCommand(command)
 	},

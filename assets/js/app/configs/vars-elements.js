@@ -21,7 +21,10 @@ const el_topbar = '#top-bar',
 	el_menu_box_avatar = '#menu-box-avatar',
 
 	el_editor = '#editor',
-	el_msg_return = '#msg-return'
+	el_msg_return = '#msg-return',
+
+	el_notify_box_btn = '#notify-box-btn',
+	el_backup_logs_btn = '#backup-logs-btn'
 
 // Variables of storage
 const store_force_update = 'forcedUpdate'

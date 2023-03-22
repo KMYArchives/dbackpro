@@ -1,5 +1,7 @@
 const Core = {
 
+	version: '1.4.3',
+
 	get_path (path) {
 		var tmp_dir = os.tmpdir()
 
@@ -26,7 +28,7 @@ const Core = {
 	get_file (path, file, uri = true) {
 		var path = this.get_path(path) + '\\' + file
 
-		if (uri) { 
+		if (uri) {
 			path = Find.replace_all(
 				path, '\\', '/'
 			) 
