@@ -67,9 +67,9 @@
 	
 	.legend{
 		display: block;
-		text-align: left;
-		padding-left: $padding4;
-		line-height: $padding_base * 2.5;
+		line-height: 1.6;
+		text-align: center;
+		padding: $padding4;
 		border-top: $border_size solid $borderColor;
 
 		@include icons{

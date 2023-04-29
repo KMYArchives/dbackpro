@@ -9,29 +9,38 @@ const RestoreBackup = {
 	},
 
 	_mysql_restore (file) {
-		const connection = mysql.createConnection({
-			multipleStatements: true,
+		var tool = new MysqlTools()
+		tool.restoreDatabase({
+			sqlFilePath: file,
 			database : Storage.get('dbSelected'),
 			host: JSON.parse(Storage.get('connData'))['host'],
 			port: JSON.parse(Storage.get('connData'))['port'],
 			user: JSON.parse(Storage.get('connData'))['user'],
 			password: JSON.parse(Storage.get('connData'))['password'],
-		})
-		
-		connection.query(fs.readFileSync(
-			file, 'utf8'
-		), (err) => {
+		}, function (error, output, message) {
 			ConfirmModal.hide()
-			MySQL_ListTables.page_load()
+			
+			if (error instanceof Error) {
+				CreateBackupLogs.insert({
+					type: 'error',
+					show_msg: true,
+					message: error,
+					query: 'restore_backup',
+					database: Storage.get('dbSelected'),
+					conn_id: JSON.parse(Storage.get('connData'))['slug'],
+				})
+			} else {
+				MySQL_ListTables.page_load()
 
-			CreateBackupLogs.insert({
-				show_msg: true,
-				type: 'success',
-				query: 'restore_backup',
-				database: Storage.get('dbSelected'),
-				message: `Backup retrieved successfully`,
-				conn_id: JSON.parse(Storage.get('connData'))['slug'],
-			})
+				CreateBackupLogs.insert({
+					show_msg: true,
+					type: 'success',
+					message: message,
+					query: 'restore_backup',
+					database: Storage.get('dbSelected'),
+					conn_id: JSON.parse(Storage.get('connData'))['slug'],
+				})
+			}
 		})
 	},
 
