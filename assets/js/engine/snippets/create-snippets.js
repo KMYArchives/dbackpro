@@ -2,7 +2,7 @@ const CreateSnippets = {
 
 	_insert () {
 		DBX.insert({
-			slug: this._slug([ 36, 48 ]),
+			slug: Slug.basic([ 36, 48 ]),
 			name: Storage.get('tblSelected'),
 			database: Storage.get('dbSelected'),
 			sql_code: EditorAutoload.getValue(),
@@ -45,13 +45,6 @@ const CreateSnippets = {
 				message: `Snippet updated with success`,
 				conn_id: JSON.parse(Storage.get('connData'))['slug'],
 			})
-		})
-	},
-
-	_slug (size) {
-		return Slug.custom({
-			length: size,
-			charset: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
 		})
 	},
 

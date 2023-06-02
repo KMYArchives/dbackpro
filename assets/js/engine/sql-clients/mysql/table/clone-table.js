@@ -50,6 +50,8 @@ const CloneTable = {
 				message: `Table data copied to ${ new_db }`,
 				conn_id: JSON.parse(Storage.get('connData'))['slug'],
 			})
+		}).catch( error => {
+			ServerErrors.connection()
 		})
 	},
 
@@ -72,6 +74,8 @@ const CloneTable = {
 				message: `Table structure copied to ${ new_db }`,
 				conn_id: JSON.parse(Storage.get('connData'))['slug'],
 			})
+		}).catch( error => {
+			ServerErrors.connection()
 		})
 	},
 
@@ -97,7 +101,11 @@ const CloneTable = {
 					conn_id: JSON.parse(Storage.get('connData'))['slug'],
 					message: `Table data and structure copied to ${ new_db }`,
 				})
+			}).catch( error => {
+				ServerErrors.connection()
 			})
+		}).catch( error => {
+			ServerErrors.connection()
 		})
 	},
 	

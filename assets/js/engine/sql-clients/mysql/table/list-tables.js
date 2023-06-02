@@ -27,6 +27,8 @@ const MySQL_ListTables = {
 			}
 
 			topbar_loader.total(`${ callback[0].length } table's`)
+		}).catch( error => {
+			ServerErrors.connection()
 		})
 	},
 

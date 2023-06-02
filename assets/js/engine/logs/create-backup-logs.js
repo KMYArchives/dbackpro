@@ -1,12 +1,5 @@
 const CreateBackupLogs = {
 
-	_slug (size) {
-		return Slug.custom({
-			length: size,
-			charset: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-		})
-	},
-
 	insert (data) {
 		DBX.select(
 			'*'
@@ -26,7 +19,7 @@ const CreateBackupLogs = {
 					database: data.database ? data.database : null,
 					sql_query: data.sql_query ? data.sql_query : null,
 					added_in: datetime.create().format('Y-m-d H:m:S'),
-					slug: data.slug ? data.slug : this._slug([ 36, 48 ]),
+					slug: data.slug ? data.slug : Slug.basic([ 36, 48 ]),
 				}).into(
 					'logs'
 				).then( callback => {

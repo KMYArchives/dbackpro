@@ -1,6 +1,6 @@
 const Slug = {
 
-	version: '1.4.3',
+	version: '1.4.4',
 
 	_gen (charset, n) {
 		return charset.charAt(
@@ -96,6 +96,16 @@ const Slug = {
 			charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
 		if (char) { charset = char }
+		if (Array.isArray(length)) {
+			length = Math.floor(
+				Math.random() * (
+					length[0] - length[1] + 1
+				) + length[1]
+			)
+		} else {
+			length = length
+		}
+
 		for (var i = 0, n = charset.length; i < length; ++i) { 
 			value += this._gen(
 				charset, n

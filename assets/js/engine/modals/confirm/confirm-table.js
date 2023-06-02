@@ -10,7 +10,7 @@ const ConfirmModalTable = {
 			<div class="label">Confirm drop table ?</div>
 			
 			<button class="bblr" onclick="ConfirmModal.hide()">Cancel</button>
-			<button class="bbrr" onclick="MySQL_TableProperties.drop()">Confirm</button>
+			<button class="bbrr" onclick="MySQL_TableConfirm.drop()">Confirm</button>
 		`)
 
 		ConfirmModal.show()
@@ -25,7 +25,7 @@ const ConfirmModalTable = {
 			<input type="text" id="rename-input-modal" placeholder="Type the new table name">
 
 			<button class="bblr" onclick="ConfirmModal.hide()">Cancel</button>
-			<button class="bbrr" onclick="MySQL_TableProperties.rename()">Confirm</button>
+			<button class="bbrr" onclick="MySQL_TableConfirm.rename()">Confirm</button>
 		`)
 
 		ConfirmModal.show()
@@ -41,7 +41,7 @@ const ConfirmModalTable = {
 			<div class="label">Confirm truncate the table ?</div>
 
 			<button class="bblr" onclick="ConfirmModal.hide()">Cancel</button>
-			<button class="bbrr" onclick="MySQL_TableProperties.truncate()">Confirm</button>
+			<button class="bbrr" onclick="MySQL_TableConfirm.truncate()">Confirm</button>
 		`)
 
 		ConfirmModal.show()

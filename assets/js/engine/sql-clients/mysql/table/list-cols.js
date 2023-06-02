@@ -88,10 +88,12 @@ const MySQL_ListCols = {
 					}
 				})
 			})
-		})
 
-		Table.show()
-		topbar_loader.total(`${ Storage.get('tblSelectedRows') } Row's`)
+			Table.show()
+			topbar_loader.total(`${ Storage.get('tblSelectedRows') } Row's`)
+		}).catch( error => {
+			ServerErrors.connection()
+		})
 	},
 
 	page_load () {

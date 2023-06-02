@@ -1,21 +1,6 @@
 const Random = {
 
-	version: '1.4.3',
-
-	slug (length) {
-		var value = '',
-			charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-	
-		for (var i = 0, n = charset.length; i < length; ++i) { 
-			value += charset.charAt(
-				Math.floor(
-					Math.random() * n
-				)
-			) 
-		}
-	
-		return value
-	},
+	version: '1.4.4',
 	
 	password (length) {
 		var value = '',
